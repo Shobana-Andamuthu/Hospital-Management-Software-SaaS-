@@ -104,6 +104,7 @@
   function openMobileMenu() {
     if (!mobileDrawer) return;
     mobileDrawer.classList.add('open');
+    document.body.classList.add('mobile-menu-open');
     if (hamburgerBtn) {
       hamburgerBtn.setAttribute('aria-expanded', 'true');
       hamburgerBtn.innerHTML = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>';
@@ -114,6 +115,7 @@
   function closeMobileMenu() {
     if (!mobileDrawer) return;
     mobileDrawer.classList.remove('open');
+    document.body.classList.remove('mobile-menu-open');
     if (hamburgerBtn) {
       hamburgerBtn.setAttribute('aria-expanded', 'false');
       hamburgerBtn.innerHTML = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
@@ -164,6 +166,18 @@
       }
     });
   }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 1200 && mobileDrawer && mobileDrawer.classList.contains('open')) {
+      closeMobileMenu();
+    }
+  });
 
   // Close mobile menu when clicking any nav link
   $$('.mobile-drawer-body a:not(#mobileHomeToggle)').forEach(function (link) {
@@ -356,9 +370,9 @@
   var wardBoardsContainer = $('#preview-wards');
   if (wardBoardsContainer) {
     var sampleWards = [
-      { name: 'Intensive Care Unit (ICU)', code: 'ICU-', beds: 'OOXOOXOOAOOX' },
-      { name: 'General Inpatient Ward', code: 'GW-', beds: 'OOAOOCOOOAOOOCOAOOOXOOAO' },
-      { name: 'Maternity & Neonatal Care', code: 'MAT-', beds: 'OAOOCOOAOOAO' }
+      { name: 'Intensive Care Unit (ICU)', code: 'ICU-', beds: 'OOXOOXOOAOOXOOAOOX' },
+      { name: 'General Inpatient Ward', code: 'GW-', beds: 'OOAOOCOOOAOOOCOAOO' },
+      { name: 'Maternity & Neonatal Care', code: 'MAT-', beds: 'OAOOCOOAOOAOOOAOCO' }
     ];
     wardBoardsContainer.innerHTML = sampleWards.map(function (w) {
       var free = countChar(w.beds, 'A');
@@ -557,6 +571,10 @@
     var trigger = e.target.closest('[data-open-modal]');
     if (trigger) {
       e.preventDefault();
+      if (mobileDrawer && mobileDrawer.contains(trigger)) {
+        closeMobileMenu();
+        if (hamburgerBtn) hamburgerBtn.focus();
+      }
       var key = trigger.getAttribute('data-open-modal');
       openModal(key);
     }
@@ -1046,4 +1064,3 @@
   };
 
 })();
-

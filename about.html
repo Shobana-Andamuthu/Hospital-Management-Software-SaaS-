@@ -11,8 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230A9396'%3E%3Cpath d='M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3z'/%3E%3C/svg%3E">
 </head>
-<body id="top">
+<body id="top" class="page-about">
 
   <!-- ==========================================================================
        PUBLIC NAVBAR
@@ -28,13 +29,23 @@
 
       <nav class="nav-menu" aria-label="Main Navigation">
         <div class="nav-dropdown nav-item" id="desktopHomeDropdown">
-          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false">
+          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false" aria-haspopup="true">
             Home
-            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
           </a>
-          <ul class="dropdown-menu">
-            <li><a href="index.html" class="dropdown-link">Home 1 — Live Operations</a></li>
-            <li><a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a></li>
+          <ul class="dropdown-menu" aria-label="Home Variations">
+            <li>
+              <a href="index.html" class="dropdown-link">
+                Home 1 &mdash; Live Hospital Operations
+                <small>Ward bed boards, telemetry &amp; billing</small>
+              </a>
+            </li>
+            <li>
+              <a href="home-2.html" class="dropdown-link">
+                Home 2 &mdash; Modern Healthcare Tech
+                <small>Editorial cloud architecture &amp; workflows</small>
+              </a>
+            </li>
           </ul>
         </div>
         <a href="features.html" class="nav-link">Features</a>
@@ -54,7 +65,7 @@
         </button>
 
         <a href="login.html" class="btn btn-secondary btn-sm desktop-only">Hospital Login</a>
-        <a href="demo.html" class="btn btn-sm desktop-only">Request Demo</a>
+        <a href="#" data-open-modal="demo" class="btn btn-sm desktop-only">Request Demo</a>
 
         <button class="hamburger-btn" type="button" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -70,11 +81,11 @@
         <li>
           <a href="#" class="mobile-dropdown-toggle" id="mobileHomeToggle" aria-expanded="false">
             <span>Home</span>
-            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </a>
           <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
-            <a href="index.html" class="dropdown-link">Home 1 — Live Operations</a>
-            <a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a>
+            <a href="index.html" class="dropdown-link">Home 1 &mdash; Live Hospital Operations</a>
+            <a href="home-2.html" class="dropdown-link">Home 2 &mdash; Modern Healthcare Tech</a>
           </div>
         </li>
         <li><a href="features.html" class="nav-link">Features</a></li>
@@ -82,7 +93,6 @@
         <li><a href="about.html" class="nav-link active">About Us</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
         <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
-        <li><a href="demo.html" class="nav-link">Request Demo</a></li>
       </ul>
 
       <div class="mobile-controls-row">
@@ -98,7 +108,7 @@
 
       <div class="mobile-actions-stack">
         <a href="login.html" class="btn btn-secondary btn-block">Hospital Login</a>
-        <a href="demo.html" class="btn btn-block">Request a Demo</a>
+        <a href="#" data-open-modal="demo" class="btn btn-block">Request a Demo</a>
       </div>
     </div>
   </div>
@@ -107,14 +117,25 @@
     <!-- ==========================================================================
          PAGE HEADING & BREADCRUMB
          ========================================================================== -->
-    <section class="pagehead wrap">
-      <div class="breadcrumb" aria-label="Breadcrumbs">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">About CareGrid</span>
+    <section class="pagehead">
+      <div class="wrap">
+        <div class="pagehead-content">
+          <div class="breadcrumb" aria-label="Breadcrumbs">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">About CareGrid</span>
+          </div>
+
+          <span class="eyebrow">Institutional Healthcare Technology</span>
+          <h1>Engineered for hospital <em style="font-style:normal; color:var(--brand);">administrative precision</em></h1>
+          <p class="lead">CareGrid bridges the critical operational divide between medical charts, nursing station handovers, and hospital revenue reconciliation desks.</p>
+
+          <div class="pagehead-actions">
+            <a href="#" data-open-modal="demo" class="btn">Explore Clinical Mission</a>
+            <a href="#purpose" class="btn btn-secondary">Hospital Architecture</a>
+          </div>
+        </div>
       </div>
-      <h1>Engineered for hospital administrative precision</h1>
-      <p class="lead">CareGrid was conceived to bridge the critical operational divide between medical charts, nursing station handovers, and hospital revenue reconciliation desks.</p>
     </section>
 
     <!-- ==========================================================================
@@ -132,7 +153,7 @@
             CareGrid replaces administrative friction with a unified, sovereign healthcare operating platform. We connect outpatient registration, acute ward bed telemetry, electronic prescription routing, and clinician shift rostering into one reliable system.
           </p>
           <div style="margin-top:24px;">
-            <a href="demo.html" class="btn">Explore Clinical Architecture</a>
+            <a href="#" data-open-modal="demo" class="btn">Explore Clinical Architecture</a>
           </div>
         </div>
 
@@ -393,7 +414,7 @@
             Schedule a dedicated 45-minute clinical walkthrough configured for your facility's specialty mix and bed count.
           </p>
           <div style="margin-top:24px;">
-            <a href="demo.html" class="btn btn-on-deep">Schedule Clinical Demonstration</a>
+            <a href="#" data-open-modal="demo" class="btn btn-on-deep">Schedule Clinical Demonstration</a>
           </div>
         </div>
 
@@ -445,7 +466,6 @@
           <li><a href="pricing.html">Pricing Plans</a></li>
           <li><a href="about.html">About CareGrid</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="demo.html">Request a Demo</a></li>
         </ul>
       </div>
 

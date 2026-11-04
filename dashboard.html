@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230A9396'%3E%3Cpath d='M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3z'/%3E%3C/svg%3E">
 </head>
 <body id="top" class="dash-app-body">
 
@@ -187,7 +188,7 @@
           <!-- Total Patients -->
           <div class="dash-kpi-card">
             <div class="dash-kpi-label">
-              <span>Total Patients</span>
+              <span class="dash-kpi-title">Total Patients</span>
               <span class="metric-pill">+12 today</span>
             </div>
             <div class="dash-kpi-value" id="kpiTotalPatients">148</div>
@@ -197,7 +198,7 @@
           <!-- Current Admissions -->
           <div class="dash-kpi-card">
             <div class="dash-kpi-label">
-              <span>Current Admissions</span>
+              <span class="dash-kpi-title">Current Admissions</span>
               <span class="status-chip admitted">Active</span>
             </div>
             <div class="dash-kpi-value" id="kpiCurrentAdmissions">86</div>
@@ -207,7 +208,7 @@
           <!-- Bed Occupancy -->
           <div class="dash-kpi-card">
             <div class="dash-kpi-label">
-              <span>Bed Occupancy</span>
+              <span class="dash-kpi-title">Bed Occupancy</span>
               <span class="status-chip warning">High Acuity</span>
             </div>
             <div class="dash-kpi-value" id="kpiOccupancyRate">84%</div>
@@ -217,7 +218,7 @@
           <!-- Available Beds -->
           <div class="dash-kpi-card">
             <div class="dash-kpi-label">
-              <span>Available Beds</span>
+              <span class="dash-kpi-title">Available Beds</span>
               <span class="status-chip healthy">Ready</span>
             </div>
             <div class="dash-kpi-value" id="kpiAvailableBedsOverview">16</div>
@@ -227,7 +228,7 @@
           <!-- Pending Billing -->
           <div class="dash-kpi-card">
             <div class="dash-kpi-label">
-              <span>Pending Billing</span>
+              <span class="dash-kpi-title">Pending Billing</span>
               <span class="status-chip tpa">TPA &amp; Self</span>
             </div>
             <div class="dash-kpi-value" id="kpiPendingBillingOverview">$18,420</div>
@@ -876,25 +877,33 @@
         <!-- Coverage Status KPI Bar -->
         <div class="dash-kpi-grid">
           <div class="dash-kpi-card">
-            <div class="dash-kpi-label">Morning Shift (06:00 - 14:00)</div>
+            <div class="dash-kpi-label">
+              <span class="dash-kpi-title">Morning Shift (06:00 - 14:00)</span>
+            </div>
             <div class="dash-kpi-value" style="color:var(--ok);">16 / 16</div>
             <div class="dash-kpi-meta">100% Full Ward Coverage</div>
           </div>
 
           <div class="dash-kpi-card">
-            <div class="dash-kpi-label">Evening Shift (14:00 - 22:00)</div>
+            <div class="dash-kpi-label">
+              <span class="dash-kpi-title">Evening Shift (14:00 - 22:00)</span>
+            </div>
             <div class="dash-kpi-value" style="color:var(--ok);">14 / 14</div>
             <div class="dash-kpi-meta">100% Full Ward Coverage</div>
           </div>
 
           <div class="dash-kpi-card">
-            <div class="dash-kpi-label">Night Shift (22:00 - 06:00)</div>
+            <div class="dash-kpi-label">
+              <span class="dash-kpi-title">Night Shift (22:00 - 06:00)</span>
+            </div>
             <div class="dash-kpi-value" id="kpiNightShift" style="color:var(--warn);">11 / 12</div>
             <div class="dash-kpi-meta" id="kpiNightMeta">1 Coverage gap warning</div>
           </div>
 
           <div class="dash-kpi-card">
-            <div class="dash-kpi-label">On-Call Backup Clinicians</div>
+            <div class="dash-kpi-label">
+              <span class="dash-kpi-title">On-Call Backup Clinicians</span>
+            </div>
             <div class="dash-kpi-value">4</div>
             <div class="dash-kpi-meta">2 Surgeons &middot; 2 Intensivists</div>
           </div>

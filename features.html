@@ -11,8 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230A9396'%3E%3Cpath d='M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3z'/%3E%3C/svg%3E">
 </head>
-<body id="top">
+<body id="top" class="page-features">
 
   <!-- ==========================================================================
        PUBLIC NAVBAR
@@ -28,18 +29,28 @@
 
       <nav class="nav-menu" aria-label="Main Navigation">
         <div class="nav-dropdown nav-item" id="desktopHomeDropdown">
-          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false">
+          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false" aria-haspopup="true">
             Home
-            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
           </a>
-          <ul class="dropdown-menu">
-            <li><a href="index.html" class="dropdown-link">Home 1 — Live Operations</a></li>
-            <li><a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a></li>
+          <ul class="dropdown-menu" aria-label="Home Variations">
+            <li>
+              <a href="index.html" class="dropdown-link">
+                Home 1 &mdash; Live Hospital Operations
+                <small>Ward bed boards, telemetry &amp; billing</small>
+              </a>
+            </li>
+            <li>
+              <a href="home-2.html" class="dropdown-link">
+                Home 2 &mdash; Modern Healthcare Tech
+                <small>Editorial cloud architecture &amp; workflows</small>
+              </a>
+            </li>
           </ul>
         </div>
         <a href="features.html" class="nav-link active">Features</a>
         <a href="pricing.html" class="nav-link">Pricing</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="about.html" class="nav-link">About Us</a>
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="dashboard.html" class="nav-link">Dashboard</a>
       </nav>
@@ -71,11 +82,11 @@
         <li>
           <a href="#" class="mobile-dropdown-toggle" id="mobileHomeToggle" aria-expanded="false">
             <span>Home</span>
-            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </a>
           <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
-            <a href="index.html" class="dropdown-link">Home 1 — Live Operations</a>
-            <a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a>
+            <a href="index.html" class="dropdown-link">Home 1 &mdash; Live Hospital Operations</a>
+            <a href="home-2.html" class="dropdown-link">Home 2 &mdash; Modern Healthcare Tech</a>
           </div>
         </li>
         <li><a href="features.html" class="nav-link active">Features</a></li>
@@ -116,15 +127,11 @@
             <span class="breadcrumb-current">Product Features</span>
           </div>
 
-          <span class="eyebrow" style="margin-top:12px;">Enterprise Hospital Operating System</span>
-          <h1 style="font-size:clamp(2.1rem, 4vw, 3.2rem); margin-block:12px 16px;">
-            Clinical precision at <em style="font-style:normal; color:var(--brand);">enterprise scale</em>
-          </h1>
-          <p style="font-size:1.08rem; line-height:1.65; color:var(--muted); max-width:58ch;">
-            CareGrid connects all critical hospital departments into a single, intuitive system. From bedside clinical charts to automated billing and live ward beds, explore our core capabilities below.
-          </p>
+          <span class="eyebrow">Enterprise Hospital OS</span>
+          <h1>Clinical precision at <em style="font-style:normal; color:var(--brand);">enterprise scale</em></h1>
+          <p class="lead">CareGrid connects all critical hospital departments into a single, intuitive system. From bedside clinical charts to automated billing and live ward beds, explore our core capabilities below.</p>
 
-          <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:24px;">
+          <div class="pagehead-actions">
             <button class="btn" type="button" data-open-modal="demo">Request a Live Demo</button>
             <a href="#continuum" class="btn btn-secondary">How Departments Connect</a>
           </div>
@@ -140,7 +147,7 @@
       <div class="feature-row">
         <!-- Visual Media -->
         <div class="feature-visual">
-          <img src="assets/images/card-records.jpg" alt="Doctor reviewing digital patient health records on clinical tablet" class="feature-visual-img" loading="lazy">
+          <img src="assets/images/feature-emr-records.jpg" alt="Physician reviewing electronic medical records on touchscreen workstation" class="feature-visual-img" loading="lazy">
           <div class="feature-visual-caption">
             <b>Patient Records &amp; EMR</b>
             <span class="metric-pill">Zero Paper Charts</span>
@@ -214,7 +221,7 @@
 
           <!-- Visual Media (Right) -->
           <div class="feature-visual">
-            <img src="assets/images/card-billing.jpg" alt="Hospital billing counter officer handling invoices and insurance settlement" class="feature-visual-img" loading="lazy">
+            <img src="assets/images/feature-billing-claims.jpg" alt="Healthcare finance officer processing itemized invoices and cashless insurance claims" class="feature-visual-img" loading="lazy">
             <div class="feature-visual-caption">
               <b>Revenue &amp; TPA Adjudication</b>
               <span class="metric-pill">Fast Claim Settlement</span>
@@ -232,7 +239,7 @@
       <div class="feature-row">
         <!-- Visual Media -->
         <div class="feature-visual">
-          <img src="assets/images/card-beds.jpg" alt="Clean multi-specialty hospital ward beds with telemetry monitors" class="feature-visual-img" loading="lazy">
+          <img src="assets/images/feature-bed-telemetry.jpg" alt="Acute hospital inpatient ward with motorized beds and vital signs telemetry monitors" class="feature-visual-img" loading="lazy">
           <div class="feature-visual-caption">
             <b>Live Bed Availability</b>
             <span class="metric-pill">22-min Sanitization</span>
@@ -306,7 +313,7 @@
 
           <!-- Visual Media (Right) -->
           <div class="feature-visual">
-            <img src="assets/images/card-roster.jpg" alt="Clinical nursing supervisor organizing doctor and nurse shift duty schedules" class="feature-visual-img" loading="lazy">
+            <img src="assets/images/feature-staff-rostering.jpg" alt="Nursing supervisor and clinical team coordinating shift rotas at central ward desk" class="feature-visual-img" loading="lazy">
             <div class="feature-visual-caption">
               <b>Clinician Shift Roster</b>
               <span class="metric-pill">Zero Coverage Gaps</span>
@@ -324,7 +331,7 @@
       <div class="feature-row">
         <!-- Visual Media -->
         <div class="feature-visual">
-          <img src="assets/images/card-opd.jpg" alt="Hospital outpatient registration desk and waiting area" class="feature-visual-img" loading="lazy">
+          <img src="assets/images/feature-opd-ipd-flow.jpg" alt="Modern hospital outpatient department registration hall with digital queue displays" class="feature-visual-img" loading="lazy">
           <div class="feature-visual-caption">
             <b>OPD &amp; IPD Flow</b>
             <span class="metric-pill">Organized Patient Queues</span>
@@ -398,7 +405,7 @@
 
           <!-- Visual Media (Right) -->
           <div class="feature-visual">
-            <img src="assets/images/card-lab.jpg" alt="Diagnostic laboratory scientist testing hematology samples" class="feature-visual-img" loading="lazy">
+            <img src="assets/images/feature-lab-diagnostics.jpg" alt="Clinical laboratory scientist operating automated blood analyzers with pharmacy dispensary" class="feature-visual-img" loading="lazy">
             <div class="feature-visual-caption">
               <b>Diagnostics &amp; Pharmacy</b>
               <span class="metric-pill">Barcode Verified</span>
@@ -416,7 +423,7 @@
       <div class="feature-row">
         <!-- Visual Media -->
         <div class="feature-visual">
-          <img src="assets/images/home2-telemetry-solution.jpg" alt="Hospital executive directors analyzing clinical and operational dashboards" class="feature-visual-img" loading="lazy">
+          <img src="assets/images/feature-analytics-bi.jpg" alt="Hospital executive directors reviewing operational analytics and census graphs in conference room" class="feature-visual-img" loading="lazy">
           <div class="feature-visual-caption">
             <b>Operations Analytics</b>
             <span class="metric-pill">Real-Time Insights</span>
@@ -490,7 +497,7 @@
 
           <!-- Visual Media (Right) -->
           <div class="feature-visual">
-            <img src="assets/images/home2-workflow-challenge.jpg" alt="Healthcare IT security administrator reviewing access controls" class="feature-visual-img" loading="lazy">
+            <img src="assets/images/feature-security-audit.jpg" alt="Healthcare cybersecurity specialist monitoring access controls and audit logs in security operations center" class="feature-visual-img" loading="lazy">
             <div class="feature-visual-caption">
               <b>Security &amp; Audit Logs</b>
               <span class="metric-pill">Role-Based Access</span>
@@ -672,7 +679,6 @@
         <ul class="footer-links">
           <li><a href="about.html">About CareGrid</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="components.html">Design Components</a></li>
           <li><a href="login.html">Hospital Client Portal</a></li>
         </ul>
       </div>

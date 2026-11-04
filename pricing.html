@@ -11,8 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230A9396'%3E%3Cpath d='M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3z'/%3E%3C/svg%3E">
 </head>
-<body id="top">
+<body id="top" class="page-pricing">
 
   <!-- ==========================================================================
        PUBLIC NAVBAR
@@ -28,18 +29,28 @@
 
       <nav class="nav-menu" aria-label="Main Navigation">
         <div class="nav-dropdown nav-item" id="desktopHomeDropdown">
-          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false">
+          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false" aria-haspopup="true">
             Home
-            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
           </a>
-          <ul class="dropdown-menu">
-            <li><a href="index.html" class="dropdown-link">Home 1 — Live Operations</a></li>
-            <li><a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a></li>
+          <ul class="dropdown-menu" aria-label="Home Variations">
+            <li>
+              <a href="index.html" class="dropdown-link">
+                Home 1 &mdash; Live Hospital Operations
+                <small>Ward bed boards, telemetry &amp; billing</small>
+              </a>
+            </li>
+            <li>
+              <a href="home-2.html" class="dropdown-link">
+                Home 2 &mdash; Modern Healthcare Tech
+                <small>Editorial cloud architecture &amp; workflows</small>
+              </a>
+            </li>
           </ul>
         </div>
         <a href="features.html" class="nav-link">Features</a>
         <a href="pricing.html" class="nav-link active">Pricing</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="about.html" class="nav-link">About Us</a>
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="dashboard.html" class="nav-link">Dashboard</a>
       </nav>
@@ -71,11 +82,11 @@
         <li>
           <a href="#" class="mobile-dropdown-toggle" id="mobileHomeToggle" aria-expanded="false">
             <span>Home</span>
-            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </a>
           <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
-            <a href="index.html" class="dropdown-link">Home 1 — Live Operations</a>
-            <a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a>
+            <a href="index.html" class="dropdown-link">Home 1 &mdash; Live Hospital Operations</a>
+            <a href="home-2.html" class="dropdown-link">Home 2 &mdash; Modern Healthcare Tech</a>
           </div>
         </li>
         <li><a href="features.html" class="nav-link">Features</a></li>
@@ -116,26 +127,12 @@
             <span class="breadcrumb-current">Pricing Plans</span>
           </div>
 
-          <span class="eyebrow" style="margin-top:12px;">Predictable Healthcare Software Plans</span>
-          <h1 style="font-size:clamp(2.1rem, 4vw, 3.2rem); margin-block:12px 16px;">
-            Transparent plans for clinics, acute hospitals &amp; <em style="font-style:normal; color:var(--brand);">multi-site groups</em>
-          </h1>
-          <p style="font-size:1.06rem; line-height:1.65; color:var(--muted); max-width:58ch;">
-            Choose a plan tailored to your hospital's bed count and operational scale. All subscriptions include secure sovereign cloud hosting, zero per-user seat penalties, and regular clinical software updates.
+          <span class="eyebrow">Healthcare Software Licensing</span>
+          <h1>Transparent plans for clinics, hospitals &amp; <em style="font-style:normal; color:var(--brand);">health systems</em></h1>
+          <p class="lead">
+            Choose a plan tailored to your hospital's bed count and operational scale. All subscriptions include secure sovereign cloud hosting, zero seat penalties, and regular clinical updates.
           </p>
 
-          <!-- Monthly / Annual Billing Toggle -->
-          <div class="pricing-toggle-wrap" style="margin-top:28px; margin-bottom:0;">
-            <div class="pricing-toggle" role="group" aria-label="Billing frequency selection">
-              <button type="button" data-pricing-toggle data-period="m" aria-pressed="true">Monthly Billing</button>
-              <button type="button" data-pricing-toggle data-period="y" aria-pressed="false">
-                Annual Billing <span class="discount-pill">Save 20%</span>
-              </button>
-            </div>
-          </div>
-          <small class="mono" style="font-size:0.75rem; color:var(--muted); margin-top:10px; display:block;">
-            * Configurable sample rates shown for comparison. Request a custom quote for enterprise facility sizes.
-          </small>
         </div>
       </div>
     </section>
@@ -144,6 +141,18 @@
          THREE POLISHED PRICING CARDS
          ========================================================================== -->
     <section class="sec wrap">
+      <!-- Monthly / Annual Billing Toggle -->
+      <div class="pricing-toggle-wrap">
+        <div class="pricing-toggle" role="group" aria-label="Billing frequency selection">
+          <button type="button" data-pricing-toggle data-period="m" aria-pressed="true">Monthly Billing</button>
+          <button type="button" data-pricing-toggle data-period="y" aria-pressed="false">
+            Annual Billing <span class="discount-pill">Save 20%</span>
+          </button>
+        </div>
+      </div>
+      <small class="mono pricing-note">
+        * Configurable sample rates shown for comparison. Request a custom quote for enterprise facility sizes.
+      </small>
       <div class="grid g3" style="gap:28px; align-items:stretch;">
 
         <!-- 1. Clinic Plan -->
@@ -722,7 +731,6 @@
           <li><a href="about.html">About CareGrid</a></li>
           <li><a href="features.html">Product Features</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="components.html">Design Components</a></li>
           <li><a href="login.html">Hospital Client Portal</a></li>
         </ul>
       </div>
@@ -805,4 +813,3 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-

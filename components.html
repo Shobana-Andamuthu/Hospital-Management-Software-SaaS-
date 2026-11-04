@@ -11,8 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230A9396'%3E%3Cpath d='M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3z'/%3E%3C/svg%3E">
 </head>
-<body id="top">
+<body id="top" class="page-components">
 
   <!-- ==========================================================================
        PUBLIC NAVBAR
@@ -28,18 +29,28 @@
 
       <nav class="nav-menu" aria-label="Main Navigation">
         <div class="nav-dropdown nav-item" id="desktopHomeDropdown">
-          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false">
+          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false" aria-haspopup="true">
             Home
-            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
           </a>
-          <ul class="dropdown-menu">
-            <li><a href="index.html" class="dropdown-link">Home 1 — Hospital Overview</a></li>
-            <li><a href="home-2.html" class="dropdown-link">Home 2 — Operations Suite</a></li>
+          <ul class="dropdown-menu" aria-label="Home Variations">
+            <li>
+              <a href="index.html" class="dropdown-link">
+                Home 1 &mdash; Live Hospital Operations
+                <small>Ward bed boards, telemetry &amp; billing</small>
+              </a>
+            </li>
+            <li>
+              <a href="home-2.html" class="dropdown-link">
+                Home 2 &mdash; Modern Healthcare Tech
+                <small>Editorial cloud architecture &amp; workflows</small>
+              </a>
+            </li>
           </ul>
         </div>
         <a href="features.html" class="nav-link">Features</a>
         <a href="pricing.html" class="nav-link">Pricing</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="about.html" class="nav-link">About Us</a>
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="dashboard.html" class="nav-link">Dashboard</a>
       </nav>
@@ -71,11 +82,11 @@
         <li>
           <a href="#" class="mobile-dropdown-toggle" id="mobileHomeToggle" aria-expanded="false">
             <span>Home</span>
-            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </a>
           <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
-            <a href="index.html" class="dropdown-link">Home 1 — Hospital Overview</a>
-            <a href="home-2.html" class="dropdown-link">Home 2 — Operations Suite</a>
+            <a href="index.html" class="dropdown-link">Home 1 &mdash; Live Hospital Operations</a>
+            <a href="home-2.html" class="dropdown-link">Home 2 &mdash; Modern Healthcare Tech</a>
           </div>
         </li>
         <li><a href="features.html" class="nav-link">Features</a></li>
@@ -105,14 +116,25 @@
 
   <main>
     <!-- Page Heading & Breadcrumb -->
-    <section class="pagehead wrap">
-      <div class="breadcrumb" aria-label="Breadcrumbs">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">Design System Components</span>
+    <section class="pagehead">
+      <div class="wrap">
+        <div class="pagehead-content">
+          <div class="breadcrumb" aria-label="Breadcrumbs">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Design System Components</span>
+          </div>
+
+          <span class="eyebrow">CareGrid UI Foundation</span>
+          <h1>CareGrid shared clinical <em style="font-style:normal; color:var(--brand);">component foundation</em></h1>
+          <p class="lead">Complete catalog of reusable UI components, interactive states, design tokens, and accessibility patterns established for sovereign healthcare systems.</p>
+
+          <div class="pagehead-actions">
+            <a href="index.html" class="btn">Return to Home Console</a>
+            <a href="features.html" class="btn btn-secondary">View Product Features</a>
+          </div>
+        </div>
       </div>
-      <h1>CareGrid Shared Component Foundation</h1>
-      <p class="lead">Complete catalog of reusable UI components, interactive states, design tokens, and accessibility patterns established in Phase 1.</p>
     </section>
 
     <!-- Component 1: Brand Colors & Tokens -->
@@ -333,6 +355,38 @@
         </article>
       </div>
     </section>
+  
+    <!-- Component 6: Responsive Public Navigation Bar & Header Menus -->
+    <section class="sec-sm wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Navigation System</span>
+        <h2>6. Responsive Public Navigation Bar &amp; Menus</h2>
+        <p>Accessible, responsive navigation bar with branded cross mark, nested dropdowns, LTR/RTL support, and light/dark theme toggles.</p>
+      </div>
+
+      <div style="background-color:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-sm); overflow-x:auto;">
+        <div class="navbar" style="border:1px solid var(--line); border-radius:var(--radius-md); padding:12px 20px; background-color:var(--bg); min-width:680px;">
+          <a href="index.html" class="brand-logo" aria-label="CareGrid Hospital Suite">
+            <span class="brand-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+            </span>
+            CareGrid
+          </a>
+          <div style="display:flex; align-items:center; gap:20px;">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="features.html" class="nav-link">Features</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+          </div>
+          <div class="header-actions">
+            <a href="login.html" class="btn btn-secondary btn-sm">Hospital Login</a>
+            <button class="btn btn-sm" type="button" data-open-modal="demo">Request Demo</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Shared Footer with Social Media Links -->
@@ -367,7 +421,6 @@
         <ul class="footer-links">
           <li><a href="about.html">About CareGrid</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="components.html">Design Components</a></li>
           <li><a href="login.html">Hospital Client Portal</a></li>
         </ul>
       </div>
@@ -442,4 +495,3 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-

@@ -551,11 +551,15 @@
     scrim.hidden = false;
     document.body.style.overflow = 'hidden';
 
-    var firstInput = modalContainer.querySelector('input, select');
-    if (firstInput) firstInput.focus();
-
     var closeBtn = $('#modalCloseBtn', modalContainer);
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      if (closeBtn) closeBtn.focus({ preventScroll: true });
+    } else {
+      var firstInput = modalContainer.querySelector('input, select');
+      if (firstInput) firstInput.focus();
+    }
+    modalContainer.scrollTop = 0;
   }
 
   function closeModal() {

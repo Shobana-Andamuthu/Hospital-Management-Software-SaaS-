@@ -1570,7 +1570,7 @@ textarea.form-control {
 .scrim-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 1100;
+  z-index: 1400;
   background-color: rgba(7, 19, 24, 0.65);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -1601,18 +1601,14 @@ textarea.form-control {
   .scrim-backdrop {
     padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
     align-items: start;
-    overflow-y: auto;
+    overflow: hidden;
   }
 
   .modal-dialog {
     max-width: 100%;
     max-height: calc(100dvh - 24px);
+    overflow-y: auto;
     padding: 24px 18px;
-  }
-
-  .modal-close-btn {
-    top: 10px;
-    right: 10px;
   }
 
   .mobile-controls-row {
@@ -1667,14 +1663,29 @@ textarea.form-control {
 
 .modal-close-btn {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 32px;
+  right: 16px;
+  z-index: 1;
   width: 36px;
   height: 36px;
+  margin: 0;
   border-radius: var(--radius-xs);
   display: grid;
   place-items: center;
+  background-color: var(--surface);
   color: var(--muted);
+}
+
+.modal-dialog > h3 {
+  padding-right: 48px;
+}
+
+@media (max-width: 600px) {
+  .modal-close-btn {
+    position: fixed;
+    top: calc(max(12px, env(safe-area-inset-top)) + 25px);
+    right: calc(max(12px, env(safe-area-inset-right)) + 18px);
+  }
 }
 
 .modal-close-btn:hover {

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Request CareGrid Demo — Schedule a Live Clinical Walkthrough</title>
+  <meta name="description" content="Book a personalized 45-minute hospital management software demonstration. Explore live bed telemetry, longitudinal patient EMR, automated billing, and nurse rosters tailored to your bed capacity.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       PUBLIC NAVBAR
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="index.html" class="brand-logo" aria-label="CareGrid Hospital Suite">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+        </span>
+        CareGrid
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <div class="nav-dropdown nav-item" id="desktopHomeDropdown">
+          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false">
+            Home
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html" class="dropdown-link">Home 1 — Live Operations</a></li>
+            <li><a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a></li>
+          </ul>
+        </div>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="tool-btn theme-toggle-btn desktop-only" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="tool-btn dir-toggle-btn desktop-only" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+        </button>
+
+        <a href="login.html" class="btn btn-secondary btn-sm desktop-only">Hospital Login</a>
+        <a href="demo.html" class="btn btn-sm desktop-only">Request Demo</a>
+
+        <button class="hamburger-btn" type="button" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li>
+          <a href="#" class="mobile-dropdown-toggle" id="mobileHomeToggle" aria-expanded="false">
+            <span>Home</span>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
+            <a href="index.html" class="dropdown-link">Home 1 — Live Operations</a>
+            <a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a>
+          </div>
+        </li>
+        <li><a href="features.html" class="nav-link">Features</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="demo.html" class="nav-link active">Request Demo</a></li>
+      </ul>
+
+      <div class="mobile-controls-row">
+        <button class="mobile-ctrl-btn theme-toggle-btn" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span class="theme-text">Dark</span>
+        </button>
+        <button class="mobile-ctrl-btn dir-toggle-btn" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+          <span>Direction</span>
+        </button>
+      </div>
+
+      <div class="mobile-actions-stack">
+        <a href="login.html" class="btn btn-secondary btn-block">Hospital Login</a>
+        <a href="demo.html" class="btn btn-block">Request a Demo</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         DEMO REQUEST HERO SECTION
+         ========================================================================== -->
+    <section class="pagehead wrap">
+      <div class="breadcrumb" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Request a Live Demonstration</span>
+      </div>
+      <h1>Experience CareGrid tailored to your hospital's bed count</h1>
+      <p class="lead">Schedule a focused 45-minute clinical architecture walkthrough with our deployment team. See live ward bed telemetry, electronic health records, and automated insurance billing configured for your facility.</p>
+    </section>
+
+    <!-- ==========================================================================
+         FORM & WHAT THE DEMO COVERS SPLIT
+         ========================================================================== -->
+    <section class="sec-sm wrap">
+      <div class="grid g2" style="align-items:start; gap: clamp(32px, 5vw, 56px);">
+
+        <!-- Left Column: Comprehensive Demo Booking Form -->
+        <div class="form-card">
+          <span class="eyebrow">Hospital Registration</span>
+          <h2 style="font-size:1.6rem; margin-block:6px 12px;">Reserve Your Facility Walkthrough</h2>
+          <p class="form-hint" style="margin-bottom: 24px;">Please fill in your hospital details below. Starred fields (<span class="required">*</span>) are required.</p>
+
+          <form data-validate novalidate id="demoRequestForm">
+            <div class="form-grid">
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="d-name">Full Name <span class="required">*</span></label>
+                <input id="d-name" name="name" class="form-control" placeholder="Dr. / Mr. / Ms." required autocomplete="name">
+                <span class="form-error"></span>
+              </div>
+
+              <!-- Organization / Hospital Name -->
+              <div class="form-group">
+                <label for="d-hosp">Hospital / Organization Name <span class="required">*</span></label>
+                <input id="d-hosp" name="hospital_name" class="form-control" placeholder="e.g. Apollo / City General Hospital" required>
+                <span class="form-error"></span>
+              </div>
+
+              <!-- Work Email -->
+              <div class="form-group">
+                <label for="d-email">Official Work Email <span class="required">*</span></label>
+                <input id="d-email" name="email" type="email" class="form-control" placeholder="doctor@hospital.org" required autocomplete="email">
+                <span class="form-error"></span>
+              </div>
+
+              <!-- Direct Phone -->
+              <div class="form-group">
+                <label for="d-phone">Phone Number <span class="required">*</span></label>
+                <input id="d-phone" name="phone" type="tel" class="form-control" placeholder="+91 98765 43210" required autocomplete="tel">
+                <span class="form-error"></span>
+              </div>
+
+              <!-- Hospital Type -->
+              <div class="form-group">
+                <label for="d-type">Hospital Category <span class="required">*</span></label>
+                <select id="d-type" name="hospital_type" class="form-control" required>
+                  <option value="">Select facility classification</option>
+                  <option value="multi-specialty">Multi-Specialty Acute Hospital</option>
+                  <option value="super-specialty">Super-Specialty Tertiary Care Center</option>
+                  <option value="day-care">Day-Care / Outpatient Surgical Clinic</option>
+                  <option value="network">Multi-Campus Hospital Chain / Trust</option>
+                </select>
+                <span class="form-error"></span>
+              </div>
+
+              <!-- Number of Beds -->
+              <div class="form-group">
+                <label for="d-beds">Total Licensed Bed Capacity <span class="required">*</span></label>
+                <select id="d-beds" name="bed_count" class="form-control" required>
+                  <option value="">Select bed capacity</option>
+                  <option value="clinic">Under 25 Beds (Clinic / Day-Care)</option>
+                  <option value="small">25 to 100 Beds (Community Hospital)</option>
+                  <option value="medium">100 to 250 Beds (Acute Care Hospital)</option>
+                  <option value="large">250 to 500 Beds (Tertiary Center)</option>
+                  <option value="enterprise">500+ Beds (Multi-Campus Network)</option>
+                </select>
+                <span class="form-error"></span>
+              </div>
+
+              <!-- Preferred Demo Date -->
+              <div class="form-group full">
+                <label for="d-date">Preferred Walkthrough Date <span class="required">*</span></label>
+                <input id="d-date" name="demo_date" type="date" class="form-control" required>
+                <span class="form-error"></span>
+              </div>
+
+              <!-- Message / Special Requirements -->
+              <div class="form-group full">
+                <label for="d-message">Specific Clinical Inquiries or Current Software</label>
+                <textarea id="d-message" name="message" class="form-control" placeholder="Mention your primary pain points (e.g. bed turnaround bottlenecks, paper charts, TPA claims rejection, lab analyzer interfacing)..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-feedback"></div>
+
+            <button class="btn btn-lg btn-block" type="submit" style="margin-top:24px;">Confirm Demonstration Request</button>
+
+            <small class="mono" style="font-size:0.75rem; color:var(--muted); margin-top:12px; display:block; text-align:center;">
+              * Client-side validation active. Submitted data is simulated safely without transmitting records to an external server.
+            </small>
+          </form>
+        </div>
+
+        <!-- Right Column: What the Demo Covers -->
+        <div style="display:flex; flex-direction:column; gap:24px;">
+          <div class="card card-media" style="box-shadow:var(--shadow-sm); overflow:hidden;">
+            <div class="card-img-wrap" style="aspect-ratio:16/9;">
+              <img src="assets/images/hero-tech-hospital.jpg" alt="Clinical directors reviewing live CareGrid telemetry interface" loading="lazy">
+              <span class="card-badge status-ok">Interactive Sandbox</span>
+            </div>
+            <div class="card-body" style="padding:24px;">
+              <span class="eyebrow">Walkthrough Scope</span>
+              <h3 style="margin-bottom:12px;">What your 45-minute session covers</h3>
+              <p style="font-size:0.92rem; line-height:1.6; color:var(--muted); margin-bottom:16px;">
+                You will be connected directly with a clinical software engineer who has hands-on acute care operations experience.
+              </p>
+
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <div style="display:flex; align-items:flex-start; gap:10px;">
+                  <span class="mono" style="font-size:0.78rem; font-weight:700; color:var(--brand); background:var(--surface-2); padding:3px 8px; border-radius:4px; flex-shrink:0;">01</span>
+                  <div>
+                    <b style="font-size:0.92rem; color:var(--ink);">Longitudinal Patient Records (EMR):</b>
+                    <span style="font-size:0.86rem; color:var(--muted); display:block;">Biometric intake, SOAP clinical progress charting, and digital e-Rx with allergy safety checks.</span>
+                  </div>
+                </div>
+
+                <div style="display:flex; align-items:flex-start; gap:10px;">
+                  <span class="mono" style="font-size:0.78rem; font-weight:700; color:var(--brand); background:var(--surface-2); padding:3px 8px; border-radius:4px; flex-shrink:0;">02</span>
+                  <div>
+                    <b style="font-size:0.92rem; color:var(--ink);">Automated Billing &amp; TPA Claims:</b>
+                    <span style="font-size:0.86rem; color:var(--muted); display:block;">Instant itemized charge logging, digital pre-auth approval, and discharge reconciliation.</span>
+                  </div>
+                </div>
+
+                <div style="display:flex; align-items:flex-start; gap:10px;">
+                  <span class="mono" style="font-size:0.78rem; font-weight:700; color:var(--brand); background:var(--surface-2); padding:3px 8px; border-radius:4px; flex-shrink:0;">03</span>
+                  <div>
+                    <b style="font-size:0.92rem; color:var(--ink);">Live Ward Bed Telemetry Board:</b>
+                    <span style="font-size:0.86rem; color:var(--muted); display:block;">Occupancy matrix, 22-minute automated housekeeping cleaning triggers, and ward transfers.</span>
+                  </div>
+                </div>
+
+                <div style="display:flex; align-items:flex-start; gap:10px;">
+                  <span class="mono" style="font-size:0.78rem; font-weight:700; color:var(--brand); background:var(--surface-2); padding:3px 8px; border-radius:4px; flex-shrink:0;">04</span>
+                  <div>
+                    <b style="font-size:0.92rem; color:var(--ink);">Staff Shift Rostering Engine:</b>
+                    <span style="font-size:0.86rem; color:var(--muted); display:block;">Fatigue-aware doctor and nurse rotation planning with peer shift swap workflows.</span>
+                  </div>
+                </div>
+
+                <div style="display:flex; align-items:flex-start; gap:10px;">
+                  <span class="mono" style="font-size:0.78rem; font-weight:700; color:var(--brand); background:var(--surface-2); padding:3px 8px; border-radius:4px; flex-shrink:0;">05</span>
+                  <div>
+                    <b style="font-size:0.92rem; color:var(--ink);">Executive Operations Analytics:</b>
+                    <span style="font-size:0.86rem; color:var(--muted); display:block;">Average length of stay (ALOS), bed turnover curves, and statutory compliance census.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         WHAT HAPPENS AFTER SUBMITTING
+         ========================================================================== -->
+    <section class="sec sec-tint">
+      <div class="wrap">
+        <div class="section-head center">
+          <span class="eyebrow">Onboarding Process</span>
+          <h2>What happens after you submit your request?</h2>
+          <p>We respect your hospital's operational time. Here is our straightforward three-step onboarding sequence.</p>
+        </div>
+
+        <div class="grid g3" style="margin-top:36px; gap:24px;">
+          <div class="card" style="padding:28px; display:flex; flex-direction:column; gap:10px;">
+            <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--brand);">STEP 01 / WITHIN 4 HOURS</span>
+            <h3 style="font-size:1.15rem; margin:0;">Scope &amp; Specialty Review</h3>
+            <p style="font-size:0.92rem; color:var(--muted); line-height:1.6; margin:0;">
+              Our clinical coordinator reviews your bed count, surgical specialties, and current hardware infrastructure to prepare a custom session.
+            </p>
+          </div>
+
+          <div class="card" style="padding:28px; display:flex; flex-direction:column; gap:10px;">
+            <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--brand);">STEP 02 / 24 HOURS PRIOR</span>
+            <h3 style="font-size:1.15rem; margin:0;">Synthetic Sandbox Provisioning</h3>
+            <p style="font-size:0.92rem; color:var(--muted); line-height:1.6; margin:0;">
+              We instantiate an isolated demonstration hospital pre-loaded with realistic patient cases and ward layouts matching your facility's profile.
+            </p>
+          </div>
+
+          <div class="card" style="padding:28px; display:flex; flex-direction:column; gap:10px; border-color:var(--brand);">
+            <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--ok);">STEP 03 / LIVE SESSION</span>
+            <h3 style="font-size:1.15rem; margin:0;">45-Minute Clinical Walkthrough</h3>
+            <p style="font-size:0.92rem; color:var(--muted); line-height:1.6; margin:0;">
+              Join a dedicated walkthrough with your clinical leadership. Explore doctor, nurse, and billing perspectives with live interactive test drives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DEMO FAQ ACCORDION
+         ========================================================================== -->
+    <section class="sec wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Demo Questions</span>
+        <h2>Frequently asked questions about the walkthrough</h2>
+        <p>Everything you need to know before attending your CareGrid clinical session.</p>
+      </div>
+
+      <div class="faq-grid" style="margin-top:28px;">
+        <details class="faq-item" name="demo-faq" open>
+          <summary>Is there any software installation required to participate?</summary>
+          <p>
+            No. CareGrid is 100% web-based. The demonstration takes place over a secure web conference link (Google Meet / Zoom). You can view the live clinical console from any standard web browser.
+          </p>
+        </details>
+
+        <details class="faq-item" name="demo-faq">
+          <summary>Who from our hospital should attend the session?</summary>
+          <p>
+            We recommend including your Medical Director, Nursing Superintendent, Head of IT, and Chief Financial Officer. The session is structured to address clinical, administrative, and billing questions simultaneously.
+          </p>
+        </details>
+
+        <details class="faq-item" name="demo-faq">
+          <summary>Can our team test CareGrid directly in our own hospital sandbox?</summary>
+          <p>
+            Yes. Following the initial walkthrough, we can provision a dedicated, isolated trial sandbox for your department heads to test bedside charting, bed telemetry, and rosters with realistic synthetic patients.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SHARED FOOTER
+       ========================================================================== -->
+  <footer class="site-footer wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo" style="margin-bottom: 14px;">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16M4 12h16"/></svg></span>
+          CareGrid
+        </a>
+        <p style="font-size:0.92rem; line-height:1.6; max-width:34ch; color:var(--muted);">
+          Hospital management operating system uniting patient records, billing, ward bed telemetry, and staff rosters.
+        </p>
+        <div class="footer-socials" aria-label="CareGrid Socials">
+          <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          <a href="https://github.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="features.html">Product Features</a></li>
+          <li><a href="pricing.html">Pricing Plans</a></li>
+          <li><a href="about.html">About CareGrid</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="demo.html">Request a Demo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Clinical Modules</h4>
+        <ul class="footer-links">
+          <li><a href="features.html#records">Patient EMR Records</a></li>
+          <li><a href="features.html#billing">Billing &amp; TPA Claims</a></li>
+          <li><a href="features.html#beds">Ward Bed Telemetry</a></li>
+          <li><a href="features.html#roster">Staff Shift Rostering</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact &amp; Support</h4>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Direct Sales</b>
+              <a href="mailto:sales@caregrid.example" class="mono">sales@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>24/7 Clinical Helpline</b>
+              <a href="tel:+918000000000" class="mono">+91 80000 00000</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Emergency NOC Desk</b>
+              <a href="mailto:noc@caregrid.example" class="mono">noc@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Headquarters</b>
+              <span>HealthTech Park, Sector 4, Bangalore 560103</span>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Operational Hours</b>
+              <span>Mon – Sat: 08:00 – 20:00 (NOC 24/7)</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 CareGrid Technologies Inc. All rights reserved.</span>
+      <div style="display:flex; gap:18px;">
+        <a href="#top" style="color:var(--muted);">Privacy Notice</a>
+        <a href="#top" style="color:var(--muted);">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <div class="scrim-backdrop" id="scrimBackdrop" hidden>
+    <div class="modal-dialog" id="modalContainer" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

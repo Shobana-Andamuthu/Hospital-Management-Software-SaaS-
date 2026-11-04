@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CareGrid Design System — Reusable Shared Components</title>
+  <meta name="description" content="CareGrid Clinical Design System and Shared Component Library: Buttons, Cards, Navigation, Forms, Breadcrumbs, and Themes.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       PUBLIC NAVBAR
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="index.html" class="brand-logo" aria-label="CareGrid Hospital Suite">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+        </span>
+        CareGrid
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <div class="nav-dropdown nav-item" id="desktopHomeDropdown">
+          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false">
+            Home
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html" class="dropdown-link">Home 1 — Hospital Overview</a></li>
+            <li><a href="home-2.html" class="dropdown-link">Home 2 — Operations Suite</a></li>
+          </ul>
+        </div>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="tool-btn theme-toggle-btn desktop-only" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="tool-btn dir-toggle-btn desktop-only" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+        </button>
+
+        <!-- Secondary Button Login beside Primary CTA -->
+        <a href="login.html" class="btn btn-secondary btn-sm desktop-only">Hospital Login</a>
+        <button class="btn btn-sm desktop-only" type="button" data-open-modal="demo">Request Demo</button>
+
+        <button class="hamburger-btn" type="button" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li>
+          <a href="#" class="mobile-dropdown-toggle" id="mobileHomeToggle" aria-expanded="false">
+            <span>Home</span>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
+            <a href="index.html" class="dropdown-link">Home 1 — Hospital Overview</a>
+            <a href="home-2.html" class="dropdown-link">Home 2 — Operations Suite</a>
+          </div>
+        </li>
+        <li><a href="features.html" class="nav-link">Features</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+
+      <div class="mobile-controls-row">
+        <button class="mobile-ctrl-btn theme-toggle-btn" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span class="theme-text">Dark</span>
+        </button>
+        <button class="mobile-ctrl-btn dir-toggle-btn" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+          <span>Direction</span>
+        </button>
+      </div>
+
+      <div class="mobile-actions-stack">
+        <a href="login.html" class="btn btn-secondary btn-block">Hospital Login</a>
+        <button class="btn btn-block" type="button" data-open-modal="demo">Request a Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Page Heading & Breadcrumb -->
+    <section class="pagehead wrap">
+      <div class="breadcrumb" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Design System Components</span>
+      </div>
+      <h1>CareGrid Shared Component Foundation</h1>
+      <p class="lead">Complete catalog of reusable UI components, interactive states, design tokens, and accessibility patterns established in Phase 1.</p>
+    </section>
+
+    <!-- Component 1: Brand Colors & Tokens -->
+    <section class="sec-sm wrap">
+      <div class="section-head">
+        <span class="eyebrow">Tokens</span>
+        <h2>1. Brand Color System</h2>
+      </div>
+
+      <div class="grid g4">
+        <div class="card" style="padding:16px;">
+          <div style="height:54px; border-radius:8px; background:var(--brand); margin-bottom:12px;"></div>
+          <b>Clinical Teal</b>
+          <span class="mono" style="font-size:0.8rem; color:var(--muted); display:block;">--brand: #0B7C86</span>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="height:54px; border-radius:8px; background:var(--deep); margin-bottom:12px;"></div>
+          <b>Deep Navy</b>
+          <span class="mono" style="font-size:0.8rem; color:var(--muted); display:block;">--deep: #0B2530</span>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="height:54px; border-radius:8px; background:var(--bg); border:1px solid var(--line); margin-bottom:12px;"></div>
+          <b>Light Blue-Grey</b>
+          <span class="mono" style="font-size:0.8rem; color:var(--muted); display:block;">--bg: #F2F7F8</span>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="height:54px; border-radius:8px; background:var(--brand-soft); margin-bottom:12px;"></div>
+          <b>Soft Teal Accent</b>
+          <span class="mono" style="font-size:0.8rem; color:var(--muted); display:block;">--brand-soft: #D8EEF0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 2: Buttons Hierarchy -->
+    <section class="sec-sm wrap">
+      <div class="section-head">
+        <span class="eyebrow">Interactive Controls</span>
+        <h2>2. Primary &amp; Secondary Buttons</h2>
+      </div>
+
+      <div class="card" style="padding:32px; display:flex; flex-wrap:wrap; gap:16px; align-items:center;">
+        <button class="btn" type="button">Primary Button</button>
+        <button class="btn btn-secondary" type="button">Secondary / Ghost</button>
+        <button class="btn btn-sm" type="button">Small Button</button>
+        <button class="btn btn-lg" type="button">Large Action Button</button>
+        <div style="padding:16px; background:var(--deep); border-radius:8px; display:flex; gap:12px;">
+          <button class="btn btn-on-deep" type="button">Button On Deep</button>
+          <button class="btn btn-out-deep" type="button">Outline On Deep</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 3: Image-based Content Cards (No Decorative Icons) -->
+    <section class="sec-sm wrap">
+      <div class="section-head">
+        <span class="eyebrow">Visual Cards</span>
+        <h2>3. Image-Based Content Cards (Zero Decorative Icon Boxes)</h2>
+        <p>Using authentic professional healthcare photography with clinical status badges and metrics.</p>
+      </div>
+
+      <div class="grid g3">
+        <article class="card card-media">
+          <div class="card-img-wrap">
+            <img src="assets/images/card-records.jpg" alt="Clinical EMR card" loading="lazy">
+            <span class="card-badge status-ok">EMR Verified</span>
+          </div>
+          <div class="card-body">
+            <h3>Unified Electronic Charts</h3>
+            <p>Chronological patient timeline consolidating physician orders and clinical summaries.</p>
+            <div class="card-metric">
+              <b>-62%</b>
+              <span>search time</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card-media">
+          <div class="card-img-wrap">
+            <img src="assets/images/card-billing.jpg" alt="Billing card" loading="lazy">
+            <span class="card-badge status-info">TPA Revenue</span>
+          </div>
+          <div class="card-body">
+            <h3>Automated Insurance Desk</h3>
+            <p>Automated pre-authorization claims tracking with real-time audit flagging.</p>
+            <div class="card-metric">
+              <b>+18%</b>
+              <span>collection velocity</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card-media">
+          <div class="card-img-wrap">
+            <img src="assets/images/card-beds.jpg" alt="Beds card" loading="lazy">
+            <span class="card-badge status-warn">Telemetry</span>
+          </div>
+          <div class="card-body">
+            <h3>Ward Bed Allocation</h3>
+            <p>Instant visual ward board connecting discharges, housekeeping, and emergency beds.</p>
+            <div class="card-metric">
+              <b>9 min</b>
+              <span>turnaround</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Component 4: Forms & Validation States -->
+    <section class="sec-sm wrap">
+      <div class="section-head">
+        <span class="eyebrow">Form Foundation</span>
+        <h2>4. Forms &amp; Interactive Validation States</h2>
+      </div>
+
+      <div class="form-card wrap-narrow">
+        <form data-validate novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="comp-name">Clinician Name <span class="required">*</span></label>
+              <input id="comp-name" class="form-control" required placeholder="Dr. Full Name">
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="comp-email">Work Email <span class="required">*</span></label>
+              <input id="comp-email" type="email" class="form-control" required placeholder="name@hospital.org">
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="comp-phone">Mobile Telephone <span class="required">*</span></label>
+              <input id="comp-phone" type="tel" class="form-control" required placeholder="+91 98765 43210">
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="comp-dept">Medical Specialty</label>
+              <select id="comp-dept" class="form-control">
+                <option>Intensive Care / ICU</option>
+                <option>Emergency &amp; Trauma</option>
+                <option>Cardiology Stepdown</option>
+                <option>General Surgery</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="comp-note">Clinical Feedback</label>
+              <textarea id="comp-note" class="form-control" placeholder="Observations or remarks..."></textarea>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <label class="checkbox-label">
+              <input type="checkbox" required>
+              <span>I confirm verification against NABH audit logs</span>
+            </label>
+          </div>
+
+          <div class="form-feedback"></div>
+          <button class="btn btn-block" type="submit" style="margin-top:20px;">Submit Form for Validation Check</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Component 5: Pricing Cards -->
+    <section class="sec-sm wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Billing Architecture</span>
+        <h2>5. Pricing Cards with Period Switcher</h2>
+      </div>
+
+      <div class="pricing-toggle-wrap">
+        <div class="pricing-toggle" role="group">
+          <button type="button" data-pricing-toggle data-period="m" aria-pressed="true">Monthly Billing</button>
+          <button type="button" data-pricing-toggle data-period="y" aria-pressed="false">
+            Annual Billing
+            <span class="discount-pill">Save 20%</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid g3">
+        <article class="pricing-card">
+          <h3>Clinic</h3>
+          <p class="pricing-caption">Up to 50 licensed beds</p>
+          <div class="pricing-amount">
+            <span data-price-monthly="14999">&#8377;14,999</span>
+            <small class="price-period-label"> / month</small>
+          </div>
+          <ul class="pricing-features">
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Patient records and OPD billing</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Bed board &amp; staff roster</span></li>
+          </ul>
+          <button class="btn btn-secondary" type="button" data-open-modal="demo">Request Demo</button>
+        </article>
+
+        <article class="pricing-card hot">
+          <span class="hot-badge">Most Chosen</span>
+          <h3>Hospital</h3>
+          <p class="pricing-caption">Up to 250 licensed beds</p>
+          <div class="pricing-amount">
+            <span data-price-monthly="39999">&#8377;39,999</span>
+            <small class="price-period-label"> / month</small>
+          </div>
+          <ul class="pricing-features">
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Everything in Clinic tier</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>IPD, LIS, Pharmacy &amp; TPA</span></li>
+          </ul>
+          <button class="btn" type="button" data-open-modal="demo">Request Demo</button>
+        </article>
+
+        <article class="pricing-card">
+          <h3>Network</h3>
+          <p class="pricing-caption">Multi-campus hospital groups</p>
+          <div class="pricing-amount">Custom<small> / tier</small></div>
+          <ul class="pricing-features">
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Central command across sites</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>SAML SSO &amp; custom roles</span></li>
+          </ul>
+          <button class="btn btn-secondary" type="button" data-open-modal="demo">Contact Sales</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer with Social Media Links -->
+  <footer class="site-footer wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo" style="margin-bottom: 14px;">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16M4 12h16"/></svg></span>
+          CareGrid
+        </a>
+        <p style="font-size:0.92rem; line-height:1.6; max-width:34ch;">
+          Next-generation hospital management software uniting patient records, billing, ward bed telemetry, and staff rosters.
+        </p>
+        <div class="footer-socials" aria-label="CareGrid Socials">
+          <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          <a href="https://github.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Clinical Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#features">Unified Patient EMR</a></li>
+          <li><a href="index.html#features">Automated Billing &amp; TPA</a></li>
+          <li><a href="index.html#features">Ward Bed Telemetry</a></li>
+          <li><a href="index.html#features">Clinician Shift Roster</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About CareGrid</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="components.html">Design Components</a></li>
+          <li><a href="login.html">Hospital Client Portal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact &amp; Support</h4>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Direct Sales</b>
+              <a href="mailto:sales@caregrid.example" class="mono">sales@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>24/7 Clinical Helpline</b>
+              <a href="tel:+918000000000" class="mono">+91 80000 00000</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Emergency NOC Desk</b>
+              <a href="mailto:noc@caregrid.example" class="mono">noc@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Headquarters</b>
+              <span>HealthTech Park, Sector 4, Bangalore 560103</span>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Operational Hours</b>
+              <span>Mon – Sat: 08:00 – 20:00 (NOC 24/7)</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CareGrid Technologies Inc. All rights reserved.</span>
+      <div style="display:flex; gap:18px;">
+        <a href="#top" style="color:var(--muted);">Privacy Notice</a>
+        <a href="#top" style="color:var(--muted);">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <div class="scrim-backdrop" id="scrimBackdrop" hidden>
+    <div class="modal-dialog" id="modalContainer" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

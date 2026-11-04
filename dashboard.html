@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hospital Admin Dashboard — CareGrid</title>
+  <meta name="description" content="Enterprise clinical hospital management console uniting patient records, billing, ward bed telemetry, and doctor rosters.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="top" class="dash-app-body">
+
+  <!-- ==========================================================================
+       FULL-WIDTH DASHBOARD NAVBAR
+       - Logo on the left
+       - Light/Dark, LTR/RTL, Profile avatar, and Logout controls on the right
+       - Mobile/Tablet: Compact controls without overlap
+       ========================================================================== -->
+  <header class="dash-header-bar">
+    <div class="dash-navbar">
+      <!-- Left: Logo & Workspace Tag -->
+      <div style="display:flex; align-items:center; gap:14px;">
+        <a href="index.html" class="brand-logo" aria-label="CareGrid Home">
+          <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+          </span>
+          CareGrid
+        </a>
+        <span class="status-chip observation desktop-only" style="font-size:0.72rem; letter-spacing:0.04em; padding:3px 8px;">
+          ADMIN CONSOLE
+        </span>
+      </div>
+
+      <!-- Right: Dashboard Actions (Theme, RTL, Profile, Logout) -->
+      <div class="header-actions" style="gap:10px;">
+        <!-- Theme Toggle -->
+        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- RTL Toggle -->
+        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+        </button>
+
+        <!-- User Profile Avatar Pill (Desktop) -->
+        <div class="dash-user-profile desktop-only">
+          <div class="dash-user-avatar">AT</div>
+          <div class="dash-user-info">
+            <b>Dr. Aris Thorne</b>
+            <span>Lead Intensivist &middot; Metro Gen</span>
+          </div>
+        </div>
+
+        <!-- Logout Button (Icon only on mobile, text on desktop) -->
+        <a href="login.html" class="btn btn-secondary btn-sm dash-logout-btn" aria-label="Sign out of hospital workspace">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+          <span class="desktop-only" style="margin-left:4px;">Logout</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       DASHBOARD MAIN LAYOUT:
+       - Desktop: Full-height sidebar navigation on the left, main content on right.
+       - Mobile/Tablet: Sidebar converts to a clean horizontally scrollable menu directly
+         below the navbar, avoiding content overlap.
+       ========================================================================== -->
+  <div class="dash-layout">
+    
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dash-sidebar" aria-label="Dashboard Navigation">
+      <div class="dash-sidebar-header">
+        <b>Hospital Navigation</b>
+        <span>St. Jude Metro Campus</span>
+      </div>
+
+      <nav style="display:flex; flex-direction:inherit; gap:inherit; width:100%;">
+        <!-- Tab 1: Overview -->
+        <button type="button" class="dash-nav-btn active" id="tabBtnOverview" data-tab="overview" aria-selected="true">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span>Overview</span>
+        </button>
+
+        <!-- Tab 2: Patient Records -->
+        <button type="button" class="dash-nav-btn" id="tabBtnPatients" data-tab="patients" aria-selected="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span>Patient Records</span>
+        </button>
+
+        <!-- Tab 3: Billing Management -->
+        <button type="button" class="dash-nav-btn" id="tabBtnBilling" data-tab="billing" aria-selected="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+          <span>Billing Management</span>
+        </button>
+
+        <!-- Tab 4: Bed Status -->
+        <button type="button" class="dash-nav-btn" id="tabBtnBeds" data-tab="beds" aria-selected="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/>
+          </svg>
+          <span>Bed Status</span>
+        </button>
+
+        <!-- Tab 5: Staff Schedules -->
+        <button type="button" class="dash-nav-btn" id="tabBtnSchedules" data-tab="schedules" aria-selected="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <span>Staff Schedules</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar Status & Transparency Notice -->
+      <div class="dash-sidebar-footer">
+        <div class="dash-simulation-badge">
+          <span class="demo-dot"></span>
+          <span>Simulation Mode Active</span>
+        </div>
+        <p style="font-size:0.72rem; color:var(--muted); margin-top:8px; line-height:1.4;">
+          CareGrid OS v4.2 &middot; Sovereign Node #CG-8902 &middot; Latency 14ms
+        </p>
+        <a href="login.html" class="dash-sidebar-logout" aria-label="Sign out of hospital workspace">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+          <span>Sign Out / Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD CONTENT AREA -->
+    <main class="dash-main-area">
+
+      <!-- Transparent Sample Data Banner -->
+      <div class="dash-disclaimer-strip">
+        <div>
+          <strong>DEMO SIMULATION ENVIRONMENT:</strong>
+          <span>All patient records, bed telemetry, invoices, and clinical schedules shown below are fictional sample data for demonstration. No live hospital EHR or database is connected.</span>
+        </div>
+        <span class="status-chip healthy">Safe Test Sandbox</span>
+      </div>
+
+      <!-- ======================================================================
+           TAB 1: OVERVIEW
+           - Total patients, Current admissions, Bed occupancy %, Available beds,
+             Pending billing, Staff availability, Recent activity, Operational alerts.
+           ====================================================================== -->
+      <section class="dash-panel active" id="panel-overview" aria-labelledby="tabBtnOverview">
+        <div class="dash-panel-header">
+          <div>
+            <h1>Hospital Operations Overview</h1>
+            <p>Live telemetry snapshot of emergency intake, ward capacity, and operational alerts.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-sm btn-secondary" type="button" id="refreshMetricsBtn">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              Refresh Telemetry
+            </button>
+            <button class="btn btn-sm" type="button" data-open-modal="addPatientModal">+ Quick Admission</button>
+          </div>
+        </div>
+
+        <!-- 6 KPI Stat Tiles -->
+        <div class="dash-kpi-grid">
+          <!-- Total Patients -->
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">
+              <span>Total Patients</span>
+              <span class="metric-pill">+12 today</span>
+            </div>
+            <div class="dash-kpi-value" id="kpiTotalPatients">148</div>
+            <div class="dash-kpi-meta trend-up">&uarr; 8.4% vs last week census</div>
+          </div>
+
+          <!-- Current Admissions -->
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">
+              <span>Current Admissions</span>
+              <span class="status-chip admitted">Active</span>
+            </div>
+            <div class="dash-kpi-value" id="kpiCurrentAdmissions">86</div>
+            <div class="dash-kpi-meta">54 General &middot; 18 ICU &middot; 14 CCU</div>
+          </div>
+
+          <!-- Bed Occupancy -->
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">
+              <span>Bed Occupancy</span>
+              <span class="status-chip warning">High Acuity</span>
+            </div>
+            <div class="dash-kpi-value" id="kpiOccupancyRate">84%</div>
+            <div class="dash-kpi-meta">Optimal threshold: &le;85%</div>
+          </div>
+
+          <!-- Available Beds -->
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">
+              <span>Available Beds</span>
+              <span class="status-chip healthy">Ready</span>
+            </div>
+            <div class="dash-kpi-value" id="kpiAvailableBedsOverview">16</div>
+            <div class="dash-kpi-meta">4 Sanitizing in progress</div>
+          </div>
+
+          <!-- Pending Billing -->
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">
+              <span>Pending Billing</span>
+              <span class="status-chip tpa">TPA &amp; Self</span>
+            </div>
+            <div class="dash-kpi-value" id="kpiPendingBillingOverview">$18,420</div>
+            <div class="dash-kpi-meta">4 claims in adjudication</div>
+          </div>
+        </div>
+
+        <!-- Operational Alerts Section -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="status-chip critical">Action Required</span>
+              <h2 class="dash-card-title">Live Operational &amp; Clinical Alerts</h2>
+            </div>
+            <span class="mono" style="font-size:0.8rem; color:var(--muted);">3 Unresolved</span>
+          </div>
+
+          <div style="padding: 16px 20px; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 14px; background-color:rgba(217,72,72,0.06); border:1px solid rgba(217,72,72,0.25); border-radius:var(--radius-sm); flex-wrap:wrap; gap:10px;">
+              <div>
+                <b style="color:var(--error); font-size:0.9rem;">ICU Bed Occupancy Threshold Exceeded (91%)</b>
+                <p style="font-size:0.84rem; color:var(--ink); margin-top:2px;">Only 1 high-acuity bed left in ICU Wing A. Emergency admissions redirected to CCU reserve.</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" type="button" onclick="alert('Notification dispatched to Charge Nurse Lin (ICU).')">Acknowledge</button>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 14px; background-color:rgba(224,138,20,0.06); border:1px solid rgba(224,138,20,0.25); border-radius:var(--radius-sm); flex-wrap:wrap; gap:10px;">
+              <div>
+                <b style="color:var(--warn); font-size:0.9rem;">TPA Insurance Claim Pre-Authorization Pending</b>
+                <p style="font-size:0.84rem; color:var(--ink); margin-top:2px;">Patient #PT-884920 (Sarah Jenkins &middot; $4,850.00) requires discharge billing clearance within 2 hours.</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" type="button" onclick="document.getElementById('tabBtnBilling').click()">Review Claim</button>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 14px; background-color:rgba(11,124,134,0.06); border:1px solid rgba(11,124,134,0.25); border-radius:var(--radius-sm); flex-wrap:wrap; gap:10px;">
+              <div>
+                <b style="color:var(--brand); font-size:0.9rem;">Night Shift Nurse Coverage Notice</b>
+                <p style="font-size:0.84rem; color:var(--ink); margin-top:2px;">General Ward B has 1 unfilled triage nurse slot for tonight's 22:00 rotation.</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" type="button" onclick="document.getElementById('tabBtnSchedules').click()">Resolve Shift</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 Columns: Recent Activity Feed & Mini Bed Board Snapshot -->
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:24px;">
+          
+          <!-- Recent Activity Feed -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h2 class="dash-card-title">Recent Clinical Activity Stream</h2>
+              <span class="live-pill">LIVE FEED</span>
+            </div>
+            <div style="padding:16px 20px;">
+              <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px;">
+                <li style="display:flex; gap:12px; font-size:0.86rem; border-bottom:1px solid var(--line); padding-bottom:10px;">
+                  <span class="mono" style="color:var(--muted); min-width:65px;">12:44 PM</span>
+                  <div>
+                    <strong>Dr. Aris Thorne</strong> signed e-Prescription for <span class="mono">#PT-884920</span> (Ceftriaxone 1g).
+                  </div>
+                </li>
+                <li style="display:flex; gap:12px; font-size:0.86rem; border-bottom:1px solid var(--line); padding-bottom:10px;">
+                  <span class="mono" style="color:var(--muted); min-width:65px;">12:38 PM</span>
+                  <div>
+                    Housekeeping completed sanitization on bed <span class="mono">#W-104</span>. Status marked <em>Available</em>.
+                  </div>
+                </li>
+                <li style="display:flex; gap:12px; font-size:0.86rem; border-bottom:1px solid var(--line); padding-bottom:10px;">
+                  <span class="mono" style="color:var(--muted); min-width:65px;">12:25 PM</span>
+                  <div>
+                    Outpatient <span class="mono">#PT-902144</span> checked in at Cardiology Consultation Suite.
+                  </div>
+                </li>
+                <li style="display:flex; gap:12px; font-size:0.86rem; border-bottom:1px solid var(--line); padding-bottom:10px;">
+                  <span class="mono" style="color:var(--muted); min-width:65px;">12:10 PM</span>
+                  <div>
+                    Insurance claim authorized ($3,200.00) for inpatient <span class="mono">#PT-771402</span>.
+                  </div>
+                </li>
+                <li style="display:flex; gap:12px; font-size:0.86rem;">
+                  <span class="mono" style="color:var(--muted); min-width:65px;">11:50 AM</span>
+                  <div>
+                    Nursing shift handover logged for ICU Ward A. Zero coverage discrepancies.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Mini Ward Bed Snapshot -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h2 class="dash-card-title">Ward Occupancy Snapshot</h2>
+              <button class="btn-text-action" type="button" onclick="document.getElementById('tabBtnBeds').click()">Open Full Bed Matrix &rarr;</button>
+            </div>
+            <div style="padding:20px;">
+              <div style="display:flex; flex-direction:column; gap:16px;">
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:0.86rem; margin-bottom:4px;">
+                    <b>Intensive Care Unit (ICU)</b>
+                    <span class="mono">11 / 12 Beds (91%)</span>
+                  </div>
+                  <div style="width:100%; height:8px; background-color:var(--line); border-radius:var(--radius-pill); overflow:hidden;">
+                    <div style="width:91%; height:100%; background-color:var(--error); border-radius:var(--radius-pill);"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:0.86rem; margin-bottom:4px;">
+                    <b>Cardiac Care Unit (CCU)</b>
+                    <span class="mono">6 / 8 Beds (75%)</span>
+                  </div>
+                  <div style="width:100%; height:8px; background-color:var(--line); border-radius:var(--radius-pill); overflow:hidden;">
+                    <div style="width:75%; height:100%; background-color:var(--brand); border-radius:var(--radius-pill);"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:0.86rem; margin-bottom:4px;">
+                    <b>General Ward A</b>
+                    <span class="mono">13 / 16 Beds (81%)</span>
+                  </div>
+                  <div style="width:100%; height:8px; background-color:var(--line); border-radius:var(--radius-pill); overflow:hidden;">
+                    <div style="width:81%; height:100%; background-color:var(--ok); border-radius:var(--radius-pill);"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:0.86rem; margin-bottom:4px;">
+                    <b>General Ward B</b>
+                    <span class="mono">12 / 16 Beds (75%)</span>
+                  </div>
+                  <div style="width:100%; height:8px; background-color:var(--line); border-radius:var(--radius-pill); overflow:hidden;">
+                    <div style="width:75%; height:100%; background-color:var(--ok); border-radius:var(--radius-pill);"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bed-legend" style="margin-top:20px; padding-top:14px; border-top:1px solid var(--line);">
+                <span><i class="i-a"></i> Available</span>
+                <span><i class="i-o"></i> Occupied</span>
+                <span><i class="i-c"></i> Cleaning</span>
+                <span><i class="i-x"></i> High Acuity</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 2: PATIENT RECORDS
+           - Patient list, search and filters, patient ID, patient name, ward,
+             assigned doctor, admission status, patient details view, add patient.
+           ====================================================================== -->
+      <section class="dash-panel" id="panel-patients" aria-labelledby="tabBtnPatients">
+        <div class="dash-panel-header">
+          <div>
+            <h1>Longitudinal Patient Records</h1>
+            <p>Access active inpatient admissions, clinical notes, and physician assignments.</p>
+          </div>
+          <button class="btn btn-sm" type="button" data-open-modal="addPatientModal">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            + Add Patient (Simulated)
+          </button>
+        </div>
+
+        <div class="dash-card">
+          <!-- Search & Filter Controls -->
+          <div class="dash-card-header">
+            <div class="dash-filter-bar" style="width:100%;">
+              <!-- Search -->
+              <input type="search" class="dash-search-input" id="patientSearchInput" placeholder="Search by name, ID, or doctor..." aria-label="Search patients">
+
+              <!-- Ward Filter -->
+              <select class="dash-select" id="patientWardFilter" aria-label="Filter by Ward">
+                <option value="all">All Wards</option>
+                <option value="ICU Wing">ICU Wing</option>
+                <option value="Cardiac CCU">Cardiac CCU</option>
+                <option value="General Ward A">General Ward A</option>
+                <option value="General Ward B">General Ward B</option>
+              </select>
+
+              <!-- Status Filter -->
+              <select class="dash-select" id="patientStatusFilter" aria-label="Filter by Status">
+                <option value="all">All Admission Statuses</option>
+                <option value="Admitted">Admitted</option>
+                <option value="Observation">Under Observation</option>
+                <option value="Discharged">Discharged</option>
+              </select>
+
+              <!-- Total Count Feedback -->
+              <span class="mono" id="patientMatchCount" style="margin-left:auto; font-size:0.82rem; color:var(--muted);">
+                Showing 7 patients
+              </span>
+            </div>
+          </div>
+
+          <!-- Patients Table -->
+          <div class="dash-table-wrap">
+            <table class="dash-table" id="patientsTable">
+              <thead>
+                <tr>
+                  <th>Patient ID</th>
+                  <th>Patient Name</th>
+                  <th>Age / Sex</th>
+                  <th>Ward &amp; Bed</th>
+                  <th>Assigned Doctor</th>
+                  <th>Admission Date</th>
+                  <th>Status</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="patientTableBody">
+                <tr data-patient-id="PT-884920" data-ward="ICU Wing" data-status="Admitted">
+                  <td class="mono font-semibold" style="color:var(--brand);">#PT-884920</td>
+                  <td><strong>Sarah Jenkins</strong></td>
+                  <td>46 / F</td>
+                  <td>ICU Wing &middot; Bed 03</td>
+                  <td>Dr. Aris Thorne</td>
+                  <td>02 Nov 2026, 08:30</td>
+                  <td><span class="status-chip admitted">Admitted</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-secondary btn-sm view-patient-btn" type="button" data-name="Sarah Jenkins" data-id="PT-884920" data-ward="ICU Wing &middot; Bed 03" data-doctor="Dr. Aris Thorne" data-vitals="HR: 78 bpm &middot; BP: 120/80 &middot; SpO2: 98%">View Chart</button>
+                  </td>
+                </tr>
+                <tr data-patient-id="PT-771402" data-ward="General Ward A" data-status="Admitted">
+                  <td class="mono font-semibold" style="color:var(--brand);">#PT-771402</td>
+                  <td><strong>David Chen</strong></td>
+                  <td>58 / M</td>
+                  <td>General Ward A &middot; Bed 08</td>
+                  <td>Dr. Elena Rostova</td>
+                  <td>03 Nov 2026, 14:15</td>
+                  <td><span class="status-chip admitted">Admitted</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-secondary btn-sm view-patient-btn" type="button" data-name="David Chen" data-id="PT-771402" data-ward="General Ward A &middot; Bed 08" data-doctor="Dr. Elena Rostova" data-vitals="HR: 72 bpm &middot; BP: 118/76 &middot; SpO2: 99%">View Chart</button>
+                  </td>
+                </tr>
+                <tr data-patient-id="PT-663819" data-ward="Cardiac CCU" data-status="Observation">
+                  <td class="mono font-semibold" style="color:var(--brand);">#PT-663819</td>
+                  <td><strong>Maria Rodriguez</strong></td>
+                  <td>64 / F</td>
+                  <td>Cardiac CCU &middot; Bed 02</td>
+                  <td>Dr. Marcus Vance</td>
+                  <td>04 Nov 2026, 06:45</td>
+                  <td><span class="status-chip observation">Observation</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-secondary btn-sm view-patient-btn" type="button" data-name="Maria Rodriguez" data-id="PT-663819" data-ward="Cardiac CCU &middot; Bed 02" data-doctor="Dr. Marcus Vance" data-vitals="HR: 88 bpm &middot; BP: 135/88 &middot; SpO2: 96%">View Chart</button>
+                  </td>
+                </tr>
+                <tr data-patient-id="PT-552910" data-ward="General Ward B" data-status="Admitted">
+                  <td class="mono font-semibold" style="color:var(--brand);">#PT-552910</td>
+                  <td><strong>Robert Taylor</strong></td>
+                  <td>39 / M</td>
+                  <td>General Ward B &middot; Bed 14</td>
+                  <td>Dr. Elena Rostova</td>
+                  <td>01 Nov 2026, 11:20</td>
+                  <td><span class="status-chip admitted">Admitted</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-secondary btn-sm view-patient-btn" type="button" data-name="Robert Taylor" data-id="PT-552910" data-ward="General Ward B &middot; Bed 14" data-doctor="Dr. Elena Rostova" data-vitals="HR: 68 bpm &middot; BP: 115/74 &middot; SpO2: 98%">View Chart</button>
+                  </td>
+                </tr>
+                <tr data-patient-id="PT-441803" data-ward="ICU Wing" data-status="Admitted">
+                  <td class="mono font-semibold" style="color:var(--brand);">#PT-441803</td>
+                  <td><strong>Amina Al-Mansoor</strong></td>
+                  <td>52 / F</td>
+                  <td>ICU Wing &middot; Bed 06</td>
+                  <td>Dr. Aris Thorne</td>
+                  <td>03 Nov 2026, 21:00</td>
+                  <td><span class="status-chip critical">Critical Care</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-secondary btn-sm view-patient-btn" type="button" data-name="Amina Al-Mansoor" data-id="PT-441803" data-ward="ICU Wing &middot; Bed 06" data-doctor="Dr. Aris Thorne" data-vitals="HR: 104 bpm &middot; BP: 95/60 &middot; SpO2: 93%">View Chart</button>
+                  </td>
+                </tr>
+                <tr data-patient-id="PT-330794" data-ward="General Ward A" data-status="Discharged">
+                  <td class="mono font-semibold" style="color:var(--brand);">#PT-330794</td>
+                  <td><strong>James Wilson</strong></td>
+                  <td>71 / M</td>
+                  <td>General Ward A &middot; Bed 04</td>
+                  <td>Dr. Marcus Vance</td>
+                  <td>28 Oct 2026, 09:10</td>
+                  <td><span class="status-chip discharged">Discharged</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-secondary btn-sm view-patient-btn" type="button" data-name="James Wilson" data-id="PT-330794" data-ward="General Ward A &middot; Bed 04 (Discharged)" data-doctor="Dr. Marcus Vance" data-vitals="HR: 70 bpm &middot; BP: 122/80 &middot; SpO2: 99%">View Summary</button>
+                  </td>
+                </tr>
+                <tr data-patient-id="PT-229685" data-ward="General Ward B" data-status="Observation">
+                  <td class="mono font-semibold" style="color:var(--brand);">#PT-229685</td>
+                  <td><strong>Emily Watson</strong></td>
+                  <td>29 / F</td>
+                  <td>General Ward B &middot; Bed 02</td>
+                  <td>Dr. Elena Rostova</td>
+                  <td>04 Nov 2026, 10:15</td>
+                  <td><span class="status-chip observation">Observation</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-secondary btn-sm view-patient-btn" type="button" data-name="Emily Watson" data-id="PT-229685" data-ward="General Ward B &middot; Bed 02" data-doctor="Dr. Elena Rostova" data-vitals="HR: 82 bpm &middot; BP: 110/70 &middot; SpO2: 98%">View Chart</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 3: BILLING MANAGEMENT
+           - Invoice list, patient name, invoice amount, payment status,
+             pending dues, paid and unpaid filters, billing summary.
+           ====================================================================== -->
+      <section class="dash-panel" id="panel-billing" aria-labelledby="tabBtnBilling">
+        <div class="dash-panel-header">
+          <div>
+            <h1>Billing &amp; TPA Claims Management</h1>
+            <p>Automated charge consolidation, insurance adjudication, and cashless discharge settlement.</p>
+          </div>
+          <button class="btn btn-sm btn-secondary" type="button" id="exportBillingBtn">Export Financial Report</button>
+        </div>
+
+        <!-- Billing Summary KPI Strip -->
+        <div class="dash-kpi-grid">
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">
+              <span>Total Invoiced</span>
+              <span class="mono">Nov 2026</span>
+            </div>
+            <div class="dash-kpi-value">$142,500</div>
+            <div class="dash-kpi-meta">58 Inpatient &amp; Outpatient claims</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">
+              <span>Collected Revenue</span>
+              <span class="status-chip paid">Cleared</span>
+            </div>
+            <div class="dash-kpi-value" id="kpiCollectedRevenue">$124,080</div>
+            <div class="dash-kpi-meta">87.1% collection efficiency</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">
+              <span>Pending Receivables</span>
+              <span class="status-chip pending">Pending</span>
+            </div>
+            <div class="dash-kpi-value" id="kpiPendingReceivables">$18,420</div>
+            <div class="dash-kpi-meta" id="kpiPendingCount">3 patient accounts unsettled</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">
+              <span>TPA Claims in Review</span>
+              <span class="status-chip tpa">Active</span>
+            </div>
+            <div class="dash-kpi-value">4 Claims</div>
+            <div class="dash-kpi-meta">$14,200 pending pre-authorization</div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <!-- Filter & Search Bar -->
+          <div class="dash-card-header">
+            <div class="dash-filter-bar" style="width:100%;">
+              <input type="search" class="dash-search-input" id="billingSearchInput" placeholder="Search by patient or invoice #..." aria-label="Search invoices">
+              
+              <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <button type="button" class="btn btn-sm btn-secondary billing-filter-btn active" data-filter="all">All (7)</button>
+                <button type="button" class="btn btn-sm btn-secondary billing-filter-btn" data-filter="Paid">Paid (4)</button>
+                <button type="button" class="btn btn-sm btn-secondary billing-filter-btn" data-filter="Pending">Pending (2)</button>
+                <button type="button" class="btn btn-sm btn-secondary billing-filter-btn" data-filter="TPA Review">TPA Review (1)</button>
+              </div>
+
+              <span class="mono" id="billingMatchCount" style="margin-left:auto; font-size:0.82rem; color:var(--muted);">
+                Showing 7 invoices
+              </span>
+            </div>
+          </div>
+
+          <!-- Invoices Table -->
+          <div class="dash-table-wrap">
+            <table class="dash-table" id="billingTable">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Patient Name</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>Payer / Method</th>
+                  <th>Date Issued</th>
+                  <th>Status</th>
+                  <th style="text-align:right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="billingTableBody">
+                <tr data-invoice-id="INV-49201" data-status="TPA Review" data-amount="4850">
+                  <td class="mono font-semibold" style="color:var(--brand);">#INV-49201</td>
+                  <td><strong>Sarah Jenkins</strong> (#PT-884920)</td>
+                  <td>Inpatient ICU Care &middot; 3 Days</td>
+                  <td class="mono font-semibold">$4,850.00</td>
+                  <td>Star Health TPA (Cashless)</td>
+                  <td>04 Nov 2026</td>
+                  <td><span class="status-chip tpa">TPA Review</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary mark-paid-btn" type="button" data-inv="INV-49201" data-amt="4850">Mark as Paid</button>
+                  </td>
+                </tr>
+
+                <tr data-invoice-id="INV-49200" data-status="Pending" data-amount="2400">
+                  <td class="mono font-semibold" style="color:var(--brand);">#INV-49200</td>
+                  <td><strong>David Chen</strong> (#PT-771402)</td>
+                  <td>Ward Admission &middot; Cardiology</td>
+                  <td class="mono font-semibold">$2,400.00</td>
+                  <td>Direct Self-Pay</td>
+                  <td>03 Nov 2026</td>
+                  <td><span class="status-chip pending">Pending</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm mark-paid-btn" type="button" data-inv="INV-49200" data-amt="2400">Collect &amp; Clear</button>
+                  </td>
+                </tr>
+
+                <tr data-invoice-id="INV-49199" data-status="Paid" data-amount="650">
+                  <td class="mono font-semibold" style="color:var(--brand);">#INV-49199</td>
+                  <td><strong>Emily Watson</strong> (#PT-229685)</td>
+                  <td>Emergency Triage &middot; Ultrasound</td>
+                  <td class="mono font-semibold">$650.00</td>
+                  <td>Credit Card (Terminal #04)</td>
+                  <td>04 Nov 2026</td>
+                  <td><span class="status-chip paid">Paid</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" onclick="alert('Receipt #REC-49199 printed.')">Receipt</button>
+                  </td>
+                </tr>
+
+                <tr data-invoice-id="INV-49198" data-status="Pending" data-amount="1820">
+                  <td class="mono font-semibold" style="color:var(--brand);">#INV-49198</td>
+                  <td><strong>Robert Taylor</strong> (#PT-552910)</td>
+                  <td>Orthopedic Surgery Consumables</td>
+                  <td class="mono font-semibold">$1,820.00</td>
+                  <td>Bajaj Allianz TPA</td>
+                  <td>02 Nov 2026</td>
+                  <td><span class="status-chip pending">Pending</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm mark-paid-btn" type="button" data-inv="INV-49198" data-amt="1820">Collect &amp; Clear</button>
+                  </td>
+                </tr>
+
+                <tr data-invoice-id="INV-49197" data-status="Paid" data-amount="8450">
+                  <td class="mono font-semibold" style="color:var(--brand);">#INV-49197</td>
+                  <td><strong>James Wilson</strong> (#PT-330794)</td>
+                  <td>General Surgery &middot; Full Discharge</td>
+                  <td class="mono font-semibold">$8,450.00</td>
+                  <td>ICICI Lombard (Cashless)</td>
+                  <td>28 Oct 2026</td>
+                  <td><span class="status-chip paid">Paid</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" onclick="alert('Discharge clearance certificate verified.')">Receipt</button>
+                  </td>
+                </tr>
+
+                <tr data-invoice-id="INV-49196" data-status="Paid" data-amount="120">
+                  <td class="mono font-semibold" style="color:var(--brand);">#INV-49196</td>
+                  <td><strong>Anita Roy</strong> (#PT-118574)</td>
+                  <td>Outpatient Consultation &middot; Pharmacy</td>
+                  <td class="mono font-semibold">$120.00</td>
+                  <td>UPI / Digital QR</td>
+                  <td>04 Nov 2026</td>
+                  <td><span class="status-chip paid">Paid</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" onclick="alert('Receipt #REC-49196 printed.')">Receipt</button>
+                  </td>
+                </tr>
+
+                <tr data-invoice-id="INV-49195" data-status="Paid" data-amount="380">
+                  <td class="mono font-semibold" style="color:var(--brand);">#INV-49195</td>
+                  <td><strong>Maria Rodriguez</strong> (#PT-663819)</td>
+                  <td>Hematology &middot; Troponin-I Lab Panel</td>
+                  <td class="mono font-semibold">$380.00</td>
+                  <td>Debit Card</td>
+                  <td>04 Nov 2026</td>
+                  <td><span class="status-chip paid">Paid</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" onclick="alert('Receipt #REC-49195 printed.')">Receipt</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 4: BED STATUS
+           - Ward-wise bed board, occupied beds, available beds, cleaning beds,
+             critical beds, bed status update controls.
+           ====================================================================== -->
+      <section class="dash-panel" id="panel-beds" aria-labelledby="tabBtnBeds">
+        <div class="dash-panel-header">
+          <div>
+            <h1>Ward Bed Capacity &amp; Telemetry Matrix</h1>
+            <p>Click any bed tile to cycle through operational states (Available &rarr; Occupied &rarr; Critical &rarr; Sanitizing).</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-sm btn-secondary" type="button" id="markAllCleanBtn">
+              Mark All Sanitizing as Clean
+            </button>
+            <button class="btn btn-sm" type="button" id="simulateAdmissionBtn">
+              Simulate Emergency Admission
+            </button>
+          </div>
+        </div>
+
+        <!-- Bed Statistics Summary Counters -->
+        <div class="dash-kpi-grid">
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">Total Beds</div>
+            <div class="dash-kpi-value">52</div>
+            <div class="dash-kpi-meta">Across 4 facility wings</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">Occupied Beds</div>
+            <div class="dash-kpi-value" id="counterOccupied" style="color:var(--navy);">36</div>
+            <div class="dash-kpi-meta">Active clinical admissions</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">Available Beds</div>
+            <div class="dash-kpi-value" id="counterAvailable" style="color:var(--ok);">10</div>
+            <div class="dash-kpi-meta">Sanitized &amp; immediate ready</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">Cleaning / Sanitizing</div>
+            <div class="dash-kpi-value" id="counterSanitizing" style="color:var(--warn);">4</div>
+            <div class="dash-kpi-meta">Average turnaround: 21 mins</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">Critical High Acuity</div>
+            <div class="dash-kpi-value" id="counterCritical" style="color:var(--error);">2</div>
+            <div class="dash-kpi-meta">Ventilator / telemetry active</div>
+          </div>
+        </div>
+
+        <!-- Bed Legend & Instructions -->
+        <div class="dash-card" style="margin-bottom:20px;">
+          <div style="padding:14px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div class="bed-legend">
+              <span><i class="i-a"></i> Available (Click to change)</span>
+              <span><i class="i-o"></i> Occupied</span>
+              <span><i class="i-x"></i> High Acuity Critical</span>
+              <span><i class="i-c"></i> Cleaning / Sanitizing</span>
+            </div>
+            <span class="mono" style="font-size:0.78rem; color:var(--muted);">Interactive Telemetry Sim</span>
+          </div>
+        </div>
+
+        <!-- Ward 1: Intensive Care Unit (ICU) -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <h2 class="dash-card-title">Intensive Care Unit (ICU) &middot; Wing A</h2>
+              <span style="font-size:0.8rem; color:var(--muted);">Level 3 Isolation &amp; Invasive Telemetry</span>
+            </div>
+            <span class="status-chip critical">11 / 12 Beds Active</span>
+          </div>
+          <div class="interactive-bed-grid" id="gridIcu">
+            <button type="button" class="interactive-bed-tile b-o" data-bed="ICU-01" data-state="o" title="Click to toggle status"><span class="bed-id">ICU-01</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="ICU-02" data-state="o" title="Click to toggle status"><span class="bed-id">ICU-02</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-x" data-bed="ICU-03" data-state="x" title="Click to toggle status"><span class="bed-id">ICU-03</span><span class="bed-status-label">Critical</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="ICU-04" data-state="o" title="Click to toggle status"><span class="bed-id">ICU-04</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="ICU-05" data-state="o" title="Click to toggle status"><span class="bed-id">ICU-05</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-x" data-bed="ICU-06" data-state="x" title="Click to toggle status"><span class="bed-id">ICU-06</span><span class="bed-status-label">Critical</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="ICU-07" data-state="o" title="Click to toggle status"><span class="bed-id">ICU-07</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="ICU-08" data-state="o" title="Click to toggle status"><span class="bed-id">ICU-08</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="ICU-09" data-state="o" title="Click to toggle status"><span class="bed-id">ICU-09</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="ICU-10" data-state="o" title="Click to toggle status"><span class="bed-id">ICU-10</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-c" data-bed="ICU-11" data-state="c" title="Click to toggle status"><span class="bed-id">ICU-11</span><span class="bed-status-label">Cleaning</span></button>
+            <button type="button" class="interactive-bed-tile b-a" data-bed="ICU-12" data-state="a" title="Click to toggle status"><span class="bed-id">ICU-12</span><span class="bed-status-label">Available</span></button>
+          </div>
+        </div>
+
+        <!-- Ward 2: Cardiac Care Unit (CCU) -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <h2 class="dash-card-title">Cardiac Care Unit (CCU) &middot; Wing C</h2>
+              <span style="font-size:0.8rem; color:var(--muted);">Continuous Cardiac Telemetry &middot; Post-Angioplasty</span>
+            </div>
+            <span class="status-chip observation">6 / 8 Beds Active</span>
+          </div>
+          <div class="interactive-bed-grid" id="gridCcu">
+            <button type="button" class="interactive-bed-tile b-o" data-bed="CCU-01" data-state="o" title="Click to toggle status"><span class="bed-id">CCU-01</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="CCU-02" data-state="o" title="Click to toggle status"><span class="bed-id">CCU-02</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-a" data-bed="CCU-03" data-state="a" title="Click to toggle status"><span class="bed-id">CCU-03</span><span class="bed-status-label">Available</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="CCU-04" data-state="o" title="Click to toggle status"><span class="bed-id">CCU-04</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="CCU-05" data-state="o" title="Click to toggle status"><span class="bed-id">CCU-05</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-c" data-bed="CCU-06" data-state="c" title="Click to toggle status"><span class="bed-id">CCU-06</span><span class="bed-status-label">Cleaning</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="CCU-07" data-state="o" title="Click to toggle status"><span class="bed-id">CCU-07</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-a" data-bed="CCU-08" data-state="a" title="Click to toggle status"><span class="bed-id">CCU-08</span><span class="bed-status-label">Available</span></button>
+          </div>
+        </div>
+
+        <!-- Ward 3: General Inpatient Ward A -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <h2 class="dash-card-title">General Inpatient Ward A (Medical)</h2>
+              <span style="font-size:0.8rem; color:var(--muted);">Post-Operative Recovery &middot; 2nd Floor</span>
+            </div>
+            <span class="status-chip healthy">13 / 16 Beds Active</span>
+          </div>
+          <div class="interactive-bed-grid" id="gridWardA">
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-01" data-state="o" title="Click to toggle status"><span class="bed-id">W1-01</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-02" data-state="o" title="Click to toggle status"><span class="bed-id">W1-02</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-03" data-state="o" title="Click to toggle status"><span class="bed-id">W1-03</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-a" data-bed="W1-04" data-state="a" title="Click to toggle status"><span class="bed-id">W1-04</span><span class="bed-status-label">Available</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-05" data-state="o" title="Click to toggle status"><span class="bed-id">W1-05</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-06" data-state="o" title="Click to toggle status"><span class="bed-id">W1-06</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-a" data-bed="W1-07" data-state="a" title="Click to toggle status"><span class="bed-id">W1-07</span><span class="bed-status-label">Available</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-08" data-state="o" title="Click to toggle status"><span class="bed-id">W1-08</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-09" data-state="o" title="Click to toggle status"><span class="bed-id">W1-09</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-10" data-state="o" title="Click to toggle status"><span class="bed-id">W1-10</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-c" data-bed="W1-11" data-state="c" title="Click to toggle status"><span class="bed-id">W1-11</span><span class="bed-status-label">Cleaning</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-12" data-state="o" title="Click to toggle status"><span class="bed-id">W1-12</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-o" data-bed="W1-13" data-state="o" title="Click to toggle status"><span class="bed-id">W1-13</span><span class="bed-status-label">Occupied</span></button>
+            <button type="button" class="interactive-bed-tile b-a" data-bed="W1-14" data-state="a" title="Click to toggle status"><span class="bed-id">W1-14</span><span class="bed-status-label">Available</span></button>
+            <button type="button" class="interactive-bed-tile b-c" data-bed="W1-15" data-state="c" title="Click to toggle status"><span class="bed-id">W1-15</span><span class="bed-status-label">Cleaning</span></button>
+            <button type="button" class="interactive-bed-tile b-a" data-bed="W1-16" data-state="a" title="Click to toggle status"><span class="bed-id">W1-16</span><span class="bed-status-label">Available</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 5: STAFF SCHEDULES
+           - Doctor and nurse roster, daily/weekly shifts, shift status,
+             coverage gap warnings, schedule update controls.
+           ====================================================================== -->
+      <section class="dash-panel" id="panel-schedules" aria-labelledby="tabBtnSchedules">
+        <div class="dash-panel-header">
+          <div>
+            <h1>Clinical Staff Duty Roster &amp; Shifts</h1>
+            <p>Click any shift badge (Morning &rarr; Evening &rarr; Night &rarr; Off) to dynamically adjust coverage.</p>
+          </div>
+          <button class="btn btn-sm btn-secondary" type="button" data-open-modal="shiftSwapModal">Request Shift Swap</button>
+        </div>
+
+        <!-- Coverage Status KPI Bar -->
+        <div class="dash-kpi-grid">
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">Morning Shift (06:00 - 14:00)</div>
+            <div class="dash-kpi-value" style="color:var(--ok);">16 / 16</div>
+            <div class="dash-kpi-meta">100% Full Ward Coverage</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">Evening Shift (14:00 - 22:00)</div>
+            <div class="dash-kpi-value" style="color:var(--ok);">14 / 14</div>
+            <div class="dash-kpi-meta">100% Full Ward Coverage</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">Night Shift (22:00 - 06:00)</div>
+            <div class="dash-kpi-value" id="kpiNightShift" style="color:var(--warn);">11 / 12</div>
+            <div class="dash-kpi-meta" id="kpiNightMeta">1 Coverage gap warning</div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-label">On-Call Backup Clinicians</div>
+            <div class="dash-kpi-value">4</div>
+            <div class="dash-kpi-meta">2 Surgeons &middot; 2 Intensivists</div>
+          </div>
+        </div>
+
+        <!-- Coverage Gap Alert Banner -->
+        <div class="dash-card" id="coverageAlertBox" style="border-left:4px solid var(--warn);">
+          <div style="padding:16px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div>
+              <b style="color:var(--warn); font-size:0.95rem;">Coverage Gap Detected: Night Shift Triage (General Ward B)</b>
+              <p style="font-size:0.85rem; color:var(--ink); margin-top:2px;">Target ratio requires 1 additional registered nurse from 22:00 to 06:00.</p>
+            </div>
+            <button class="btn btn-sm" type="button" id="autoAssignCoverBtn">
+              Auto-Assign On-Call Substitute
+            </button>
+          </div>
+        </div>
+
+        <!-- Roster Table -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h2 class="dash-card-title">Active Duty Roster (Today's Shifts)</h2>
+            <span class="mono" style="font-size:0.8rem; color:var(--muted);">Click shift badge to cycle shift</span>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table" id="rosterTable">
+              <thead>
+                <tr>
+                  <th>Staff Member</th>
+                  <th>Clinical Role</th>
+                  <th>Department / Ward</th>
+                  <th>Current Shift (Click to cycle)</th>
+                  <th>Shift Hours</th>
+                  <th>Hours Logged (Week)</th>
+                  <th style="text-align:right;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Dr. Aris Thorne</strong></td>
+                  <td>Lead Intensivist</td>
+                  <td>ICU Wing A</td>
+                  <td><button type="button" class="shift-badge morning cycle-shift-btn" data-shift="morning">Morning</button></td>
+                  <td class="mono">06:00 - 14:00</td>
+                  <td class="mono">36 hrs</td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" data-open-modal="shiftSwapModal">Swap</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>Sister Maya Lin</strong></td>
+                  <td>Senior Charge Nurse</td>
+                  <td>Emergency Triage</td>
+                  <td><button type="button" class="shift-badge evening cycle-shift-btn" data-shift="evening">Evening</button></td>
+                  <td class="mono">14:00 - 22:00</td>
+                  <td class="mono">38 hrs</td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" data-open-modal="shiftSwapModal">Swap</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>Dr. Elena Rostova</strong></td>
+                  <td>Resident Surgeon</td>
+                  <td>General Ward B</td>
+                  <td><button type="button" class="shift-badge night cycle-shift-btn" data-shift="night">Night</button></td>
+                  <td class="mono">22:00 - 06:00</td>
+                  <td class="mono">42 hrs</td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" data-open-modal="shiftSwapModal">Swap</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>Dr. Marcus Vance</strong></td>
+                  <td>Attending Cardiologist</td>
+                  <td>Cardiac CCU</td>
+                  <td><button type="button" class="shift-badge morning cycle-shift-btn" data-shift="morning">Morning</button></td>
+                  <td class="mono">06:00 - 14:00</td>
+                  <td class="mono">32 hrs</td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" data-open-modal="shiftSwapModal">Swap</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>RN Jordan Reed</strong></td>
+                  <td>Staff Nurse</td>
+                  <td>General Ward A</td>
+                  <td><button type="button" class="shift-badge evening cycle-shift-btn" data-shift="evening">Evening</button></td>
+                  <td class="mono">14:00 - 22:00</td>
+                  <td class="mono">40 hrs</td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" data-open-modal="shiftSwapModal">Swap</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>Tech Liam Gallagher</strong></td>
+                  <td>Biochem Analyzer Tech</td>
+                  <td>Central Diagnostic Lab</td>
+                  <td><button type="button" class="shift-badge morning cycle-shift-btn" data-shift="morning">Morning</button></td>
+                  <td class="mono">06:00 - 14:00</td>
+                  <td class="mono">35 hrs</td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" data-open-modal="shiftSwapModal">Swap</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>RN Priya Nair</strong></td>
+                  <td>ICU Staff Nurse</td>
+                  <td>ICU Wing A</td>
+                  <td><button type="button" class="shift-badge night cycle-shift-btn" data-shift="night">Night</button></td>
+                  <td class="mono">22:00 - 06:00</td>
+                  <td class="mono">30 hrs</td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" data-open-modal="shiftSwapModal">Swap</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>Dr. Samuel O'Connor</strong></td>
+                  <td>Trauma Fellow</td>
+                  <td>Emergency Department</td>
+                  <td><button type="button" class="shift-badge off cycle-shift-btn" data-shift="off">Off Duty</button></td>
+                  <td class="mono">Rest Period</td>
+                  <td class="mono">44 hrs</td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-secondary" type="button" data-open-modal="shiftSwapModal">Swap</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       MODALS:
+       1. Patient Details Modal
+       2. Add Patient Modal (Simulated)
+       3. Shift Swap Modal
+       ========================================================================== -->
+
+  <!-- 1. Patient Details Modal -->
+  <div class="modal-backdrop" id="patientDetailsModal" hidden>
+    <div class="modal-card" style="max-width:600px;">
+      <button class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
+      
+      <div style="border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:18px;">
+        <span class="status-chip admitted" id="modalPatientStatus">Admitted</span>
+        <h3 style="font-size:1.4rem; margin-top:8px;" id="modalPatientName">Sarah Jenkins</h3>
+        <p class="mono" style="font-size:0.86rem; color:var(--muted); margin-top:2px;" id="modalPatientId">ID: #PT-884920 &middot; Female, 46 years</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px;">
+        <div style="padding:10px 14px; background-color:var(--surface-2); border-radius:var(--radius-sm);">
+          <span style="font-size:0.75rem; color:var(--muted); text-transform:uppercase; font-weight:700;">Location &middot; Bed</span>
+          <b style="display:block; font-size:0.94rem; margin-top:2px;" id="modalPatientWard">ICU Wing &middot; Bed 03</b>
+        </div>
+        <div style="padding:10px 14px; background-color:var(--surface-2); border-radius:var(--radius-sm);">
+          <span style="font-size:0.75rem; color:var(--muted); text-transform:uppercase; font-weight:700;">Attending Doctor</span>
+          <b style="display:block; font-size:0.94rem; margin-top:2px;" id="modalPatientDoctor">Dr. Aris Thorne</b>
+        </div>
+      </div>
+
+      <!-- Vitals Strip -->
+      <div style="padding:12px 16px; border:1px solid var(--line); border-radius:var(--radius-sm); margin-bottom:18px;">
+        <span style="font-size:0.75rem; color:var(--muted); text-transform:uppercase; font-weight:700; display:block; margin-bottom:6px;">Latest Telemetry Vitals</span>
+        <div class="mono" style="font-size:0.92rem; color:var(--brand); font-weight:600;" id="modalPatientVitals">
+          HR: 78 bpm &middot; BP: 120/80 &middot; SpO2: 98% &middot; Temp: 36.8&deg;C
+        </div>
+      </div>
+
+      <!-- Clinical Notes & Allergies -->
+      <div style="font-size:0.88rem; line-height:1.5; color:var(--ink); margin-bottom:20px;">
+        <b>Clinical Assessment:</b>
+        <p style="color:var(--muted); margin-top:4px;">
+          Patient admitted with acute respiratory distress and severe bilateral rhonchi. Stabilized following IV bronchodilator protocol. Continuous SpO2 telemetry active.
+        </p>
+        <div style="margin-top:10px;">
+          <span class="status-chip critical" style="font-size:0.75rem;">Known Allergy: Penicillin &middot; Severe Rash</span>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px; border-top:1px solid var(--line); padding-top:16px;">
+        <button class="btn btn-secondary btn-sm" type="button" onclick="alert('Synthetic clinical summary generated.')">Print Chart</button>
+        <button class="btn btn-sm" type="button" onclick="document.getElementById('patientDetailsModal').hidden = true">Close Chart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Add Patient Modal (Simulated) -->
+  <div class="modal-backdrop" id="addPatientModal" hidden>
+    <div class="modal-card" style="max-width:520px;">
+      <button class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
+      
+      <div style="margin-bottom:18px;">
+        <span class="eyebrow">Simulated Intake</span>
+        <h3 style="font-size:1.3rem; margin-top:6px;">Admit New Simulated Patient</h3>
+        <p style="font-size:0.84rem; color:var(--muted);">Adds a sample patient record to the demonstration table.</p>
+      </div>
+
+      <form id="addPatientForm">
+        <div class="form-group">
+          <label for="newPtName">Patient Full Name <span class="required">*</span></label>
+          <input id="newPtName" class="form-control" placeholder="e.g. Eleanor Vance" required>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
+          <div class="form-group">
+            <label for="newPtAge">Age <span class="required">*</span></label>
+            <input id="newPtAge" type="number" class="form-control" placeholder="42" required min="1" max="120">
+          </div>
+          <div class="form-group">
+            <label for="newPtSex">Sex <span class="required">*</span></label>
+            <select id="newPtSex" class="form-control" required>
+              <option value="F">Female</option>
+              <option value="M">Male</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:12px;">
+          <label for="newPtWard">Ward Assignment <span class="required">*</span></label>
+          <select id="newPtWard" class="form-control" required>
+            <option value="ICU Wing &middot; Bed 12">ICU Wing &middot; Bed 12</option>
+            <option value="Cardiac CCU &middot; Bed 03">Cardiac CCU &middot; Bed 03</option>
+            <option value="General Ward A &middot; Bed 04">General Ward A &middot; Bed 04</option>
+            <option value="General Ward B &middot; Bed 07">General Ward B &middot; Bed 07</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-top:12px;">
+          <label for="newPtDoctor">Assigned Physician <span class="required">*</span></label>
+          <select id="newPtDoctor" class="form-control" required>
+            <option value="Dr. Aris Thorne">Dr. Aris Thorne (Lead Intensivist)</option>
+            <option value="Dr. Elena Rostova">Dr. Elena Rostova (Surgeon)</option>
+            <option value="Dr. Marcus Vance">Dr. Marcus Vance (Cardiologist)</option>
+          </select>
+        </div>
+
+        <button class="btn btn-block" type="submit" style="margin-top:20px;">Confirm Simulated Admission</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Shift Swap Modal -->
+  <div class="modal-backdrop" id="shiftSwapModal" hidden>
+    <div class="modal-card" style="max-width:480px;">
+      <button class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
+      
+      <div style="margin-bottom:18px;">
+        <span class="eyebrow">Roster Management</span>
+        <h3 style="font-size:1.3rem; margin-top:6px;">Request Shift Swap</h3>
+        <p style="font-size:0.84rem; color:var(--muted);">Coordinate peer-to-peer shift exchanges without coverage gaps.</p>
+      </div>
+
+      <form id="shiftSwapForm">
+        <div class="form-group">
+          <label for="swapStaff">Clinician Requesting Swap</label>
+          <input id="swapStaff" class="form-control" value="Dr. Aris Thorne" readonly>
+        </div>
+
+        <div class="form-group" style="margin-top:12px;">
+          <label for="swapTarget">Exchange With Colleague</label>
+          <select id="swapTarget" class="form-control">
+            <option>Dr. Marcus Vance (Cardiologist &middot; Morning)</option>
+            <option>Dr. Elena Rostova (Resident Surgeon &middot; Night)</option>
+            <option>Sister Maya Lin (Senior Charge Nurse &middot; Evening)</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-top:12px;">
+          <label for="swapReason">Operational Reason</label>
+          <input id="swapReason" class="form-control" placeholder="e.g. Emergency on-call standby overlap">
+        </div>
+
+        <button class="btn btn-block" type="submit" style="margin-top:20px;">Submit Swap Request (Simulated)</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="dashToast" style="position:fixed; bottom:24px; right:24px; background-color:var(--brand); color:#ffffff; padding:12px 20px; border-radius:var(--radius-sm); box-shadow:var(--shadow-lg); font-size:0.88rem; display:none; z-index:9999; animation:fadeIn 0.2s ease;">
+    <span id="dashToastMsg">Action completed successfully.</span>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

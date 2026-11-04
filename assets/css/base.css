@@ -1,0 +1,314 @@
+/**
+ * CareGrid Hospital Suite - Base & Typography
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-heading);
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (max-width: 360px) {
+  h1 {
+    font-size: clamp(1.5rem, 8vw, 2.2rem) !important;
+  }
+  h2 {
+    font-size: clamp(1.3rem, 7vw, 1.7rem) !important;
+  }
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ic {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Wrappers */
+.wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+.wrap-narrow {
+  width: 100%;
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (max-width: 320px) {
+  .wrap,
+  .wrap-narrow {
+    padding-inline: 10px;
+  }
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Section Containers */
+.sec {
+  padding-block: 80px;
+  position: relative;
+}
+
+.sec-sm {
+  padding-block: 48px;
+}
+
+.sec-tint {
+  background-color: var(--surface-2);
+}
+
+.sec-deep {
+  background-color: var(--deep);
+  color: var(--deep-ink);
+}
+
+.sec-deep h1,
+.sec-deep h2,
+.sec-deep h3,
+.sec-deep h4 {
+  color: var(--deep-ink);
+}
+
+.sec-deep p {
+  color: var(--deep-muted);
+}
+
+/* Eyebrows & Section Headers */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brand);
+  margin-bottom: 12px;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 2.5px;
+  background-color: var(--brand);
+  border-radius: var(--radius-pill);
+}
+
+.sec-deep .eyebrow {
+  color: var(--brand);
+}
+.sec-deep .eyebrow::before {
+  background-color: var(--brand);
+}
+
+.section-head {
+  max-width: 780px;
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: 48px;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}
+
+.section-head.center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-head .eyebrow,
+.section-head.center .eyebrow {
+  justify-content: center;
+  margin-inline: auto;
+}
+
+.section-head .eyebrow::after,
+.section-head.center .eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 2.5px;
+  background-color: var(--brand);
+  border-radius: var(--radius-pill);
+}
+
+.section-head h1,
+.section-head h2,
+.section-head h3 {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.section-head p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-inline: auto;
+  max-width: 65ch;
+}
+
+/* Grids */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.g2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.g3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.g4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Tablet Rule: Maximum TWO cards per row on iPad & iPad Pro (<= 1200px) */
+@media (max-width: 1200px) {
+  .g4,
+  .g3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile Rule: Single card per row on small screens (<= 680px) */
+@media (max-width: 680px) {
+  .g4, .g3, .g2 {
+    grid-template-columns: 1fr;
+  }
+  .sec {
+    padding-block: 56px;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.92); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+

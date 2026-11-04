@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CareGrid Features — Hospital Management Operating System</title>
+  <meta name="description" content="Explore CareGrid's core hospital management capabilities: patient records, billing, bed management, staff scheduling, OPD/IPD, lab, pharmacy, reports, and security.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       PUBLIC NAVBAR
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="index.html" class="brand-logo" aria-label="CareGrid Hospital Suite">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+        </span>
+        CareGrid
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <div class="nav-dropdown nav-item" id="desktopHomeDropdown">
+          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false">
+            Home
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html" class="dropdown-link">Home 1 — Live Operations</a></li>
+            <li><a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a></li>
+          </ul>
+        </div>
+        <a href="features.html" class="nav-link active">Features</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="tool-btn theme-toggle-btn desktop-only" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="tool-btn dir-toggle-btn desktop-only" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+        </button>
+
+        <!-- Secondary Button Login beside Primary CTA -->
+        <a href="login.html" class="btn btn-secondary btn-sm desktop-only">Hospital Login</a>
+        <button class="btn btn-sm desktop-only" type="button" data-open-modal="demo">Request Demo</button>
+
+        <button class="hamburger-btn" type="button" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li>
+          <a href="#" class="mobile-dropdown-toggle" id="mobileHomeToggle" aria-expanded="false">
+            <span>Home</span>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
+            <a href="index.html" class="dropdown-link">Home 1 — Live Operations</a>
+            <a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a>
+          </div>
+        </li>
+        <li><a href="features.html" class="nav-link active">Features</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+
+      <div class="mobile-controls-row">
+        <button class="mobile-ctrl-btn theme-toggle-btn" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span class="theme-text">Dark</span>
+        </button>
+        <button class="mobile-ctrl-btn dir-toggle-btn" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+          <span>Direction</span>
+        </button>
+      </div>
+
+      <div class="mobile-actions-stack">
+        <a href="login.html" class="btn btn-secondary btn-block">Hospital Login</a>
+        <button class="btn btn-block" type="button" data-open-modal="demo">Request a Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         PAGE HERO SECTION (CLEAN & CENTERED)
+         ========================================================================== -->
+    <section class="features-hero-section">
+      <div class="wrap">
+        <div class="features-hero-content">
+          <div class="breadcrumb" aria-label="Breadcrumbs">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Product Features</span>
+          </div>
+
+          <span class="eyebrow" style="margin-top:12px;">Enterprise Hospital Operating System</span>
+          <h1 style="font-size:clamp(2.1rem, 4vw, 3.2rem); margin-block:12px 16px;">
+            Clinical precision at <em style="font-style:normal; color:var(--brand);">enterprise scale</em>
+          </h1>
+          <p style="font-size:1.08rem; line-height:1.65; color:var(--muted); max-width:58ch;">
+            CareGrid connects all critical hospital departments into a single, intuitive system. From bedside clinical charts to automated billing and live ward beds, explore our core capabilities below.
+          </p>
+
+          <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:24px;">
+            <button class="btn" type="button" data-open-modal="demo">Request a Live Demo</button>
+            <a href="#continuum" class="btn btn-secondary">How Departments Connect</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURE 01: PATIENT RECORDS (EMR)
+         Layout: Image Left / Text Right
+         ========================================================================== -->
+    <section class="sec wrap" id="records">
+      <div class="feature-row">
+        <!-- Visual Media -->
+        <div class="feature-visual">
+          <img src="assets/images/card-records.jpg" alt="Doctor reviewing digital patient health records on clinical tablet" class="feature-visual-img" loading="lazy">
+          <div class="feature-visual-caption">
+            <b>Patient Records &amp; EMR</b>
+            <span class="metric-pill">Zero Paper Charts</span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="feature-content">
+          <span class="eyebrow">01 / Clinical Documentation</span>
+          <h2>Unified, longitudinal patient history in one place</h2>
+          <p>
+            CareGrid provides doctors and nurses with instant access to comprehensive patient histories, past visits, diagnostic reports, and active prescriptions without flipping through physical files.
+          </p>
+
+          <ul class="feature-bullets">
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Fast Registration:</strong> Instant check-in, biometric linking, and emergency contact verification.</span>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Clinical Notes:</strong> Structured doctor notes, nursing observations, and standardized discharge summaries.</span>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Digital Prescriptions:</strong> e-Prescriptions routed straight to pharmacy with built-in drug-allergy alerts.</span>
+            </li>
+          </ul>
+
+          <div style="margin-top:8px;">
+            <button class="btn btn-secondary btn-sm" type="button" data-open-modal="demo">See Patient Records Demo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURE 02: BILLING & INSURANCE TPA CLAIMS
+         Layout: Text Left / Image Right (Reverse)
+         ========================================================================== -->
+    <section class="sec sec-tint" id="billing">
+      <div class="wrap">
+        <div class="feature-row reverse">
+          <!-- Content (Left) -->
+          <div class="feature-content">
+            <span class="eyebrow">02 / Billing &amp; Finance</span>
+            <h2>Transparent hospital billing and faster insurance settlements</h2>
+            <p>
+              Prevent billing leakages and delays. CareGrid automatically pulls consultations, lab investigations, medicines, and room charges into a consolidated, audit-ready invoice.
+            </p>
+
+            <ul class="feature-bullets">
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Itemized Invoices:</strong> Real-time charge tracking for OPD, IPD, surgical procedures, and consumables.</span>
+              </li>
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Insurance &amp; TPA Claims:</strong> Digital pre-authorization and cashless claims tracking to reduce repudiations.</span>
+              </li>
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Rapid Discharge:</strong> Instant bill settlement, receipt generation, and clear copay calculations for families.</span>
+              </li>
+            </ul>
+
+            <div style="margin-top:8px;">
+              <button class="btn btn-secondary btn-sm" type="button" data-open-modal="demo">Explore Billing Features</button>
+            </div>
+          </div>
+
+          <!-- Visual Media (Right) -->
+          <div class="feature-visual">
+            <img src="assets/images/card-billing.jpg" alt="Hospital billing counter officer handling invoices and insurance settlement" class="feature-visual-img" loading="lazy">
+            <div class="feature-visual-caption">
+              <b>Revenue &amp; TPA Adjudication</b>
+              <span class="metric-pill">Fast Claim Settlement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURE 03: BED & WARD TELEMETRY MANAGEMENT
+         Layout: Image Left / Text Right
+         ========================================================================== -->
+    <section class="sec wrap" id="beds">
+      <div class="feature-row">
+        <!-- Visual Media -->
+        <div class="feature-visual">
+          <img src="assets/images/card-beds.jpg" alt="Clean multi-specialty hospital ward beds with telemetry monitors" class="feature-visual-img" loading="lazy">
+          <div class="feature-visual-caption">
+            <b>Live Bed Availability</b>
+            <span class="metric-pill">22-min Sanitization</span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="feature-content">
+          <span class="eyebrow">03 / Ward &amp; Bed Capacity</span>
+          <h2>Real-time bed availability across all wards and ICUs</h2>
+          <p>
+            Eliminate phone calls between emergency rooms and nursing stations. CareGrid provides an instant visual bed board showing occupied, available, and sanitizing beds across every floor.
+          </p>
+
+          <ul class="feature-bullets">
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Live Ward Overview:</strong> Real-time status for General Wards, ICU, CCU, and Post-Operative recovery rooms.</span>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Sanitization Workflow:</strong> Immediate cleaning alerts sent to housekeeping upon patient discharge.</span>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Smooth Transfers:</strong> Quick patient transfers between wards with automatic billing tier adjustments.</span>
+            </li>
+          </ul>
+
+          <div style="margin-top:8px;">
+            <button class="btn btn-secondary btn-sm" type="button" data-open-modal="demo">View Bed Management Demo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURE 04: STAFF SCHEDULING & ROSTERS
+         Layout: Text Left / Image Right (Reverse)
+         ========================================================================== -->
+    <section class="sec sec-tint" id="roster">
+      <div class="wrap">
+        <div class="feature-row reverse">
+          <!-- Content (Left) -->
+          <div class="feature-content">
+            <span class="eyebrow">04 / Staff Scheduling</span>
+            <h2>Intelligent clinician rostering without coverage gaps</h2>
+            <p>
+              Coordinate doctors, nurses, and technicians across 24/7 rotations. CareGrid helps department heads create balanced shift schedules that prevent staff fatigue and ensure adequate ward coverage.
+            </p>
+
+            <ul class="feature-bullets">
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Multi-Tier Shifts:</strong> Automated morning, evening, night, and on-call shift management.</span>
+              </li>
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Duty Swaps &amp; Leave:</strong> Simple mobile swap requests with one-tap supervisor approvals.</span>
+              </li>
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Coverage Alerts:</strong> Instant warnings if required doctor-to-patient or nurse-to-bed ratios drop.</span>
+              </li>
+            </ul>
+
+            <div style="margin-top:8px;">
+              <button class="btn btn-secondary btn-sm" type="button" data-open-modal="demo">See Staff Roster Features</button>
+            </div>
+          </div>
+
+          <!-- Visual Media (Right) -->
+          <div class="feature-visual">
+            <img src="assets/images/card-roster.jpg" alt="Clinical nursing supervisor organizing doctor and nurse shift duty schedules" class="feature-visual-img" loading="lazy">
+            <div class="feature-visual-caption">
+              <b>Clinician Shift Roster</b>
+              <span class="metric-pill">Zero Coverage Gaps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURE 05: OPD & IPD WORKFLOWS
+         Layout: Image Left / Text Right
+         ========================================================================== -->
+    <section class="sec wrap" id="opd-ipd">
+      <div class="feature-row">
+        <!-- Visual Media -->
+        <div class="feature-visual">
+          <img src="assets/images/card-opd.jpg" alt="Hospital outpatient registration desk and waiting area" class="feature-visual-img" loading="lazy">
+          <div class="feature-visual-caption">
+            <b>OPD &amp; IPD Flow</b>
+            <span class="metric-pill">Organized Patient Queues</span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="feature-content">
+          <span class="eyebrow">05 / Patient Flow</span>
+          <h2>Smooth coordination from outpatient arrival to inpatient admission</h2>
+          <p>
+            Whether managing thousands of daily clinic consultations or extended inpatient hospital stays, CareGrid maintains complete clinical context so data is never re-entered.
+          </p>
+
+          <ul class="feature-bullets">
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Digital OPD Queues:</strong> Token displays, department queue status, and doctor appointment scheduling.</span>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Direct Admission Gateway:</strong> Instant bed reservation and chart creation when OPD patients require admission.</span>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Inpatient Rounds &amp; MAR:</strong> Digital bedside charts, nurse handover logs, and medication tracking.</span>
+            </li>
+          </ul>
+
+          <div style="margin-top:8px;">
+            <button class="btn btn-secondary btn-sm" type="button" data-open-modal="demo">Review OPD / IPD Workflows</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURE 06: LABORATORY & PHARMACY MANAGEMENT
+         Layout: Text Left / Image Right (Reverse)
+         ========================================================================== -->
+    <section class="sec sec-tint" id="lab-pharmacy">
+      <div class="wrap">
+        <div class="feature-row reverse">
+          <!-- Content (Left) -->
+          <div class="feature-content">
+            <span class="eyebrow">06 / Diagnostics &amp; Medicines</span>
+            <h2>Integrated laboratory testing and pharmacy inventory</h2>
+            <p>
+              Connect diagnostic analyzers and pharmacy stocks directly to patient medical charts. Results upload automatically, and prescribed medicines are tracked with barcode accuracy.
+            </p>
+
+            <ul class="feature-bullets">
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Analyzer Integration:</strong> Bi-directional instrument interfaces pull test results without manual typing.</span>
+              </li>
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Critical Panic Alerts:</strong> Abnormal clinical values instantly trigger emergency notifications to doctors.</span>
+              </li>
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Pharmacy Stock Control:</strong> First-Expiry-First-Out (FEFO) dispensing and automatic reorder warnings.</span>
+              </li>
+            </ul>
+
+            <div style="margin-top:8px;">
+              <button class="btn btn-secondary btn-sm" type="button" data-open-modal="demo">Explore Lab &amp; Pharmacy</button>
+            </div>
+          </div>
+
+          <!-- Visual Media (Right) -->
+          <div class="feature-visual">
+            <img src="assets/images/card-lab.jpg" alt="Diagnostic laboratory scientist testing hematology samples" class="feature-visual-img" loading="lazy">
+            <div class="feature-visual-caption">
+              <b>Diagnostics &amp; Pharmacy</b>
+              <span class="metric-pill">Barcode Verified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURE 07: ADMINISTRATIVE REPORTS & ANALYTICS
+         Layout: Image Left / Text Right
+         ========================================================================== -->
+    <section class="sec wrap" id="analytics">
+      <div class="feature-row">
+        <!-- Visual Media -->
+        <div class="feature-visual">
+          <img src="assets/images/home2-telemetry-solution.jpg" alt="Hospital executive directors analyzing clinical and operational dashboards" class="feature-visual-img" loading="lazy">
+          <div class="feature-visual-caption">
+            <b>Operations Analytics</b>
+            <span class="metric-pill">Real-Time Insights</span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="feature-content">
+          <span class="eyebrow">07 / Executive Intelligence</span>
+          <h2>Actionable operational analytics for hospital administrators</h2>
+          <p>
+            Make clinical resource and staffing decisions backed by clear, accurate metrics. CareGrid summarizes occupancy trends, department throughput, and billing efficiency into simple visual dashboards.
+          </p>
+
+          <ul class="feature-bullets">
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Bed Occupancy Trends:</strong> Daily census tracking, average length of stay (ALOS), and turnover rates.</span>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Financial Summaries:</strong> Departmental revenue, insurance collection turnaround, and pending dues.</span>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <span><strong>Compliance Reports:</strong> Ready-to-export statutory reports for regulatory compliance and accreditation audits.</span>
+            </li>
+          </ul>
+
+          <div style="margin-top:8px;">
+            <button class="btn btn-secondary btn-sm" type="button" data-open-modal="demo">View Sample Analytics</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURE 08: SECURITY & ACCESS CONTROL
+         Layout: Text Left / Image Right (Reverse)
+         ========================================================================== -->
+    <section class="sec sec-tint" id="security">
+      <div class="wrap">
+        <div class="feature-row reverse">
+          <!-- Content (Left) -->
+          <div class="feature-content">
+            <span class="eyebrow">08 / Security &amp; Compliance</span>
+            <h2>Role-based boundaries and tamper-evident audit logs</h2>
+            <p>
+              Protect confidential patient data with robust access governance. CareGrid enforces strict role-based controls, encrypted user sessions, and detailed forensic audit logs for every chart modification.
+            </p>
+
+            <ul class="feature-bullets">
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Granular Role Controls:</strong> Distinct access permissions for Doctors, Nurses, Pharmacists, and Billing Staff.</span>
+              </li>
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Audit Log Trails:</strong> Every record access, note edit, and prescription update is permanently logged.</span>
+              </li>
+              <li>
+                <span class="bullet-dot"></span>
+                <span><strong>Secure Sign-In:</strong> Multi-factor authentication support and automated terminal timeouts.</span>
+              </li>
+            </ul>
+
+            <div style="margin-top:8px;">
+              <button class="btn btn-secondary btn-sm" type="button" data-open-modal="demo">Review Security Features</button>
+            </div>
+          </div>
+
+          <!-- Visual Media (Right) -->
+          <div class="feature-visual">
+            <img src="assets/images/home2-workflow-challenge.jpg" alt="Healthcare IT security administrator reviewing access controls" class="feature-visual-img" loading="lazy">
+            <div class="feature-visual-caption">
+              <b>Security &amp; Audit Logs</b>
+              <span class="metric-pill">Role-Based Access</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INTER-DEPARTMENTAL CONTINUUM WORKFLOW (CLEAN & SIMPLE)
+         ========================================================================== -->
+    <section class="continuum-section" id="continuum">
+      <div class="wrap">
+        <div class="section-head center">
+          <span class="eyebrow">Connected Hospital Workflow</span>
+          <h2>How every hospital unit connects in real time</h2>
+          <p>
+            CareGrid establishes a continuous clinical data pipeline across the entire acute care journey, eliminating information silos.
+          </p>
+        </div>
+
+        <div class="continuum-grid">
+          <!-- Step 1 -->
+          <div class="continuum-card">
+            <div class="continuum-step">Step 01</div>
+            <h3>Intake &amp; Triage</h3>
+            <p>Patient checks in at OPD or Emergency. Biometric record generated and triage urgency assigned.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="continuum-card">
+            <div class="continuum-step">Step 02</div>
+            <h3>Consultation</h3>
+            <p>Physician documents clinical notes, orders lab tests, and prescribes digital medicines.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="continuum-card">
+            <div class="continuum-step">Step 03</div>
+            <h3>Diagnostics</h3>
+            <p>Lab analyzers upload verified results; pharmacy dispenses barcode-tracked medications.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="continuum-card">
+            <div class="continuum-step">Step 04</div>
+            <h3>Ward Inpatient</h3>
+            <p>Live bed board tracks bed status, daily doctor rounds, and nursing MAR chart notes.</p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="continuum-card">
+            <div class="continuum-step">Step 05</div>
+            <h3>Discharge</h3>
+            <p>Summary created, insurance claims cleared, bill settled, and bed marked for cleaning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DEPLOYMENT ROADMAP (SIMPLE & CLEAN)
+         ========================================================================== -->
+    <section class="sec wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Implementation Process</span>
+        <h2>Structured 4-week hospital rollout roadmap</h2>
+        <p>Our clinical deployment team ensures zero downtime to your live healthcare operations.</p>
+      </div>
+
+      <div class="grid g4" style="margin-top:36px;">
+        <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:10px;">
+          <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--brand);">WEEK 01</span>
+          <h3 style="font-size:1.1rem; margin:0;">Ward &amp; Workflow Audit</h3>
+          <p style="font-size:0.9rem; color:var(--muted); line-height:1.55; margin:0;">
+            Mapping physical bed layouts, department hierarchy, and existing hardware interfaces.
+          </p>
+        </div>
+
+        <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:10px;">
+          <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--brand);">WEEK 02</span>
+          <h3 style="font-size:1.1rem; margin:0;">Data Migration</h3>
+          <p style="font-size:0.9rem; color:var(--muted); line-height:1.55; margin:0;">
+            Secure import of historical patient records, doctor rosters, and tariff pricing lists.
+          </p>
+        </div>
+
+        <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:10px;">
+          <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--brand);">WEEK 03</span>
+          <h3 style="font-size:1.1rem; margin:0;">Staff Simulation Training</h3>
+          <p style="font-size:0.9rem; color:var(--muted); line-height:1.55; margin:0;">
+            Hands-on simulation sessions for doctors, nurses, billing staff, and pharmacists.
+          </p>
+        </div>
+
+        <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:10px; border-color:var(--brand);">
+          <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--ok);">WEEK 04</span>
+          <h3 style="font-size:1.1rem; margin:0;">Go-Live &amp; Support</h3>
+          <p style="font-size:0.9rem; color:var(--muted); line-height:1.55; margin:0;">
+            Smooth production transition with on-site clinical technical personnel at every station.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FINAL DEMO REQUEST CTA
+         ========================================================================== -->
+    <section class="sec wrap" style="padding-top:0;">
+      <div class="final-cta-card">
+        <div>
+          <span class="eyebrow" style="color:var(--brand-soft);">Clinical Software Architecture</span>
+          <h2 style="font-size:clamp(1.8rem, 3.2vw, 2.6rem); color:#FFFFFF; margin-top:10px;">
+            Ready to streamline your hospital's operations?
+          </h2>
+          <p style="color:var(--deep-muted); max-width:48ch; font-size:1rem; line-height:1.65; margin-top:12px;">
+            Schedule a 45-minute clinical walkthrough customized to your hospital's bed count and specialty departments.
+          </p>
+          <div style="margin-top:24px;">
+            <button class="btn btn-on-deep" type="button" data-open-modal="demo">Request Live Clinical Demonstration</button>
+          </div>
+        </div>
+
+        <div style="border-left:1px solid rgba(255,255,255,0.12); padding-left:clamp(20px, 3.5vw, 40px);">
+          <ul class="final-checklist">
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Interactive preview with sample hospital data</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Custom consultation for your facility's bed capacity</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Zero-downtime deployment plan walkthrough</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SHARED FOOTER WITH SOCIAL LINKS & NAVIGATION
+       ========================================================================== -->
+  <footer class="site-footer wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo" style="margin-bottom: 14px;">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16M4 12h16"/></svg></span>
+          CareGrid
+        </a>
+        <p style="font-size:0.92rem; line-height:1.6; max-width:34ch; color:var(--muted);">
+          Hospital management software connecting patient records, billing, ward bed telemetry, and clinician rosters.
+        </p>
+        <div class="footer-socials" aria-label="CareGrid Socials">
+          <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          <a href="https://github.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Clinical Modules</h4>
+        <ul class="footer-links">
+          <li><a href="features.html#records">Patient Records (EMR)</a></li>
+          <li><a href="features.html#billing">Billing &amp; TPA Claims</a></li>
+          <li><a href="features.html#beds">Ward Bed Telemetry</a></li>
+          <li><a href="features.html#roster">Staff Shift Rostering</a></li>
+          <li><a href="features.html#opd-ipd">OPD &amp; IPD Flow</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About CareGrid</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="components.html">Design Components</a></li>
+          <li><a href="login.html">Hospital Client Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact &amp; Support</h4>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Direct Sales</b>
+              <a href="mailto:sales@caregrid.example" class="mono">sales@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>24/7 Clinical Helpline</b>
+              <a href="tel:+918000000000" class="mono">+91 80000 00000</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Emergency NOC Desk</b>
+              <a href="mailto:noc@caregrid.example" class="mono">noc@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Headquarters</b>
+              <span>HealthTech Park, Sector 4, Bangalore 560103</span>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Operational Hours</b>
+              <span>Mon – Sat: 08:00 – 20:00 (NOC 24/7)</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 CareGrid Technologies Inc. All rights reserved.</span>
+      <div style="display:flex; gap:18px;">
+        <a href="#top" style="color:var(--muted);">Privacy Notice</a>
+        <a href="#top" style="color:var(--muted);">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       BACK TO TOP BUTTON
+       ========================================================================== -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ==========================================================================
+       MODAL SCRIM CONTAINER
+       ========================================================================== -->
+  <div class="scrim-backdrop" id="scrimBackdrop" hidden>
+    <div class="modal-dialog" id="modalContainer" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

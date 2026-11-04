@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CareGrid — Cloud-Native Hospital Operating System &amp; Healthcare Tech</title>
+  <meta name="description" content="Next-generation healthcare technology platform uniting hospital workflow challenges, real-time bed telemetry, and clinical interoperability.">
+  
+  <!-- Preconnect & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       PUBLIC WEBSITE NAVBAR & HEADER (Home highlighted on both pages)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="wrap navbar">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="CareGrid Hospital Suite">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v16M4 12h16"/>
+          </svg>
+        </span>
+        CareGrid
+      </a>
+
+      <!-- Desktop Navigation Links (Home is highlighted!) -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <div class="nav-dropdown nav-item active" id="desktopHomeDropdown">
+          <a href="index.html" class="nav-link nav-home-link active" id="desktopHomeToggle" aria-expanded="false" aria-haspopup="true">
+            Home
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <ul class="dropdown-menu" aria-label="Home Variations">
+            <li>
+              <a href="index.html" class="dropdown-link">
+                Home 1 — Live Hospital Operations
+                <small>Ward bed boards, telemetry &amp; billing</small>
+              </a>
+            </li>
+            <li>
+              <a href="home-2.html" class="dropdown-link active">
+                Home 2 — Modern Healthcare Tech
+                <small>Editorial cloud architecture &amp; workflows</small>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="header-actions">
+        <button class="tool-btn theme-toggle-btn desktop-only" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <button class="tool-btn dir-toggle-btn desktop-only" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+        </button>
+
+        <!-- Secondary Login Button beside Primary CTA -->
+        <a href="login.html" class="btn btn-secondary btn-sm desktop-only">Hospital Login</a>
+        <button class="btn btn-sm desktop-only" type="button" data-open-modal="demo">Request Demo</button>
+
+        <button class="hamburger-btn" type="button" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li>
+          <a href="#" class="mobile-dropdown-toggle active" id="mobileHomeToggle" aria-expanded="false">
+            <span>Home</span>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
+            <a href="index.html" class="dropdown-link">Home 1 — Live Hospital Operations</a>
+            <a href="home-2.html" class="dropdown-link active">Home 2 — Modern Healthcare Tech</a>
+          </div>
+        </li>
+        <li><a href="features.html" class="nav-link">Features</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+
+      <div class="mobile-controls-row">
+        <button class="mobile-ctrl-btn theme-toggle-btn" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="theme-text">Dark</span>
+        </button>
+        <button class="mobile-ctrl-btn dir-toggle-btn" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+          <span>Direction</span>
+        </button>
+      </div>
+
+      <div class="mobile-actions-stack">
+        <a href="login.html" class="btn btn-secondary btn-block">Hospital Login</a>
+        <button class="btn btn-block" type="button" data-open-modal="demo">Request a Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HOME 2 SECTION 1: FULL-SCREEN ALTERNATIVE HERO (SPLIT EDITORIAL LAYOUT)
+         ========================================================================== -->
+    <section class="hero-tech-section">
+      <div class="wrap" style="width: 100%;">
+        <div class="hero-tech-grid">
+          <!-- Left Column: Editorial Headline & Actions -->
+          <div class="hero-content">
+            <span class="eyebrow">Cloud-Native Hospital Operating System</span>
+            <h1 style="font-size: clamp(2.3rem, 4.4vw, 3.8rem); line-height: 1.1; letter-spacing: -0.035em;">
+              The digital core for high-velocity hospital orchestration
+            </h1>
+            <p class="hero-lead">
+              CareGrid coordinates clinical acuity, ward bed turnover, diagnostic analyzers, and insurance claims into a unified sub-second cloud architecture.
+            </p>
+
+            <div class="hero-cta-group">
+              <button class="btn btn-lg" type="button" data-open-modal="demo">Schedule Architecture Briefing</button>
+              <a class="btn btn-secondary btn-lg" href="#challenges">Explore Workflow Solutions</a>
+            </div>
+
+            <!-- Key Architecture Highlights -->
+            <div class="kpi-strip">
+              <div class="kpi-strip-item">
+                <b>&lt;120ms</b>
+                <span>Ward Telemetry Latency</span>
+              </div>
+              <div class="kpi-strip-item">
+                <b>99.99%</b>
+                <span>Sovereign Cloud Uptime</span>
+              </div>
+              <div class="kpi-strip-item">
+                <b>HL7 FHIR</b>
+                <span>Bi-directional Analyzer Sync</span>
+              </div>
+              <div class="kpi-strip-item">
+                <b>Zero-Leak</b>
+                <span>Pre-Adjudicated Billing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Prominent Healthcare Operations Photography -->
+          <div>
+            <div class="hero-tech-card">
+              <img src="assets/images/hero-tech-hospital.jpg" alt="Chief Medical Officer and operations director reviewing clinical telemetry on curved command displays" loading="lazy">
+              <div class="hero-tech-overlay">
+                <div>
+                  <b>Apex Command &middot; Multi-Campus Telemetry</b>
+                  <div style="font-size:0.78rem; opacity:0.85;">1,200 active inpatient beds monitored live</div>
+                </div>
+                <span class="telemetry-tag">LIVE TELEMETRY SYNC</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HOME 2 SECTION 2: HOSPITAL WORKFLOW CHALLENGES & CAREGID'S SOLUTION
+         ========================================================================== -->
+    <section class="sec wrap" id="challenges">
+      <div class="section-head center">
+        <span class="eyebrow">Operational Transformation</span>
+        <h2>Hospital workflow bottlenecks &amp; CareGrid's modern solution</h2>
+        <p>A direct comparison between fragmented legacy hospital operations and CareGrid's unified digital ecosystem.</p>
+      </div>
+
+      <div class="challenge-grid">
+        <!-- Challenge Card: Legacy Bottlenecks -->
+        <article class="challenge-card is-problem">
+          <div class="challenge-header">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>The Challenge: Fragmented Legacy Software &amp; Paper Lag</span>
+          </div>
+          <div class="challenge-img-wrap">
+            <img src="assets/images/home2-workflow-challenge.jpg" alt="Busy hospital reception desk with paper records and phone bottlenecks" loading="lazy">
+          </div>
+          <div class="challenge-body">
+            <h3>Disparate Systems Cause Dangerous Operational Blind Spots</h3>
+            <p class="challenge-lead">
+              Fragmented on-premise software and paper records create operational bottlenecks and delay clinical decisions:
+            </p>
+            <ul>
+              <li>
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--crit);"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                <span>Paper charts lost or delayed during inter-ward transfers</span>
+              </li>
+              <li>
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--crit);"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                <span>Housekeeping phone delays causing ER bed queue bottlenecks</span>
+              </li>
+              <li>
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--crit);"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                <span>Billing disputes and rejected insurance TPA pre-authorizations</span>
+              </li>
+              <li>
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--crit);"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                <span>Shift roster clashes leading to emergency nurse shortages</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Solution Card: CareGrid Unified Platform -->
+        <article class="challenge-card is-solution">
+          <div class="challenge-header">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+            <span>The Solution: CareGrid Synchronized Healthcare SaaS</span>
+          </div>
+          <div class="challenge-img-wrap">
+            <img src="assets/images/home2-telemetry-solution.jpg" alt="Clean sunlit hospital corridor with digital status pillars and tablet-equipped doctors" loading="lazy">
+          </div>
+          <div class="challenge-body">
+            <h3>Unified Bedside Telemetry &amp; Pre-Reconciled Administration</h3>
+            <p class="challenge-lead">
+              CareGrid unifies patient acuity, beds, and billing into one real-time cloud architecture for instant clinical action:
+            </p>
+            <ul>
+              <li>
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok);"><path d="M5 12l4 4 10-10"/></svg>
+                <span>Live bedside chart telemetry accessible on clinician tablets</span>
+              </li>
+              <li>
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok);"><path d="M5 12l4 4 10-10"/></svg>
+                <span>Automated bed cleaning dispatch with 9-minute turnover gain</span>
+              </li>
+              <li>
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok);"><path d="M5 12l4 4 10-10"/></svg>
+                <span>Direct insurance pre-authorization preventing revenue leak</span>
+              </li>
+              <li>
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok);"><path d="M5 12l4 4 10-10"/></svg>
+                <span>Constraint-checked nurse rosters with automatic relief shifts</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HOME 2 SECTION 3: IMAGE-LED PRODUCT MODULES
+         ========================================================================== -->
+    <section class="sec sec-tint" id="modules">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Modular Architecture</span>
+          <h2>Integrated specialized modules for high-acuity departments</h2>
+          <p>Every module operates on the same core patient index, eliminating data re-entry and communication delays.</p>
+        </div>
+
+        <div class="grid g3">
+          <!-- Module 1: Diagnostic LIS -->
+          <article class="card card-media">
+            <div class="card-img-wrap">
+              <img src="assets/images/card-lab.jpg" alt="Clinical laboratory scientist inspecting specimen vials" loading="lazy">
+              <span class="card-badge status-ok">Pathology &amp; LIS</span>
+            </div>
+            <div class="card-body">
+              <h3>Bi-Directional Lab Analyzers</h3>
+              <p>Direct HL7 interface with Roche, Abbott, and Siemens diagnostic analyzers. Automated barcode specimen accessioning and instant critical value notifications.</p>
+              <div class="card-metric">
+                <b>&lt;35s</b>
+                <span>analyzer-to-EMR sync</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Module 2: Smart Pharmacy -->
+          <article class="card card-media">
+            <div class="card-img-wrap">
+              <img src="assets/images/card-pharmacy.jpg" alt="Clinical pharmacist barcode scanning medicines at dispensary station" loading="lazy">
+              <span class="card-badge status-warn">Dispensary Hub</span>
+            </div>
+            <div class="card-body">
+              <h3>Closed-Loop Hospital Pharmacy</h3>
+              <p>Barcode medication verification, expiry alerts, formulary controls, and automated patient billing upon clinical nurse administration.</p>
+              <div class="card-metric">
+                <b>100%</b>
+                <span>medication batch audit</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Module 3: Emergency & Resuscitation -->
+          <article class="card card-media">
+            <div class="card-img-wrap">
+              <img src="assets/images/card-emergency.jpg" alt="Resuscitation trauma bay in modern acute care hospital" loading="lazy">
+              <span class="card-badge status-crit">Acute Care</span>
+            </div>
+            <div class="card-body">
+              <h3>Emergency Acuity Triage</h3>
+              <p>Rapid Manchester and ESI triage scoring, instant trauma bay reservation, automatic crash cart logging, and one-click OT transfer orders.</p>
+              <div class="card-metric">
+                <b>4 min</b>
+                <span>emergency admit speed</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HOME 2 SECTION 4: PATIENT RECORDS & BILLING WORKFLOW VISUALIZATION
+         (ALTERNATING ASYMMETRIC SECTIONS)
+         ========================================================================== -->
+    <section class="sec wrap" id="workflows">
+      <!-- Alternating Block A: EMR Timeline (Text Left / Visual Right) -->
+      <div class="split-section">
+        <div class="split-content">
+          <span class="eyebrow">Clinical Chronology</span>
+          <h2>The complete patient journey on one seamless clinical timeline</h2>
+          <p style="font-size: 1.05rem; line-height: 1.6; color: var(--muted);">
+            Night-duty clinicians understand incoming cases in seconds. Patient admissions, physician orders, vitals trajectories, diagnostic reports, and bedside observations update chronologically in real time.
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+            <div style="display:flex; gap:12px; align-items:center;">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok)"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Automated drug-allergy and drug-interaction warning flags</span>
+            </div>
+            <div style="display:flex; gap:12px; align-items:center;">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok)"><path d="M5 12l4 4 10-10"/></svg>
+              <span>One-click discharge summary synthesis directly from bedside charts</span>
+            </div>
+            <div style="display:flex; gap:12px; align-items:center;">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok)"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Audit-certified electronic signatures complying with NABH standards</span>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <button class="btn" type="button" data-open-modal="demo">Test EMR Workflow</button>
+          </div>
+        </div>
+
+        <div class="split-visual">
+          <div class="split-visual-body">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; border-bottom:1px solid var(--line); padding-bottom:12px;">
+              <div>
+                <b style="font-size:1.05rem;">Anita Menon &middot; Inpatient Record #P-20418</b>
+                <span class="mono" style="font-size:0.78rem; color:var(--muted); display:block;">Admitted: General Ward Tower A, Bed 03</span>
+              </div>
+              <span class="chip c-ok">Verified Admitted</span>
+            </div>
+
+            <!-- Visual Chronological Event List -->
+            <div class="event-stream">
+              <div class="event-item">
+                <span class="event-time">09:10 AM</span>
+                <div class="event-info">
+                  <b>Emergency Admission Completed</b>
+                  <span>Admitted by Dr. Arvind Rao. Initial vitals: BP 124/82, HR 76.</span>
+                </div>
+              </div>
+
+              <div class="event-item">
+                <span class="event-time">10:25 AM</span>
+                <div class="event-info">
+                  <b>Comprehensive Metabolic Panel (CMP) Ordered</b>
+                  <span>Barcoded specimen drawn. LIS analyzer confirmed receipt.</span>
+                </div>
+              </div>
+
+              <div class="event-item">
+                <span class="event-time">11:45 AM</span>
+                <div class="event-info">
+                  <b>Pharmacy Dispensation Verified</b>
+                  <span>IV Ceftriaxone 1g verified via barcode bedside scanner.</span>
+                </div>
+              </div>
+
+              <div class="event-item">
+                <span class="event-time">02:15 PM</span>
+                <div class="event-info">
+                  <b>TPA Insurance Pre-Auth Approved</b>
+                  <span>Star Health confirmed &#8377;1,84,000 package limit.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alternating Block B: Billing & TPA Pipeline (Visual Left / Text Right) -->
+      <div class="split-section reverse" style="margin-top: 80px;">
+        <div class="split-content">
+          <span class="eyebrow">Revenue Optimization</span>
+          <h2>Automated claim reconciliation without end-of-month panic</h2>
+          <p style="font-size: 1.05rem; line-height: 1.6; color: var(--muted);">
+            Eliminate unbilled consumables, missing surgical tariff codes, and denied insurance claims. CareGrid reconciles patient billing dynamically as treatments occur.
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+            <div style="display:flex; gap:12px; align-items:center;">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok)"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Automated rule validation matching TPA and insurance tariff schedules</span>
+            </div>
+            <div style="display:flex; gap:12px; align-items:center;">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok)"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Real-time co-pay, deductible, and patient deposit calculations</span>
+            </div>
+            <div style="display:flex; gap:12px; align-items:center;">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--ok)"><path d="M5 12l4 4 10-10"/></svg>
+              <span>One-click digital discharge receipt generation with UPI and gateway integrations</span>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <button class="btn btn-secondary" type="button" data-open-modal="demo">Explore Billing Engine</button>
+          </div>
+        </div>
+
+        <div class="split-visual">
+          <div class="split-visual-body">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <b style="font-size:1.05rem;">Current Month TPA Claims Pipeline</b>
+              <span class="mono" style="font-size:0.8rem; color:var(--muted);">Simulated Facility Audit</span>
+            </div>
+
+            <!-- Pipeline Metrics Grid -->
+            <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; margin-bottom:18px;">
+              <div style="background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px; text-align:center;">
+                <b class="mono" style="font-size:1.3rem; display:block;">62</b>
+                <span style="font-size:0.75rem; color:var(--muted);">Submitted</span>
+              </div>
+              <div style="background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px; text-align:center;">
+                <b class="mono" style="font-size:1.3rem; display:block; color:var(--info);">41</b>
+                <span style="font-size:0.75rem; color:var(--muted);">In Review</span>
+              </div>
+              <div style="background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px; text-align:center;">
+                <b class="mono" style="font-size:1.3rem; display:block; color:var(--ok);">118</b>
+                <span style="font-size:0.75rem; color:var(--muted);">Approved</span>
+              </div>
+              <div style="background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px; text-align:center;">
+                <b class="mono" style="font-size:1.3rem; display:block; color:var(--crit);">3</b>
+                <span style="font-size:0.75rem; color:var(--muted);">Queried</span>
+              </div>
+            </div>
+
+            <!-- Progress Meter -->
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:6px;">
+                <span>Total Insurance Realization</span>
+                <span class="mono" style="font-weight:700; color:var(--brand);">&#8377;18.4L of &#8377;24.6L (75%)</span>
+              </div>
+              <div style="height:10px; border-radius:999px; background:var(--surface-2); overflow:hidden;">
+                <div style="width:75%; height:100%; background:var(--brand); border-radius:999px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HOME 2 SECTION 5: BED AVAILABILITY & STAFF SCHEDULE VISUALIZATION
+         ========================================================================== -->
+    <section class="sec sec-tint" id="capacity">
+      <div class="wrap">
+        <div class="section-head center">
+          <span class="eyebrow">Hospital Capacity Telemetry</span>
+          <h2>Sub-second bed allocation &amp; fatigue-free clinical rosters</h2>
+          <p>Real-time visual bed telemetry synchronizing admissions, discharges, sanitization turnaround, and shift cover across hospital wings.</p>
+        </div>
+
+        <div class="grid g2" style="gap: 32px;">
+          <!-- Bed Telemetry Card -->
+          <div class="card" style="padding: 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <div>
+                <b style="font-size:1.1rem; display:block;">Multi-Ward Inpatient Bed Capacity</b>
+                <span style="font-size:0.8rem; color:var(--muted);">Click any bed to toggle operational status</span>
+              </div>
+              <span class="live-pill">TELEMETRY SYNCED</span>
+            </div>
+
+            <div class="wards-grid" style="margin-top:12px;">
+              <div class="ward-card">
+                <div class="hero-board-subhead">
+                  <b>Intensive Care (ICU)</b>
+                  <span class="mono">2 free / 12 beds</span>
+                </div>
+                <div class="beds-grid" style="grid-template-columns: repeat(6, 1fr); gap:6px;">
+                  <button type="button" class="bed-tile b-o" title="ICU-1: Occupied">1</button>
+                  <button type="button" class="bed-tile b-o" title="ICU-2: Occupied">2</button>
+                  <button type="button" class="bed-tile b-x" title="ICU-3: Critical Care">3</button>
+                  <button type="button" class="bed-tile b-o" title="ICU-4: Occupied">4</button>
+                  <button type="button" class="bed-tile b-o" title="ICU-5: Occupied">5</button>
+                  <button type="button" class="bed-tile b-x" title="ICU-6: Critical Care">6</button>
+                  <button type="button" class="bed-tile b-o" title="ICU-7: Occupied">7</button>
+                  <button type="button" class="bed-tile b-o" title="ICU-8: Occupied">8</button>
+                  <button type="button" class="bed-tile b-a" title="ICU-9: Available">9</button>
+                  <button type="button" class="bed-tile b-o" title="ICU-10: Occupied">10</button>
+                  <button type="button" class="bed-tile b-o" title="ICU-11: Occupied">11</button>
+                  <button type="button" class="bed-tile b-a" title="ICU-12: Available">12</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="bed-legend" style="margin-top:16px;">
+              <span><i class="i-o"></i> Occupied</span>
+              <span><i class="i-a"></i> Available</span>
+              <span><i class="i-c"></i> Sanitizing</span>
+              <span><i class="i-x"></i> High Acuity</span>
+            </div>
+          </div>
+
+          <!-- Staff Scheduling Matrix -->
+          <div class="card" style="padding: 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <div>
+                <b style="font-size:1.1rem; display:block;">Clinician &amp; Nursing Shift Matrix</b>
+                <span style="font-size:0.8rem; color:var(--muted);">Zero-gap shift rules engine with automated relief substitute</span>
+              </div>
+              <span class="chip c-ok">100% Shift Coverage</span>
+            </div>
+
+            <div class="table-wrap">
+              <table class="table-custom roster-table">
+                <thead>
+                  <tr>
+                    <th>Clinician</th>
+                    <th>Wing</th>
+                    <th class="s">Mon</th>
+                    <th class="s">Tue</th>
+                    <th class="s">Wed</th>
+                    <th class="s">Thu</th>
+                    <th class="s">Fri</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>Dr. Arvind Rao</b></td>
+                    <td>ICU Lead</td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                  </tr>
+                  <tr>
+                    <td><b>Sister Divya K.</b></td>
+                    <td>ICU Nurse</td>
+                    <td class="s"><span class="shift-badge s-N">N</span></td>
+                    <td class="s"><span class="shift-badge s-N">N</span></td>
+                    <td class="s"><span class="shift-badge s-N">N</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                  </tr>
+                  <tr>
+                    <td><b>Nurse Samuel M.</b></td>
+                    <td>General</td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="bed-legend" style="margin-top:16px;">
+              <span><i style="background:var(--info)"></i> M = Morning (06:00&ndash;14:00)</span>
+              <span><i style="background:var(--warn)"></i> E = Evening (14:00&ndash;22:00)</span>
+              <span><i style="background:var(--brand)"></i> N = Night (22:00&ndash;06:00)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HOME 2 SECTION 6: SECURITY & OPERATIONAL RELIABILITY (DEEP NAVY)
+         ========================================================================== -->
+    <section class="sec sec-deep" id="security">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Enterprise Security</span>
+          <h2>Built specifically for sensitive healthcare data &amp; regulatory compliance</h2>
+          <p>Security and data sovereignty are integral architectural foundations of CareGrid, not retrofitted third-party add-ons.</p>
+        </div>
+
+        <div class="grid g3">
+          <div class="card" style="padding:28px; background:rgba(255,255,255,0.03); border-color:var(--deep-line);">
+            <b style="font-size:1.15rem; color:var(--deep-ink); display:block; margin-bottom:10px;">Tier IV Domestic Cloud Hosting</b>
+            <p style="font-size:0.92rem; line-height:1.6; color:var(--deep-muted);">
+              All clinical records and billing databases are physically hosted within sovereign Equinix Tier IV facilities in India, compliant with national digital healthcare frameworks.
+            </p>
+          </div>
+
+          <div class="card" style="padding:28px; background:rgba(255,255,255,0.03); border-color:var(--deep-line);">
+            <b style="font-size:1.15rem; color:var(--deep-ink); display:block; margin-bottom:10px;">Granular Role-Based Access (RBAC)</b>
+            <p style="font-size:0.92rem; line-height:1.6; color:var(--deep-muted);">
+              Doctors, nursing superintendents, billing cashiers, and lab technicians each access only the clinical information required for their specific authorized duties.
+            </p>
+          </div>
+
+          <div class="card" style="padding:28px; background:rgba(255,255,255,0.03); border-color:var(--deep-line);">
+            <b style="font-size:1.15rem; color:var(--deep-ink); display:block; margin-bottom:10px;">Immutable Audit Logging</b>
+            <p style="font-size:0.92rem; line-height:1.6; color:var(--deep-muted);">
+              Every record retrieval, prescription amendment, tariff adjustment, and login event is stamped with tamper-evident cryptographic user and timestamp metadata.
+            </p>
+          </div>
+
+          <div class="card" style="padding:28px; background:rgba(255,255,255,0.03); border-color:var(--deep-line);">
+            <b style="font-size:1.15rem; color:var(--deep-ink); display:block; margin-bottom:10px;">AES-256 &amp; TLS 1.3 Encryption</b>
+            <p style="font-size:0.92rem; line-height:1.6; color:var(--deep-muted);">
+              Zero plain-text storage. Encrypted end-to-end between ward tablet browsers, desktop workstations, and secure database clusters.
+            </p>
+          </div>
+
+          <div class="card" style="padding:28px; background:rgba(255,255,255,0.03); border-color:var(--deep-line);">
+            <b style="font-size:1.15rem; color:var(--deep-ink); display:block; margin-bottom:10px;">Open HL7 FHIR Interoperability</b>
+            <p style="font-size:0.92rem; line-height:1.6; color:var(--deep-muted);">
+              Modern RESTful APIs adhering to international HL7 FHIR standards, enabling plug-and-play connectivity with bedside patient monitors and PACS imaging systems.
+            </p>
+          </div>
+
+          <div class="card" style="padding:28px; background:rgba(255,255,255,0.03); border-color:var(--deep-line);">
+            <b style="font-size:1.15rem; color:var(--deep-ink); display:block; margin-bottom:10px;">99.99% Availability SLA</b>
+            <p style="font-size:0.92rem; line-height:1.6; color:var(--deep-muted);">
+              Automated multi-zone failover, continuous hourly encrypted offsite snapshots, and guaranteed recovery point objectives under 60 seconds.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HOME 2 SECTION 7: IMPLEMENTATION JOURNEY
+         ========================================================================== -->
+    <section class="sec wrap" id="roadmap">
+      <div class="section-head center">
+        <span class="eyebrow">Transformation Journey</span>
+        <h2>A phased deployment architecture with zero clinical downtime</h2>
+        <p>Our senior medical informatics engineers orchestrate migration without disrupting active inpatient care.</p>
+      </div>
+
+      <div class="rollout-steps" style="border-color:var(--line);">
+        <div class="step-card" style="border-color:var(--line); background:var(--surface);">
+          <span class="week-tag" style="color:var(--brand);">PHASE 01</span>
+          <h3 style="color:var(--ink);">Data Ingestion &amp; Mapping</h3>
+          <p style="color:var(--muted);">Legacy patient archives, insurance contracts, and ward structures are sanitized and ingested into encrypted cloud clusters.</p>
+        </div>
+        <div class="step-card" style="border-color:var(--line); background:var(--surface);">
+          <span class="week-tag" style="color:var(--brand);">PHASE 02</span>
+          <h3 style="color:var(--ink);">Interfacing &amp; Configuration</h3>
+          <p style="color:var(--muted);">Analyzer HL7 pipelines, pharmacy inventory baselines, and approval hierarchies are tuned to your hospital SOPs.</p>
+        </div>
+        <div class="step-card" style="border-color:var(--line); background:var(--surface);">
+          <span class="week-tag" style="color:var(--brand);">PHASE 03</span>
+          <h3 style="color:var(--ink);">Simulation &amp; Certification</h3>
+          <p style="color:var(--muted);">Bedside rounds simulation and role-based certifications ensure every clinician and nurse operates confidently.</p>
+        </div>
+        <div class="step-card" style="border-color:var(--line); background:var(--surface);">
+          <span class="week-tag" style="color:var(--brand);">PHASE 04</span>
+          <h3 style="color:var(--ink);">Cutover &amp; Continuous SLA</h3>
+          <p style="color:var(--muted);">On-site launch support during cutover week backed by our dedicated 24/7 hospital systems emergency engineering NOC.</p>
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- ==========================================================================
+         HOME 2 SECTION 8: FINAL DEMO REQUEST CTA
+         ========================================================================== -->
+    <section class="sec wrap">
+      <div class="final-cta-card">
+        <div>
+          <h2>Deploy CareGrid across your hospital infrastructure</h2>
+          <p>Book a tailored 30-minute architectural walkthrough. Our healthcare engineers will demonstrate live HL7 interfacing and ward telemetry tailored to your hospital capacity.</p>
+          <div class="hero-cta-group" style="margin-top: 24px;">
+            <button class="btn btn-on-deep" type="button" data-open-modal="demo">Request Your Technical Walkthrough</button>
+            <a class="btn btn-out-deep" href="login.html">Hospital Workspace Login</a>
+          </div>
+        </div>
+        <ul class="final-checklist">
+          <li>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+            Personalized response within one business day
+          </li>
+          <li>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+            Complimentary migration assessment for existing EMR systems
+          </li>
+          <li>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+            Sovereign domestic cloud hosting with 99.99% uptime guarantee
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SHARED FOOTER WITH SOCIAL MEDIA LINKS
+       ========================================================================== -->
+  <footer class="site-footer wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo" style="margin-bottom: 14px;">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16M4 12h16"/></svg></span>
+          CareGrid
+        </a>
+        <p style="font-size:0.92rem; line-height:1.6; max-width:34ch;">
+          Cloud-native hospital operating system uniting patient records, billing, ward bed telemetry, and staff rosters.
+        </p>
+
+        <!-- Social Media Links (Working & Accessible) -->
+        <div class="footer-socials" aria-label="CareGrid Social Media">
+          <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CareGrid on Twitter / X">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CareGrid on LinkedIn">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CareGrid on YouTube">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+          <a href="https://github.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CareGrid on GitHub">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Solutions -->
+      <div class="footer-col">
+        <h4>Clinical Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="#workflows">Unified Patient EMR</a></li>
+          <li><a href="#workflows">Automated Insurance &amp; TPA</a></li>
+          <li><a href="#capacity">Ward Bed Telemetry</a></li>
+          <li><a href="#capacity">Clinician Shift Roster</a></li>
+          <li><a href="#security">Security &amp; Uptime</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Company -->
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About CareGrid</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="components.html">Shared Components</a></li>
+          <li><a href="login.html">Hospital Client Portal</a></li>
+          <li><a href="#" data-open-modal="demo">Request Live Demonstration</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact & Support -->
+      <div class="footer-col">
+        <h4>Contact &amp; Support</h4>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Direct Sales</b>
+              <a href="mailto:sales@caregrid.example" class="mono">sales@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>24/7 Clinical Helpline</b>
+              <a href="tel:+918000000000" class="mono">+91 80000 00000</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Emergency NOC Desk</b>
+              <a href="mailto:noc@caregrid.example" class="mono">noc@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Headquarters</b>
+              <span>HealthTech Park, Sector 4, Bangalore 560103</span>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Operational Hours</b>
+              <span>Mon – Sat: 08:00 – 20:00 (NOC 24/7)</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 CareGrid. Template preview with sample data.</span>
+      <div style="display:flex; gap:18px;">
+        <a href="#top" style="color:var(--muted);">Privacy Notice</a>
+        <span style="color:var(--line);">&middot;</span>
+        <a href="#top" style="color:var(--muted);">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- Modal Dialog / Scrim -->
+  <div class="scrim-backdrop" id="scrimBackdrop" hidden>
+    <div class="modal-dialog" id="modalContainer" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/**
+ * CareGrid Hospital Suite - Design System Tokens & Variables
+ * Brand: CareGrid
+ * Primary Palette: Clinical Teal (#0B7C86) & Deep Navy (#0B2530)
+ */
+
+:root {
+  /* Core Brand Colors */
+  --brand: #0B7C86;
+  --brand-hover: #075760;
+  --brand-active: #053D43;
+  --brand-soft: #D8EEF0;
+  --brand-soft-hover: #C5E6E9;
+  --on-brand: #FFFFFF;
+
+  /* Neutrals & Surfaces (Light Mode) */
+  --bg: #F2F7F8;
+  --surface: #FFFFFF;
+  --surface-2: #E8F1F3;
+  --surface-3: #DDE8EB;
+  --ink: #0B2530;
+  --ink-secondary: #2C4B56;
+  --muted: #4F6872;
+  --muted-light: #7A959F;
+  --line: #D3E1E6;
+  --line-strong: #B5CBD3;
+
+  /* Clinical Status Accents */
+  --ok: #1E8E5A;
+  --ok-hover: #166B44;
+  --ok-soft: #DDF3E8;
+  --warn: #B7791F;
+  --warn-hover: #8F5E16;
+  --warn-soft: #FBEFD3;
+  --crit: #C23B33;
+  --crit-hover: #982D26;
+  --crit-soft: #F9E1DE;
+  --info: #2F6FB5;
+  --info-hover: #22538A;
+  --info-soft: #DCE9F7;
+
+  /* Deep Navy Content Section */
+  --deep: #0B2530;
+  --navy: #0B2530;
+  --deep-surface: #103442;
+  --deep-ink: #E6F1F4;
+  --deep-muted: #9DB6BF;
+  --deep-line: rgba(255, 255, 255, 0.14);
+  --deep-line-hover: rgba(255, 255, 255, 0.25);
+
+  /* Typography */
+  --font-heading: 'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  /* Sizing, Radius & Elevation */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 9999px;
+
+  --shadow-sm: 0 2px 6px -1px rgba(11, 37, 48, 0.08);
+  --shadow-md: 0 10px 24px -10px rgba(11, 37, 48, 0.15);
+  --shadow-lg: 0 18px 40px -22px rgba(11, 37, 48, 0.45);
+  --shadow-float: 0 24px 54px -18px rgba(11, 37, 48, 0.28);
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --max-width: 1240px;
+  --header-height: 72px;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+  --brand: #3CC3CF;
+  --brand-hover: #5ED0DA;
+  --brand-active: #7ADBE4;
+  --brand-soft: #133F47;
+  --brand-soft-hover: #1C535C;
+  --on-brand: #062A30;
+
+  --bg: #0A1A21;
+  --surface: #112830;
+  --surface-2: #173540;
+  --surface-3: #1D414E;
+  --ink: #E6F1F4;
+  --ink-secondary: #C8DDE3;
+  --muted: #9DB6BF;
+  --muted-light: #738F9A;
+  --line: #24424D;
+  --line-strong: #335966;
+
+  --ok: #4CCB92;
+  --ok-hover: #67D9A5;
+  --ok-soft: #133C2C;
+  --warn: #E5B04F;
+  --warn-hover: #ECC274;
+  --warn-soft: #44350F;
+  --crit: #F0857E;
+  --crit-hover: #F5A59F;
+  --crit-soft: #4A1E1B;
+  --info: #7DB2EC;
+  --info-hover: #9EC6F2;
+  --info-soft: #17324F;
+
+  --deep: #071318;
+  --deep-surface: #0E2028;
+  --deep-ink: #E6F1F4;
+  --deep-muted: #9DB6BF;
+  --deep-line: #1D3842;
+  --deep-line-hover: #294D5A;
+
+  --shadow-sm: 0 2px 6px -1px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 24px -10px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 18px 40px -22px rgba(0, 0, 0, 0.80);
+  --shadow-float: 0 24px 54px -18px rgba(0, 0, 0, 0.85);
+
+  color-scheme: dark;
+}
+

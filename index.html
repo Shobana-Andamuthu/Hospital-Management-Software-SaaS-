@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CareGrid — Live Hospital Management Software &amp; SaaS Suite</title>
+  <meta name="description" content="CareGrid joins patient records, billing, ward bed status, and clinician shift rosters in one live clinical command SaaS platform.">
+  
+  <!-- Preconnect & Google Fonts: Schibsted Grotesk, Plus Jakarta Sans, IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       PUBLIC WEBSITE NAVBAR & HEADER
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="wrap navbar">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="CareGrid Hospital Suite">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v16M4 12h16"/>
+          </svg>
+        </span>
+        CareGrid
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <!-- Home Dropdown (Highlighted on both Home 1 and Home 2) -->
+        <div class="nav-dropdown nav-item active" id="desktopHomeDropdown">
+          <a href="index.html" class="nav-link nav-home-link active" id="desktopHomeToggle" aria-expanded="false" aria-haspopup="true">
+            Home
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <ul class="dropdown-menu" aria-label="Home Variations">
+            <li>
+              <a href="index.html" class="dropdown-link active">
+                Home 1 — Live Hospital Operations
+                <small>Ward bed boards, telemetry &amp; billing</small>
+              </a>
+            </li>
+            <li>
+              <a href="home-2.html" class="dropdown-link">
+                Home 2 — Modern Healthcare Tech
+                <small>Editorial cloud architecture &amp; workflows</small>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <!-- Desktop Actions (Login beside Primary CTA, Theme & Dir controls) -->
+      <div class="header-actions">
+        <!-- Theme Switcher (Desktop) -->
+        <button class="tool-btn theme-toggle-btn desktop-only" type="button" aria-label="Switch to dark theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Direction Switcher (LTR / RTL Desktop) -->
+        <button class="tool-btn dir-toggle-btn desktop-only" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+        </button>
+
+        <!-- Secondary Button: Login (Beside Primary CTA) -->
+        <a href="login.html" class="btn btn-secondary btn-sm desktop-only">Hospital Login</a>
+
+        <!-- Primary CTA Button -->
+        <button class="btn btn-sm desktop-only" type="button" data-open-modal="demo">Request Demo</button>
+
+        <!-- Mobile / Tablet Hamburger Toggle Button (<= 1024px) -->
+        <button class="hamburger-btn" type="button" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MOBILE NAVIGATION DRAWER (All Links, Theme, Dir & CTAs inside)
+       ========================================================================== -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li>
+          <a href="#" class="mobile-dropdown-toggle active" id="mobileHomeToggle" aria-expanded="false">
+            <span>Home</span>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
+            <a href="index.html" class="dropdown-link active">Home 1 — Live Hospital Operations</a>
+            <a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a>
+          </div>
+        </li>
+        <li><a href="features.html" class="nav-link">Features</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+
+      <!-- Controls inside Mobile Menu (Theme & LTR/RTL) -->
+      <div class="mobile-controls-row">
+        <button class="mobile-ctrl-btn theme-toggle-btn" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="theme-text">Dark</span>
+        </button>
+        <button class="mobile-ctrl-btn dir-toggle-btn" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+          <span>Direction</span>
+        </button>
+      </div>
+
+      <div class="mobile-actions-stack">
+        <a href="login.html" class="btn btn-secondary btn-block">Hospital Login</a>
+        <button class="btn btn-block" type="button" data-open-modal="demo">Request a Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         SECTION 1: FULL-SCREEN HERO (LIVE HOSPITAL OPERATIONS CONCEPT)
+         ========================================================================== -->
+    <section class="hero-section wrap">
+      <div class="hero-grid">
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <div class="hero-pill">
+            <b>NEW</b>
+            <span>Continuous ward bed board &middot; Real-time 7-day predictive capacity</span>
+          </div>
+          <h1 class="hero-title">Run the whole hospital from <em>one live screen</em></h1>
+          <p class="hero-lead">CareGrid joins patient records, billing, bed status, and staff rosters in one secure clinical system, so hospital administrators oversee every ward without chasing physical paper or intercom calls.</p>
+          
+          <div class="hero-cta-group">
+            <button class="btn btn-lg" type="button" data-open-modal="demo">Request a Live Demo</button>
+            <a class="btn btn-secondary btn-lg" href="#dashboard">Explore Live Dashboard</a>
+          </div>
+
+          <div class="hero-proof">
+            <span>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>
+              Live deployment in 4 weeks
+            </span>
+            <span>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>
+              Role-based access &amp; audit trail
+            </span>
+            <span>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>
+              Zero-downtime data migration
+            </span>
+          </div>
+        </div>
+
+        <!-- Hero Visual: Visual Composition combining Live Bed Board & Hospital Photography -->
+        <div class="hero-visual">
+          <div class="hero-board" aria-label="Sample live ward bed board">
+            <div class="hero-board-top">
+              <b>City General Medical Center &middot; Live Bed Board</b>
+              <span class="live-pill">LIVE &middot; SAMPLE TELEMETRY</span>
+            </div>
+
+            <div class="kpi-row">
+              <div class="kpi-cell">
+                <span>Occupancy Rate</span>
+                <b id="hero-kpi-occ">78%</b>
+              </div>
+              <div class="kpi-cell">
+                <span>Emergency Wait</span>
+                <b style="color:var(--ok)">14m</b>
+              </div>
+              <div class="kpi-cell">
+                <span>Discharges Scheduled</span>
+                <b>23 pending</b>
+              </div>
+            </div>
+
+            <div class="hero-board-body">
+              <div class="hero-board-subhead">
+                <span style="font-weight:600; color:var(--ink);">General Inpatient Ward &middot; 40 Beds</span>
+                <span class="mono" id="hero-bed-sum"></span>
+              </div>
+
+              <!-- Interactive Bed Grid: Click tiles to cycle states -->
+              <div class="beds-grid" id="hero-beds"></div>
+
+              <div class="bed-legend">
+                <span><i class="i-o"></i> Occupied</span>
+                <span><i class="i-a"></i> Available</span>
+                <span><i class="i-c"></i> Cleaning</span>
+                <span><i class="i-x"></i> Critical</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hospital Operations Visual Composition Bar -->
+          <div class="hero-composite-thumb">
+            <img src="assets/images/hero-hospital.jpg" alt="Active clinical operations corridor and nursing desk" loading="lazy">
+            <div>
+              <b>Central Nursing Dispatch Tower A</b>
+              <span>Ward tele-monitoring synced with emergency triage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: HOSPITAL TRUST SECTION (ILLUSTRATIVE PLACEHOLDERS)
+         ========================================================================== -->
+    <section class="wrap">
+      <div class="trust-strip">
+        <div class="trust-title">
+          <span>Illustrative Network Deployments</span>
+          <small>Trusted across accredited multi-specialty healthcare facilities</small>
+        </div>
+        <div class="trust-logos" aria-label="Illustrative Partner Hospital Names">
+          <span class="trust-brand">Sunrise Medical</span>
+          <span class="trust-brand">Lotus Care Hospital</span>
+          <span class="trust-brand">MedAxis Healthcare</span>
+          <span class="trust-brand">Vedanta Clinic</span>
+          <span class="trust-brand">NorthStar Clinical</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: BENEFITS SECTION
+         ========================================================================== -->
+    <section class="sec wrap" id="features">
+      <div class="section-head">
+        <span class="eyebrow">Why CareGrid</span>
+        <h2>Less paperwork. Faster wards. Cleaner books.</h2>
+        <p>Four core operational outcomes hospital administrators achieve during their first quarter of CareGrid deployment.</p>
+      </div>
+
+      <!-- 4 Image-Based Benefit Cards (No Decorative Icon Boxes) -->
+      <div class="grid g4">
+        <!-- Card 1 -->
+        <article class="card card-media">
+          <div class="card-img-wrap">
+            <img src="assets/images/card-records.jpg" alt="Doctor reviewing digital patient charts at bedside" loading="lazy">
+            <span class="card-badge status-ok">EMR Sync</span>
+          </div>
+          <div class="card-body">
+            <h3>One Patient Record</h3>
+            <p>Medical history, e-prescriptions, lab investigations, and interim billing organized into a unified chronological timeline for every visit.</p>
+            <div class="card-metric">
+              <b>-62%</b>
+              <span>time spent searching files</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card card-media">
+          <div class="card-img-wrap">
+            <img src="assets/images/card-billing.jpg" alt="Finance specialist examining hospital billing dashboards" loading="lazy">
+            <span class="card-badge status-info">Finance</span>
+          </div>
+          <div class="card-body">
+            <h3>Billing That Reconciles</h3>
+            <p>Automated interim invoices, TPA pre-authorisation, and insurance claims tracking with pending dues flagged daily before discharge.</p>
+            <div class="card-metric">
+              <b>+18%</b>
+              <span>faster claim collections</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card card-media">
+          <div class="card-img-wrap">
+            <img src="assets/images/card-beds.jpg" alt="Modern clean hospital inpatient ward with electric beds" loading="lazy">
+            <span class="card-badge status-warn">Capacity</span>
+          </div>
+          <div class="card-body">
+            <h3>Real-Time Bed Status</h3>
+            <p>Bed admission, patient transfer, and housekeeping sanitization updates propagate to all ward screens within two seconds.</p>
+            <div class="card-metric">
+              <b>9 min</b>
+              <span>bed turnaround gain</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card card-media">
+          <div class="card-img-wrap">
+            <img src="assets/images/card-roster.jpg" alt="Nurse supervisor coordinating shift duty board" loading="lazy">
+            <span class="card-badge status-ok">Staffing</span>
+          </div>
+          <div class="card-body">
+            <h3>Fair, Clash-Free Rosters</h3>
+            <p>Shift rules, leave requests, and on-call duty generated with constraint checks so emergency coverage gaps are resolved in advance.</p>
+            <div class="card-metric">
+              <b>-40%</b>
+              <span>roster rework hours</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: PRODUCT OVERVIEW (LARGE VISUAL PRESENTATION)
+         ========================================================================== -->
+    <section class="sec sec-tint" id="modules">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Product Overview</span>
+          <h2>A complete clinical ecosystem across all hospital wings</h2>
+          <p>CareGrid unifies specialized hospital departments into one continuous clinical and financial workflow.</p>
+        </div>
+
+        <div class="grid g4">
+          <!-- Module 1 -->
+          <article class="card card-media">
+            <div class="card-img-wrap">
+              <img src="assets/images/card-opd.jpg" alt="Outpatient registration desk and queue monitor" loading="lazy">
+              <span class="card-badge status-info">Front Office</span>
+            </div>
+            <div class="card-body">
+              <h3>OPD &amp; Inpatient Admissions</h3>
+              <p>Fast patient registration, token queues, doctor appointments, admissions, transfers, and digital discharge summaries.</p>
+            </div>
+          </article>
+
+          <!-- Module 2 -->
+          <article class="card card-media">
+            <div class="card-img-wrap">
+              <img src="assets/images/card-lab.jpg" alt="Pathology diagnostic laboratory with analyzer equipment" loading="lazy">
+              <span class="card-badge status-ok">Pathology</span>
+            </div>
+            <div class="card-body">
+              <h3>Lab &amp; Diagnostics (LIS)</h3>
+              <p>Barcoded sample tracking, automatic analyzer interfacing, and instant diagnostic results delivered to patient charts.</p>
+            </div>
+          </article>
+
+          <!-- Module 3 -->
+          <article class="card card-media">
+            <div class="card-img-wrap">
+              <img src="assets/images/card-pharmacy.jpg" alt="Hospital pharmacy with automated stock tracking" loading="lazy">
+              <span class="card-badge status-warn">Pharmacy</span>
+            </div>
+            <div class="card-body">
+              <h3>Pharmacy &amp; Inventory</h3>
+              <p>Doctor e-prescriptions, batch expiry alerts, and automated replenishment tied directly to patient accounts.</p>
+            </div>
+          </article>
+
+          <!-- Module 4 -->
+          <article class="card card-media">
+            <div class="card-img-wrap">
+              <img src="assets/images/card-emergency.jpg" alt="Emergency acute trauma bay with patient vitals monitor" loading="lazy">
+              <span class="card-badge status-crit">Emergency</span>
+            </div>
+            <div class="card-body">
+              <h3>Emergency Triage &amp; Trauma</h3>
+              <p>Acuity triage sorting, urgent bed assignment, crash cart tracking, and priority surgical package routing.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: ADMIN DASHBOARD PREVIEW
+         ========================================================================== -->
+    <section class="sec wrap" id="dashboard">
+      <div class="section-head">
+        <span class="eyebrow">Admin Dashboard</span>
+        <h2>Everything an administrator needs, in four synchronized views</h2>
+        <p>Click through the sample console below. Every table, ward board, and chart displays interactive sample data.</p>
+      </div>
+
+      <div class="dash-container" role="region" aria-label="Sample Admin Command Console">
+        <!-- Sidebar Navigation -->
+        <div class="dash-sidebar" role="tablist" aria-label="Dashboard views">
+          <span class="dash-sidebar-tag">Admin Console</span>
+          <button class="dash-nav-btn" type="button" role="tab" aria-selected="true" data-dash-tab="patients">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>
+            Patients EMR
+          </button>
+          <button class="dash-nav-btn" type="button" role="tab" aria-selected="false" data-dash-tab="billing">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>
+            Billing &amp; Claims
+          </button>
+          <button class="dash-nav-btn" type="button" role="tab" aria-selected="false" data-dash-tab="beds">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 15h18"/></svg>
+            Bed Status
+          </button>
+          <button class="dash-nav-btn" type="button" role="tab" aria-selected="false" data-dash-tab="staff">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            Staff Roster
+          </button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="dash-main">
+          <!-- Pane 1: Patients -->
+          <div class="dash-pane" id="dash-pane-patients" role="tabpanel">
+            <div class="dash-header">
+              <h3>Patient Records</h3>
+              <span class="chip c-warn">SAMPLE DATA</span>
+            </div>
+
+            <div class="dash-kpis" style="margin-block: 16px;">
+              <div class="dash-kpi-box"><span>Currently Admitted</span><b>164</b></div>
+              <div class="dash-kpi-box"><span>OPD Consults Today</span><b>312</b></div>
+              <div class="dash-kpi-box"><span>ICU Critical Care</span><b style="color:var(--crit)">9</b></div>
+              <div class="dash-kpi-box"><span>Discharge Due Today</span><b style="color:var(--warn)">23</b></div>
+            </div>
+
+            <div class="table-wrap">
+              <table class="table-custom">
+                <thead>
+                  <tr>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Ward / Bed</th>
+                    <th>Attending Doctor</th>
+                    <th>Clinical Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mono">P-20418</td>
+                    <td><b>Anita Menon</b></td>
+                    <td>ICU &middot; Bed 03</td>
+                    <td>Dr. Arvind Rao</td>
+                    <td><span class="chip c-crit">Critical</span></td>
+                  </tr>
+                  <tr>
+                    <td class="mono">P-20422</td>
+                    <td><b>Karan Shah</b></td>
+                    <td>General Ward B</td>
+                    <td>Dr. Priya Iyer</td>
+                    <td><span class="chip c-ok">Stable</span></td>
+                  </tr>
+                  <tr>
+                    <td class="mono">P-20431</td>
+                    <td><b>Meera Pillai</b></td>
+                    <td>Maternity Wing</td>
+                    <td>Dr. Sneha Nair</td>
+                    <td><span class="chip c-info">In labour</span></td>
+                  </tr>
+                  <tr>
+                    <td class="mono">P-20437</td>
+                    <td><b>Joseph Mathew</b></td>
+                    <td>General Ward A</td>
+                    <td>Dr. Arvind Rao</td>
+                    <td><span class="chip c-warn">Discharge due</span></td>
+                  </tr>
+                  <tr>
+                    <td class="mono">P-20440</td>
+                    <td><b>Farah Khan</b></td>
+                    <td>ICU &middot; Stepdown</td>
+                    <td>Dr. Sudhir Bose</td>
+                    <td><span class="chip c-ok">Stable</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Pane 2: Billing & Collections -->
+          <div class="dash-pane" id="dash-pane-billing" role="tabpanel" hidden>
+            <div class="dash-header">
+              <h3>Billing &amp; Insurance Collections</h3>
+              <span class="chip c-warn">SAMPLE DATA</span>
+            </div>
+
+            <div class="dash-kpis" style="margin-block: 16px;">
+              <div class="dash-kpi-box"><span>Collected This Week</span><b>&#8377;18.4L</b></div>
+              <div class="dash-kpi-box"><span>Pending Dues</span><b style="color:var(--warn)">&#8377;6.2L</b></div>
+              <div class="dash-kpi-box"><span>Claims in Review</span><b>41</b></div>
+              <div class="dash-kpi-box"><span>Claims Settled</span><b style="color:var(--ok)">98%</b></div>
+            </div>
+
+            <div class="collections-chart" id="preview-chart" role="img" aria-label="Daily collections chart in lakh rupees"></div>
+            <div class="chart-axis" id="preview-axis"></div>
+
+            <div class="table-wrap" style="margin-top: 14px;">
+              <table class="table-custom">
+                <thead>
+                  <tr>
+                    <th>Invoice #</th>
+                    <th>Patient</th>
+                    <th>Amount</th>
+                    <th>Insurance / Payer</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mono">INV-7731</td>
+                    <td><b>Anita Menon</b></td>
+                    <td class="mono">&#8377;1,84,000</td>
+                    <td>Star Health</td>
+                    <td><span class="chip c-info">In review</span></td>
+                  </tr>
+                  <tr>
+                    <td class="mono">INV-7734</td>
+                    <td><b>Karan Shah</b></td>
+                    <td class="mono">&#8377;42,500</td>
+                    <td>Self Pay</td>
+                    <td><span class="chip c-ok">Paid</span></td>
+                  </tr>
+                  <tr>
+                    <td class="mono">INV-7738</td>
+                    <td><b>Meera Pillai</b></td>
+                    <td class="mono">&#8377;68,200</td>
+                    <td>HDFC ERGO</td>
+                    <td><span class="chip c-warn">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td class="mono">INV-7741</td>
+                    <td><b>Joseph Mathew</b></td>
+                    <td class="mono">&#8377;91,750</td>
+                    <td>Care Health</td>
+                    <td><span class="chip c-crit">Audit query</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Pane 3: Bed Status -->
+          <div class="dash-pane" id="dash-pane-beds" role="tabpanel" hidden>
+            <div class="dash-header">
+              <h3>Bed Status by Ward</h3>
+              <span class="chip c-warn">SAMPLE DATA</span>
+            </div>
+
+            <div class="wards-grid" id="preview-wards" style="margin-top: 16px;"></div>
+
+            <div class="bed-legend" style="margin-top: 16px;">
+              <span><i class="i-o"></i> Occupied</span>
+              <span><i class="i-a"></i> Available</span>
+              <span><i class="i-c"></i> Cleaning</span>
+              <span><i class="i-x"></i> Critical Care</span>
+            </div>
+          </div>
+
+          <!-- Pane 4: Staff Roster -->
+          <div class="dash-pane" id="dash-pane-staff" role="tabpanel" hidden>
+            <div class="dash-header">
+              <h3>Staff Roster, This Week</h3>
+              <span class="chip c-warn">SAMPLE DATA</span>
+            </div>
+
+            <div class="table-wrap" style="margin-top: 16px;">
+              <table class="table-custom roster-table">
+                <thead>
+                  <tr>
+                    <th>Staff Member</th>
+                    <th>Role</th>
+                    <th class="s">Mon</th>
+                    <th class="s">Tue</th>
+                    <th class="s">Wed</th>
+                    <th class="s">Thu</th>
+                    <th class="s">Fri</th>
+                    <th class="s">Sat</th>
+                    <th class="s">Sun</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>Dr. Arvind Rao</b></td>
+                    <td>Physician</td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                  </tr>
+                  <tr>
+                    <td><b>Nurse Divya K.</b></td>
+                    <td>ICU Incharge</td>
+                    <td class="s"><span class="shift-badge s-N">N</span></td>
+                    <td class="s"><span class="shift-badge s-N">N</span></td>
+                    <td class="s"><span class="shift-badge s-N">N</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                  </tr>
+                  <tr>
+                    <td><b>Nurse Samuel M.</b></td>
+                    <td>General Ward</td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                  </tr>
+                  <tr>
+                    <td><b>Dr. Sudhir Bose</b></td>
+                    <td>Intensivist</td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-E">E</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                  </tr>
+                  <tr>
+                    <td><b>Anil Kumar</b></td>
+                    <td>Billing Desk</td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-M">M</span></td>
+                    <td class="s"><span class="shift-badge s-O">&ndash;</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="bed-legend" style="margin-top: 14px;">
+              <span><i style="background:var(--info)"></i> M = Morning 6AM &ndash; 2PM</span>
+              <span><i style="background:var(--warn)"></i> E = Evening 2PM &ndash; 10PM</span>
+              <span><i style="background:var(--brand)"></i> N = Night 10PM &ndash; 6AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: IMPLEMENTATION & ONBOARDING (DEEP NAVY SECTION)
+         ========================================================================== -->
+    <section class="sec sec-deep" id="rollout">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Implementation Process</span>
+          <h2>From signed agreement to live wards in four weeks</h2>
+          <p>Our dedicated healthcare implementation team handles the heavy lifting. Your clinicians and administrative staff only need short, role-based training sessions.</p>
+        </div>
+
+        <div class="rollout-steps">
+          <div class="step-card">
+            <span class="week-tag">WEEK 1</span>
+            <h3>Plan &amp; Migrate</h3>
+            <p>We map your departments, bed hierarchies, and import existing patient histories, tariffs, and inventory records.</p>
+          </div>
+          <div class="step-card">
+            <span class="week-tag">WEEK 2</span>
+            <h3>Configure</h3>
+            <p>Wards, billing packages, clinical user roles, and approval workflows are customized with your administrative team.</p>
+          </div>
+          <div class="step-card">
+            <span class="week-tag">WEEK 3</span>
+            <h3>Train Staff</h3>
+            <p>Practical role-based certification sessions for doctors, nursing supervisors, pharmacists, and billing cashiers.</p>
+          </div>
+          <div class="step-card">
+            <span class="week-tag">WEEK 4</span>
+            <h3>Go Live</h3>
+            <p>On-site command support during cutover days, followed by 24/7 dedicated escalation support.</p>
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             SECTION 7: ILLUSTRATIVE TRUST / FEEDBACK (CLEARLY IDENTIFIED SAMPLE CONTENT)
+             ========================================================================== -->
+        <div style="margin-top: 60px;">
+          <span class="eyebrow">Operational Perspectives</span>
+          <h3 style="font-size: 1.5rem; color: var(--deep-ink); margin-bottom: 8px;">Illustrative Administrator Feedback</h3>
+          <p style="color: var(--deep-muted); font-size: 0.92rem; margin-bottom: 24px;">Simulated operational case studies illustrating typical workflows in 200+ bed hospital deployments.</p>
+
+          <div class="quote-grid">
+            <figure class="quote-card">
+              <p>&ldquo;Bed allocation used to take three phone calls between triage and ward nurses. Now the night supervisor sees every free bed on one screen.&rdquo;</p>
+              <div class="quote-author">
+                <span class="author-avatar">R</span>
+                <div class="author-meta">
+                  <b>Dr. Ramesh Iyer</b>
+                  <span>Simulated Medical Director &middot; 220-Bed Hospital Case Study</span>
+                </div>
+              </div>
+            </figure>
+
+            <figure class="quote-card">
+              <p>&ldquo;Pending insurance claims are listed every morning before rounds. Our collection turnaround moved up significantly within sixty days.&rdquo;</p>
+              <div class="quote-author">
+                <span class="author-avatar">S</span>
+                <div class="author-meta">
+                  <b>Sunita Verma</b>
+                  <span>Simulated Finance Head &middot; Multi-Specialty Group Case Study</span>
+                </div>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PRICING SECTION (SHARED COMPONENT)
+         ========================================================================== -->
+    <section class="sec wrap" id="pricing">
+      <div class="section-head center">
+        <span class="eyebrow">Pricing</span>
+        <h2>Simple plans that grow with your beds</h2>
+        <p>Every plan includes migration, training, and 24/7 support. Prices shown are illustrative sample figures for this SaaS template.</p>
+      </div>
+
+      <div class="pricing-toggle-wrap">
+        <div class="pricing-toggle" role="group" aria-label="Billing period selection">
+          <button type="button" data-pricing-toggle data-period="m" aria-pressed="true">Monthly Billing</button>
+          <button type="button" data-pricing-toggle data-period="y" aria-pressed="false">
+            Yearly Billing
+            <span class="discount-pill">Save 20%</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid g3">
+        <!-- Clinic Plan -->
+        <article class="pricing-card">
+          <h3>Clinic</h3>
+          <p class="pricing-caption">Up to 50 beds</p>
+          <div class="pricing-amount">
+            <span data-price-monthly="14999">&#8377;14,999</span>
+            <small class="price-period-label"> / month</small>
+          </div>
+          <ul class="pricing-features">
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Patient records, OPD and billing</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Bed board and staff roster</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Email and chat support</span></li>
+          </ul>
+          <button class="btn btn-secondary" type="button" data-open-modal="demo">Request Demo</button>
+        </article>
+
+        <!-- Hospital Plan (Hot) -->
+        <article class="pricing-card hot">
+          <span class="hot-badge">Most Chosen</span>
+          <h3>Hospital</h3>
+          <p class="pricing-caption">Up to 250 beds</p>
+          <div class="pricing-amount">
+            <span data-price-monthly="39999">&#8377;39,999</span>
+            <small class="price-period-label"> / month</small>
+          </div>
+          <ul class="pricing-features">
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Everything in Clinic tier</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>IPD, lab, pharmacy and insurance</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Bed forecasting and analytics</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>24x7 phone support</span></li>
+          </ul>
+          <button class="btn" type="button" data-open-modal="demo">Request Demo</button>
+        </article>
+
+        <!-- Network Plan -->
+        <article class="pricing-card">
+          <h3>Network</h3>
+          <p class="pricing-caption">Multiple hospitals and healthcare groups</p>
+          <div class="pricing-amount">
+            Custom
+            <small> / enterprise</small>
+          </div>
+          <ul class="pricing-features">
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Central command across sites</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Single sign-on and custom roles</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg><span>Dedicated success manager</span></li>
+          </ul>
+          <button class="btn btn-secondary" type="button" data-open-modal="demo">Talk to Sales</button>
+        </article>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 8: STRONG FINAL DEMO REQUEST CTA
+           ========================================================================== -->
+      <div class="final-cta-card" style="margin-top: 72px;">
+        <div>
+          <h2>See CareGrid on your own wards</h2>
+          <p>Book a 30-minute tailored walkthrough. We will load sample data matching your exact hospital size.</p>
+          <div class="hero-cta-group" style="margin-top: 24px;">
+            <button class="btn btn-on-deep" type="button" data-open-modal="demo">Request a Demo</button>
+            <a class="btn btn-out-deep" href="login.html">Hospital Login</a>
+          </div>
+        </div>
+        <ul class="final-checklist">
+          <li>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+            Reply within one working day
+          </li>
+          <li>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+            No setup fee for yearly plans
+          </li>
+          <li>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+            Encrypted domestic data hosting
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SHARED FOOTER WITH SOCIAL MEDIA LINKS
+       ========================================================================== -->
+  <footer class="site-footer wrap">
+    <div class="footer-grid">
+      <!-- Col 1: Brand Info & Social Media Links -->
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo" style="margin-bottom: 14px;">
+          <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16M4 12h16"/></svg>
+          </span>
+          CareGrid
+        </a>
+        <p style="font-size:0.92rem; line-height:1.6; max-width:34ch;">
+          Hospital management software for patient records, billing, ward bed status, and clinician rosters.
+        </p>
+
+        <!-- Social Media Links (Working & Accessible) -->
+        <div class="footer-socials" aria-label="CareGrid Social Media">
+          <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CareGrid on Twitter / X">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CareGrid on LinkedIn">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CareGrid on YouTube">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+          <a href="https://github.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CareGrid on GitHub">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Product -->
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li><a href="#features">Unified EMR</a></li>
+          <li><a href="#features">Billing &amp; Claims</a></li>
+          <li><a href="#dashboard">Live Bed Status</a></li>
+          <li><a href="#dashboard">Staff Roster</a></li>
+          <li><a href="#pricing">Pricing Plans</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Company -->
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About CareGrid</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="components.html">Shared Components</a></li>
+          <li><a href="login.html">Hospital Login</a></li>
+          <li><a href="#" data-open-modal="demo">Request Demo</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact & Support -->
+      <div class="footer-col">
+        <h4>Contact &amp; Support</h4>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Direct Sales</b>
+              <a href="mailto:sales@caregrid.example" class="mono">sales@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>24/7 Clinical Helpline</b>
+              <a href="tel:+918000000000" class="mono">+91 80000 00000</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Emergency NOC Desk</b>
+              <a href="mailto:noc@caregrid.example" class="mono">noc@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Headquarters</b>
+              <span>HealthTech Park, Sector 4, Bangalore 560103</span>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Operational Hours</b>
+              <span>Mon – Sat: 08:00 – 20:00 (NOC 24/7)</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 CareGrid. Template preview with sample data.</span>
+      <div style="display:flex; gap:18px;">
+        <a href="#top" style="color:var(--muted);">Privacy Notice</a>
+        <span style="color:var(--line);">&middot;</span>
+        <a href="#top" style="color:var(--muted);">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top of page">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- Modal Dialog / Scrim -->
+  <div class="scrim-backdrop" id="scrimBackdrop" hidden>
+    <div class="modal-dialog" id="modalContainer" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

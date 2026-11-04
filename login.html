@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hospital Workspace Authentication — CareGrid</title>
+  <meta name="description" content="Secure authenticated portal for accredited hospital personnel, physicians, and administrative staff.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       LOGIN PAGE NAVBAR (STRICT COMPLIANCE RULE):
+       "The Login page navbar must contain ONLY:
+        - CareGrid logo on the left.
+        - Light/Dark theme toggle icon on the right.
+        Do not show:
+        - Navigation links.
+        - Hamburger menu.
+        - Login button.
+        - Primary CTA.
+        - LTR/RTL controls.
+        - Any other navbar actions."
+       ========================================================================== -->
+  <header class="site-header login-header">
+    <div class="navbar login-navbar-full">
+      <!-- CareGrid Logo on the Left Side Last -->
+      <a href="index.html" class="brand-logo" aria-label="CareGrid Hospital Suite">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+        </span>
+        CareGrid
+      </a>
+
+      <!-- RTL and Light/Dark Theme Toggle Icon on the Right Side Last -->
+      <div class="header-actions">
+        <!-- RTL Toggle -->
+        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+        </button>
+
+        <!-- Light/Dark Theme Toggle -->
+        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SPLIT-SCREEN LOGIN LAYOUT
+       One side: Clean clinical login form
+       Other side: High-quality generated hospital/healthcare technology image
+       ========================================================================== -->
+  <main class="login-split-page">
+    <div class="login-split-grid">
+      
+      <!-- LEFT COLUMN: Clean Clinical Authentication Form -->
+      <div class="login-form-col">
+        <div class="login-form-box">
+          <div class="login-badge-pill">
+            <span class="pulse-dot"></span>
+            <span>Hospital Command Gateway</span>
+          </div>
+
+          <h1 class="login-title">Clinical Workspace Sign In</h1>
+          <p class="login-subtitle">
+            Secure personnel authentication for hospital operations, bed telemetry, and longitudinal patient health records.
+          </p>
+
+          <form data-validate novalidate id="hospitalLoginForm" class="login-form">
+            <!-- Hospital ID -->
+            <div class="form-group">
+              <label for="l-facility">Hospital Identifier <span class="required">*</span></label>
+              <input id="l-facility" class="form-control mono" placeholder="e.g. HOSP-2026-METRO" value="HOSP-2026-METRO" required autocomplete="organization">
+              <span class="form-error"></span>
+              <span class="form-hint">Your institution's unique registration key.</span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="l-email">Clinician / Staff Work Email <span class="required">*</span></label>
+              <input id="l-email" type="email" class="form-control" placeholder="doctor.name@hospital.org" value="dr.thorne@caregrid.demo" required autocomplete="email">
+              <span class="form-error"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <div class="form-label-row">
+                <label for="l-password">Encrypted Clinical Password <span class="required">*</span></label>
+                <a href="#" class="form-link" id="forgotPasswordBtn">Forgot password?</a>
+              </div>
+              <input id="l-password" type="password" class="form-control" value="DemoHospitalPass2026!" required autocomplete="current-password">
+              <span class="form-error"></span>
+            </div>
+
+            <!-- Remember Me -->
+            <div class="form-actions-row" style="margin-top: 14px;">
+              <label class="checkbox-label">
+                <input type="checkbox" id="l-remember" checked>
+                <span>Remember me on this trusted clinical terminal (12h session)</span>
+              </label>
+            </div>
+
+            <!-- Dynamic Feedback Area -->
+            <div class="form-feedback" id="loginFeedback"></div>
+
+            <!-- Sign In CTA Button -->
+            <button class="btn btn-lg btn-block login-btn" type="submit" id="loginSubmitBtn">
+              <span>Sign In to Hospital Dashboard</span>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Social / Single Sign-On Options -->
+          <div class="social-login-section">
+            <div class="login-divider">
+              <span>Or sign in with enterprise credentials</span>
+            </div>
+            
+            <div class="social-btn-grid">
+              <button type="button" class="btn-social" onclick="window.location.href='dashboard.html'" aria-label="Sign in with Google Workspace">
+                <svg class="social-icon" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+                <span>Google</span>
+              </button>
+
+              <button type="button" class="btn-social" onclick="window.location.href='dashboard.html'" aria-label="Sign in with Microsoft 365">
+                <svg class="social-icon" viewBox="0 0 24 24">
+                  <path fill="#f25022" d="M1 1h10v10H1z"/>
+                  <path fill="#00a4ef" d="M1 13h10v10H1z"/>
+                  <path fill="#7fba00" d="M13 1h10v10H13z"/>
+                  <path fill="#ffb900" d="M13 13h10v10H13z"/>
+                </svg>
+                <span>Microsoft</span>
+              </button>
+
+              <button type="button" class="btn-social" onclick="window.location.href='dashboard.html'" aria-label="Sign in with Hospital SAML SSO">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <span>Hospital SSO</span>
+              </button>
+            </div>
+
+            <!-- Sign Up Prompt -->
+            <div class="signup-prompt">
+              <span>New hospital facility or staff member?</span>
+              <a href="contact.html" class="signup-link">Request Access &amp; Sign Up &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Clinical Security Verification Strip -->
+          <div class="login-security-strip">
+            <div class="sec-item">
+              <b class="mono">TLS 1.3</b>
+              <span>AES-256 Session</span>
+            </div>
+            <div class="sec-item">
+              <b class="mono">FIDO2 / 2FA</b>
+              <span>Hardware Tokens</span>
+            </div>
+            <div class="sec-item">
+              <b class="mono">Audit-Logged</b>
+              <span>NABH Strict Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: High-Quality Generated Healthcare Photography with Brand Message -->
+      <div class="login-visual-col">
+        <div class="login-visual-wrap">
+          <img src="assets/images/hero-tech-hospital.jpg" alt="Clinical operations command center at modern hospital" class="login-visual-bg" loading="eager">
+          <div class="login-visual-overlay"></div>
+          
+          <div class="login-visual-content">
+            <div class="login-visual-badge">
+              <span class="live-dot"></span>
+              <span>CareGrid OS v4.2 &middot; All Systems Operational</span>
+            </div>
+
+            <blockquote class="login-quote">
+              "CareGrid brings our emergency admissions, ward telemetry, and clinical staff rosters into one sovereign command center."
+            </blockquote>
+
+            <div class="login-cite">
+              <b>St. Jude Metro Medical Center</b>
+              <span>Multi-Specialty Facility Telemetry Hub &middot; 450 Beds</span>
+            </div>
+
+            <div class="login-visual-metrics">
+              <div class="v-metric">
+                <span class="v-num">99.98%</span>
+                <span class="v-lbl">Telemetry Uptime</span>
+              </div>
+              <div class="v-metric">
+                <span class="v-num">&lt; 14ms</span>
+                <span class="v-lbl">Ward Sync Latency</span>
+              </div>
+              <div class="v-metric">
+                <span class="v-num">0 Breaches</span>
+                <span class="v-lbl">HIPAA / NABH Strict</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

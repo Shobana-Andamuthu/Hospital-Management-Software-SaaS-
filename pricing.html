@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CareGrid Pricing — Transparent Plans for Clinics &amp; Hospitals</title>
+  <meta name="description" content="Explore CareGrid's modular, predictable hospital management software pricing. Compare Clinic, Hospital, and Hospital Network tiers with patient records, billing, bed telemetry, and staff rostering.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       PUBLIC NAVBAR
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="index.html" class="brand-logo" aria-label="CareGrid Hospital Suite">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+        </span>
+        CareGrid
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <div class="nav-dropdown nav-item" id="desktopHomeDropdown">
+          <a href="index.html" class="nav-link nav-home-link" id="desktopHomeToggle" aria-expanded="false">
+            Home
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:0.9em;height:0.9em;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html" class="dropdown-link">Home 1 — Live Operations</a></li>
+            <li><a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a></li>
+          </ul>
+        </div>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="pricing.html" class="nav-link active">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="tool-btn theme-toggle-btn desktop-only" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="tool-btn dir-toggle-btn desktop-only" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+        </button>
+
+        <!-- Secondary Button Login beside Primary CTA -->
+        <a href="login.html" class="btn btn-secondary btn-sm desktop-only">Hospital Login</a>
+        <button class="btn btn-sm desktop-only" type="button" data-open-modal="demo">Request Demo</button>
+
+        <button class="hamburger-btn" type="button" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li>
+          <a href="#" class="mobile-dropdown-toggle" id="mobileHomeToggle" aria-expanded="false">
+            <span>Home</span>
+            <svg class="ic chev-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mobile-dropdown-content" id="mobileHomeContent" hidden>
+            <a href="index.html" class="dropdown-link">Home 1 — Live Operations</a>
+            <a href="home-2.html" class="dropdown-link">Home 2 — Modern Healthcare Tech</a>
+          </div>
+        </li>
+        <li><a href="features.html" class="nav-link">Features</a></li>
+        <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+
+      <div class="mobile-controls-row">
+        <button class="mobile-ctrl-btn theme-toggle-btn" type="button" aria-label="Switch theme">
+          <svg class="ic theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span class="theme-text">Dark</span>
+        </button>
+        <button class="mobile-ctrl-btn dir-toggle-btn" type="button" aria-label="Switch text direction">
+          <span class="dir-text">RTL</span>
+          <span>Direction</span>
+        </button>
+      </div>
+
+      <div class="mobile-actions-stack">
+        <a href="login.html" class="btn btn-secondary btn-block">Hospital Login</a>
+        <button class="btn btn-block" type="button" data-open-modal="demo">Request a Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         PRICING HERO SECTION
+         ========================================================================== -->
+    <section class="pricing-hero-section">
+      <div class="wrap">
+        <div class="pricing-hero-content">
+          <div class="breadcrumb" aria-label="Breadcrumbs">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Pricing Plans</span>
+          </div>
+
+          <span class="eyebrow" style="margin-top:12px;">Predictable Healthcare Software Plans</span>
+          <h1 style="font-size:clamp(2.1rem, 4vw, 3.2rem); margin-block:12px 16px;">
+            Transparent plans for clinics, acute hospitals &amp; <em style="font-style:normal; color:var(--brand);">multi-site groups</em>
+          </h1>
+          <p style="font-size:1.06rem; line-height:1.65; color:var(--muted); max-width:58ch;">
+            Choose a plan tailored to your hospital's bed count and operational scale. All subscriptions include secure sovereign cloud hosting, zero per-user seat penalties, and regular clinical software updates.
+          </p>
+
+          <!-- Monthly / Annual Billing Toggle -->
+          <div class="pricing-toggle-wrap" style="margin-top:28px; margin-bottom:0;">
+            <div class="pricing-toggle" role="group" aria-label="Billing frequency selection">
+              <button type="button" data-pricing-toggle data-period="m" aria-pressed="true">Monthly Billing</button>
+              <button type="button" data-pricing-toggle data-period="y" aria-pressed="false">
+                Annual Billing <span class="discount-pill">Save 20%</span>
+              </button>
+            </div>
+          </div>
+          <small class="mono" style="font-size:0.75rem; color:var(--muted); margin-top:10px; display:block;">
+            * Configurable sample rates shown for comparison. Request a custom quote for enterprise facility sizes.
+          </small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         THREE POLISHED PRICING CARDS
+         ========================================================================== -->
+    <section class="sec wrap">
+      <div class="grid g3" style="gap:28px; align-items:stretch;">
+
+        <!-- 1. Clinic Plan -->
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <h3 class="pricing-card-title">Clinic</h3>
+            <p class="pricing-caption">
+              Standalone clinics, day-care surgical units &amp; outpatient centers (up to 25 beds).
+            </p>
+          </div>
+
+          <div class="pricing-amount">
+            <span data-price-monthly="14999">&#8377;14,999</span>
+            <small class="price-period-label"> / month</small>
+          </div>
+
+          <ul class="pricing-features">
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Complete Patient EMR &amp; Visit History</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>OPD Token Queue &amp; Doctor Appointments</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Ward Bed Tracking (Up to 25 beds)</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Staff Duty Rostering &amp; Shift Logs</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Consolidated Interim &amp; Final Invoices</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Standard Business Hours Helpdesk</span>
+            </li>
+          </ul>
+
+          <button class="btn btn-secondary btn-block" type="button" data-open-modal="demo">Get Started with Clinic</button>
+        </div>
+
+        <!-- 2. Hospital Plan (Most Chosen / Featured) -->
+        <div class="pricing-card hot">
+          <span class="hot-badge">Most Chosen by Acute Facilities</span>
+
+          <div class="pricing-card-header">
+            <h3 class="pricing-card-title">Hospital</h3>
+            <p class="pricing-caption">
+              Medium &amp; large acute multi-specialty hospitals with intensive care (25 to 250 beds).
+            </p>
+          </div>
+
+          <div class="pricing-amount">
+            <span data-price-monthly="39999">&#8377;39,999</span>
+            <small class="price-period-label"> / month</small>
+          </div>
+
+          <ul class="pricing-features">
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span><strong>Everything in Clinic plan, plus:</strong></span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Inpatient IPD Nursing &amp; Bedside Charts</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Live Multi-Ward Bed Board (250 beds)</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Cashless Insurance &amp; TPA Approvals</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>24/7 Clinician Shift &amp; Fatigue Engine</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>24/7 Priority Emergency Phone Support</span>
+            </li>
+          </ul>
+
+          <button class="btn btn-block" type="button" data-open-modal="demo">Start Hospital Deployment</button>
+        </div>
+
+        <!-- 3. Hospital Network Plan (Enterprise) -->
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <h3 class="pricing-card-title">Hospital Network</h3>
+            <p class="pricing-caption">
+              Multi-location healthcare chains, hospital trusts &amp; enterprise institutions (250+ beds).
+            </p>
+          </div>
+
+          <div class="pricing-amount">
+            <span class="pricing-custom-val">Custom Quote</span>
+            <small> / enterprise</small>
+          </div>
+
+          <ul class="pricing-features">
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span><strong>Everything in Hospital plan, plus:</strong></span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Multi-Hospital Command Console</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Unlimited Inpatient Beds Across Sites</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Group Occupancy &amp; Billing Consolidation</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Enterprise HL7 FHIR &amp; PACS Integration</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Dedicated Architect &amp; 99.99% Cloud SLA</span>
+            </li>
+          </ul>
+
+          <button class="btn btn-secondary btn-block" type="button" data-open-modal="demo">Speak with Enterprise Team</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DETAILED PLAN CAPABILITY MATRIX GRID (MODERN MODULAR LAYOUT)
+         ========================================================================== -->
+    <section class="sec sec-tint" id="compare">
+      <div class="wrap">
+        <div class="section-head center">
+          <span class="eyebrow">Capability Matrix</span>
+          <h2>Compare plan capabilities across key hospital departments</h2>
+          <p>
+            Detailed technical capabilities and operational limits structured by clinical and administrative domain.
+          </p>
+        </div>
+
+        <div class="cap-grid">
+          <!-- Card 1: Clinical & Patient Records -->
+          <div class="cap-card">
+            <div class="cap-header">
+              <h3>1. Patient Care &amp; Clinical EMR</h3>
+              <span class="cap-badge">Clinical</span>
+            </div>
+            <ul class="cap-list">
+              <li class="cap-item">
+                <span class="cap-name">Longitudinal EMR &amp; Visit Timeline</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Included</span>
+                  <span class="tier-pill hospital">Hospital: Included</span>
+                  <span class="tier-pill network">Network: Included</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Outpatient (OPD) Tokens &amp; Consults</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Included</span>
+                  <span class="tier-pill hospital">Hospital: Included</span>
+                  <span class="tier-pill network">Network: Included</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Inpatient IPD MAR &amp; Drug Alerts</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Basic</span>
+                  <span class="tier-pill hospital">Hospital: Telemetry</span>
+                  <span class="tier-pill network">Network: Multi-Ward</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Standardized Discharge Summaries</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Included</span>
+                  <span class="tier-pill hospital">Hospital: Included</span>
+                  <span class="tier-pill network">Network: Cross-Campus</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Ward & Bed Capacity -->
+          <div class="cap-card">
+            <div class="cap-header">
+              <h3>2. Ward &amp; Bed Capacity Management</h3>
+              <span class="cap-badge">Operations</span>
+            </div>
+            <ul class="cap-list">
+              <li class="cap-item">
+                <span class="cap-name">Active Inpatient Bed Capacity</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: 25 Beds</span>
+                  <span class="tier-pill hospital">Hospital: 250 Beds</span>
+                  <span class="tier-pill network">Network: Unlimited</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Live Bed Availability Board</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Single Ward</span>
+                  <span class="tier-pill hospital">Hospital: Multi-Ward</span>
+                  <span class="tier-pill network">Network: Multi-Campus</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Housekeeping 22-min Cleaning Queue</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Manual</span>
+                  <span class="tier-pill hospital">Hospital: Automated</span>
+                  <span class="tier-pill network">Network: Automated</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Inter-Ward Patient Transfer Tracking</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Manual</span>
+                  <span class="tier-pill hospital">Hospital: Auto-Sync</span>
+                  <span class="tier-pill network">Network: Cross-Campus</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Billing & TPA Insurance -->
+          <div class="cap-card">
+            <div class="cap-header">
+              <h3>3. Billing &amp; Insurance Claims</h3>
+              <span class="cap-badge">Finance</span>
+            </div>
+            <ul class="cap-list">
+              <li class="cap-item">
+                <span class="cap-name">Consolidated Itemized Invoices</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Included</span>
+                  <span class="tier-pill hospital">Hospital: Included</span>
+                  <span class="tier-pill network">Network: Included</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Insurance &amp; TPA Cashless Pre-Auth</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Optional</span>
+                  <span class="tier-pill hospital">Hospital: Live Portal</span>
+                  <span class="tier-pill network">Network: Auto-Clear</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Discharge Billing Reconciliation</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Standard</span>
+                  <span class="tier-pill hospital">Hospital: Instant Lock</span>
+                  <span class="tier-pill network">Network: Central Audit</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Financial Revenue Leakage Safeguards</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Standard</span>
+                  <span class="tier-pill hospital">Hospital: Auto-Audit</span>
+                  <span class="tier-pill network">Network: Consolidated</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 4: Diagnostics & Pharmacy -->
+          <div class="cap-card">
+            <div class="cap-header">
+              <h3>4. Diagnostics &amp; Pharmacy Stocks</h3>
+              <span class="cap-badge">Pharmacy &amp; LIS</span>
+            </div>
+            <ul class="cap-list">
+              <li class="cap-item">
+                <span class="cap-name">Lab Analyzer Interfacing (LIS)</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Manual Entry</span>
+                  <span class="tier-pill hospital">Hospital: HL7 Engine</span>
+                  <span class="tier-pill network">Network: Custom Drivers</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Pharmacy FEFO Batch Stock Control</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Basic Stock</span>
+                  <span class="tier-pill hospital">Hospital: Expiry Guard</span>
+                  <span class="tier-pill network">Network: Multi-Store</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Barcode Specimen &amp; Drug Tracking</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Standard</span>
+                  <span class="tier-pill hospital">Hospital: Bedside Scan</span>
+                  <span class="tier-pill network">Network: RFID/Barcode</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Automated Analyzer Sync Speed</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Hourly</span>
+                  <span class="tier-pill hospital">Hospital: Sub-second</span>
+                  <span class="tier-pill network">Network: Real-Time</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 5: Staff Rostering & Scheduling -->
+          <div class="cap-card">
+            <div class="cap-header">
+              <h3>5. Staff Scheduling &amp; Roster Engine</h3>
+              <span class="cap-badge">Staffing</span>
+            </div>
+            <ul class="cap-list">
+              <li class="cap-item">
+                <span class="cap-name">Clinician Duty Shift Rostering</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Standard</span>
+                  <span class="tier-pill hospital">Hospital: Fatigue-Aware</span>
+                  <span class="tier-pill network">Network: Federated</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Emergency On-Call Relief Automation</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Manual</span>
+                  <span class="tier-pill hospital">Hospital: Auto-Dispatch</span>
+                  <span class="tier-pill network">Network: Cross-Float</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Leave &amp; Coverage Constraint Checks</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Basic</span>
+                  <span class="tier-pill hospital">Hospital: Multi-Tier</span>
+                  <span class="tier-pill network">Network: Group Matrix</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Staff Attendance &amp; Biometric Integration</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Standard Log</span>
+                  <span class="tier-pill hospital">Hospital: Biometric Sync</span>
+                  <span class="tier-pill network">Network: Payroll Sync</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 6: Governance, Security & SLAs -->
+          <div class="cap-card">
+            <div class="cap-header">
+              <h3>6. Governance, Security &amp; Support</h3>
+              <span class="cap-badge">Enterprise</span>
+            </div>
+            <ul class="cap-list">
+              <li class="cap-item">
+                <span class="cap-name">Role-Based Access Control (RBAC)</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Standard</span>
+                  <span class="tier-pill hospital">Hospital: 12 Clinical Tiers</span>
+                  <span class="tier-pill network">Network: Unlimited</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Tamper-Proof Chart Audit Logs</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: 90 Days</span>
+                  <span class="tier-pill hospital">Hospital: 7-Yr Archive</span>
+                  <span class="tier-pill network">Network: Immutable</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Support Response &amp; Uptime SLA</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Next Day</span>
+                  <span class="tier-pill hospital">Hospital: 1-Hour SLA</span>
+                  <span class="tier-pill network">Network: 15-Min Hotline</span>
+                </div>
+              </li>
+              <li class="cap-item">
+                <span class="cap-name">Dedicated Clinical Deployment Specialist</span>
+                <div class="cap-tiers">
+                  <span class="tier-pill clinic">Clinic: Self-Guided</span>
+                  <span class="tier-pill hospital">Hospital: Architect</span>
+                  <span class="tier-pill network">Network: On-Site Team</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INCLUDED SERVICES & ONBOARDING GUARANTEES
+         ========================================================================== -->
+    <section class="sec wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Enterprise Delivery Commitments</span>
+        <h2>What every CareGrid deployment includes</h2>
+        <p>No unexpected hidden costs or surprise licensing surcharges. We ensure your clinical staff are fully trained and productive from day one.</p>
+      </div>
+
+      <div class="grid g4" style="margin-top:36px;">
+        <div class="card" style="padding:26px; display:flex; flex-direction:column; gap:10px;">
+          <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--brand);">01 / ZERO DATA LOSS</span>
+          <h3 style="font-size:1.1rem; margin:0;">EHR Data Migration</h3>
+          <p style="font-size:0.9rem; color:var(--muted); line-height:1.55; margin:0;">
+            Our clinical migration engineers programmatically map and import historical patient charts, medical summaries, and billing rate cards.
+          </p>
+        </div>
+
+        <div class="card" style="padding:26px; display:flex; flex-direction:column; gap:10px;">
+          <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--brand);">02 / HANDS-ON READINESS</span>
+          <h3 style="font-size:1.1rem; margin:0;">Staff Simulation Sandbox</h3>
+          <p style="font-size:0.9rem; color:var(--muted); line-height:1.55; margin:0;">
+            Doctors, nurses, and billing officers practice clinical rounds and admissions in an isolated sandbox with synthetic data before go-live.
+          </p>
+        </div>
+
+        <div class="card" style="padding:26px; display:flex; flex-direction:column; gap:10px;">
+          <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--brand);">03 / SOVEREIGN CLOUD</span>
+          <h3 style="font-size:1.1rem; margin:0;">Domestic Data Residency</h3>
+          <p style="font-size:0.9rem; color:var(--muted); line-height:1.55; margin:0;">
+            Hospital patient records are encrypted with AES-256 GCM and stored strictly inside domestic accredited healthcare data centers.
+          </p>
+        </div>
+
+        <div class="card" style="padding:26px; display:flex; flex-direction:column; gap:10px;">
+          <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--ok);">04 / GO-LIVE ASSURANCE</span>
+          <h3 style="font-size:1.1rem; margin:0;">24/7 Hypercare Support</h3>
+          <p style="font-size:0.9rem; color:var(--muted); line-height:1.55; margin:0;">
+            Direct telephone and on-site support from clinical software technicians during the critical initial transition period.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FREQUENTLY ASKED QUESTIONS (FAQ) SECTION
+         ========================================================================== -->
+    <section class="sec sec-tint" id="faq">
+      <div class="wrap">
+        <div class="section-head center">
+          <span class="eyebrow">Clear Answers</span>
+          <h2>Frequently asked questions</h2>
+          <p>Everything hospital executives and medical directors ask before deploying CareGrid.</p>
+        </div>
+
+        <div class="faq-grid">
+          <details class="faq-item" name="pricing-faq" open>
+            <summary>Can we upgrade our plan as our hospital expands its bed capacity?</summary>
+            <p>
+              Yes. You can scale seamlessly from Clinic to Hospital tier with zero disruption. All patient records, billing ledgers, staff rosters, and ward configurations remain preserved without needing to re-enter data.
+            </p>
+          </details>
+
+          <details class="faq-item" name="pricing-faq">
+            <summary>How long does the hospital onboarding and data migration process take?</summary>
+            <p>
+              For smaller clinics and outpatient units, deployment takes under 5 business days. For acute multi-specialty hospitals (50 to 250 beds), our structured 4-week rollout ensures zero downtime to your live healthcare operations.
+            </p>
+          </details>
+
+          <details class="faq-item" name="pricing-faq">
+            <summary>Are there any hidden fees or penalties for additional staff user accounts?</summary>
+            <p>
+              No. CareGrid plans are priced transparently by facility bed capacity, not by the number of user seats. You can create as many doctor, nurse, technician, and administrative accounts as your facility needs.
+            </p>
+          </details>
+
+          <details class="faq-item" name="pricing-faq">
+            <summary>Does CareGrid comply with domestic healthcare data residency regulations?</summary>
+            <p>
+              Yes. All patient medical records and telemetry logs are encrypted using AES-256 and stored exclusively inside certified domestic data centers, ensuring full compliance with domestic healthcare governance mandates.
+            </p>
+          </details>
+
+          <details class="faq-item" name="pricing-faq">
+            <summary>What hardware do clinicians need to access CareGrid?</summary>
+            <p>
+              CareGrid is fully cloud-native and accessible through standard modern web browsers. It runs smoothly on desktop workstations, nurse station computers, iPads, and Android clinical tablets without requiring proprietary local servers.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FINAL DEMO REQUEST CTA
+         ========================================================================== -->
+    <section class="sec wrap" style="padding-top:0;">
+      <div class="final-cta-card">
+        <div>
+          <span class="eyebrow" style="color:var(--brand-soft);">Enterprise Consultation</span>
+          <h2 style="font-size:clamp(1.8rem, 3.2vw, 2.6rem); color:#FFFFFF; margin-top:10px;">
+            Request a personalized pricing walkthrough
+          </h2>
+          <p style="color:var(--deep-muted); max-width:48ch; font-size:1rem; line-height:1.65; margin-top:12px;">
+            Speak with a clinical software architect to estimate exact licensing, data migration timelines, and hardware compatibility for your hospital.
+          </p>
+          <div style="margin-top:24px;">
+            <button class="btn btn-on-deep" type="button" data-open-modal="demo">Request Live Clinical Demonstration</button>
+          </div>
+        </div>
+
+        <div style="border-left:1px solid rgba(255,255,255,0.12); padding-left:clamp(20px, 3.5vw, 40px);">
+          <ul class="final-checklist">
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Custom consultation for your facility's bed capacity</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Full data migration feasibility review</span>
+            </li>
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg>
+              <span>Hands-on trial access to clinical sandbox</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SHARED FOOTER WITH SOCIAL LINKS & NAVIGATION
+       ========================================================================== -->
+  <footer class="site-footer wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo" style="margin-bottom: 14px;">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16M4 12h16"/></svg></span>
+          CareGrid
+        </a>
+        <p style="font-size:0.92rem; line-height:1.6; max-width:34ch; color:var(--muted);">
+          Hospital management software connecting patient records, billing, ward bed telemetry, and clinician rosters.
+        </p>
+        <div class="footer-socials" aria-label="CareGrid Socials">
+          <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          <a href="https://github.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pricing Tiers</h4>
+        <ul class="footer-links">
+          <li><a href="pricing.html">Clinic Plan</a></li>
+          <li><a href="pricing.html">Hospital Plan</a></li>
+          <li><a href="pricing.html">Hospital Network</a></li>
+          <li><a href="pricing.html#compare">Feature Comparison</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About CareGrid</a></li>
+          <li><a href="features.html">Product Features</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="components.html">Design Components</a></li>
+          <li><a href="login.html">Hospital Client Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact &amp; Support</h4>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Direct Sales</b>
+              <a href="mailto:sales@caregrid.example" class="mono">sales@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>24/7 Clinical Helpline</b>
+              <a href="tel:+918000000000" class="mono">+91 80000 00000</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Emergency NOC Desk</b>
+              <a href="mailto:noc@caregrid.example" class="mono">noc@caregrid.example</a>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Headquarters</b>
+              <span>HealthTech Park, Sector 4, Bangalore 560103</span>
+            </div>
+          </li>
+          <li class="footer-contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <div class="contact-meta">
+              <b>Operational Hours</b>
+              <span>Mon – Sat: 08:00 – 20:00 (NOC 24/7)</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 CareGrid Technologies Inc. All rights reserved.</span>
+      <div style="display:flex; gap:18px;">
+        <a href="#top" style="color:var(--muted);">Privacy Notice</a>
+        <a href="#top" style="color:var(--muted);">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       BACK TO TOP BUTTON
+       ========================================================================== -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ==========================================================================
+       MODAL SCRIM CONTAINER
+       ========================================================================== -->
+  <div class="scrim-backdrop" id="scrimBackdrop" hidden>
+    <div class="modal-dialog" id="modalContainer" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

@@ -2246,6 +2246,11 @@
 }
 
 .sec.wrap > .pricing-toggle-wrap {
+  margin-bottom: 52px;
+}
+
+.page-pricing .sec.wrap > .pricing-toggle-wrap,
+.sec.wrap > .pricing-toggle-wrap:has(+ .pricing-note) {
   margin-bottom: 12px;
 }
 
@@ -2265,6 +2270,15 @@
   .pricing-hero-section + .sec.wrap {
     padding-top: 72px;
   }
+
+  .sec.wrap > .pricing-toggle-wrap {
+    margin-bottom: 36px;
+  }
+
+  .page-pricing .sec.wrap > .pricing-toggle-wrap,
+  .sec.wrap > .pricing-toggle-wrap:has(+ .pricing-note) {
+    margin-bottom: 12px;
+  }
 }
 
 .page-about main > .pagehead,
@@ -2272,46 +2286,49 @@
 .page-contact main > .pagehead,
 .page-demo main > .pagehead,
 .page-features main > .features-hero-section,
+.page-pricing main > .pricing-hero-section {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image:
+    linear-gradient(rgba(242, 247, 248, 0.52), rgba(242, 247, 248, 0.52)),
+    url("../images/hero-hospital.jpg");
+}
+
+.page-about main > .pagehead {
+  background-image:
+    linear-gradient(rgba(242, 247, 248, 0.52), rgba(242, 247, 248, 0.52)),
+    url("../images/about-clinical-leadership.jpg");
+}
+
+.page-components main > .pagehead,
+.page-demo main > .pagehead {
+  background-image:
+    linear-gradient(rgba(242, 247, 248, 0.52), rgba(242, 247, 248, 0.52)),
+    url("../images/hero-tech-hospital.jpg");
+}
+
+.page-features main > .features-hero-section {
+  background-image:
+    linear-gradient(rgba(242, 247, 248, 0.52), rgba(242, 247, 248, 0.52)),
+    url("../images/feature-emr-records.jpg");
+}
+
 .page-pricing main > .pricing-hero-section,
+.page-contact main > .pagehead {
+  background-image:
+    linear-gradient(rgba(242, 247, 248, 0.52), rgba(242, 247, 248, 0.52)),
+    url("../images/about-hospital.jpg");
+}
+
+/* Login page column retains original overlay */
 .page-login main.login-split-page .login-form-col {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-image:
     linear-gradient(rgba(242, 247, 248, 0.8), rgba(242, 247, 248, 0.8)),
-    url("../images/hero-hospital.jpg");
-}
-
-.page-about main > .pagehead {
-  background-image:
-    linear-gradient(rgba(242, 247, 248, 0.8), rgba(242, 247, 248, 0.8)),
-    url("../images/about-clinical-leadership.jpg");
-}
-
-.page-components main > .pagehead,
-.page-demo main > .pagehead,
-.page-login main.login-split-page .login-form-col {
-  background-image:
-    linear-gradient(rgba(242, 247, 248, 0.8), rgba(242, 247, 248, 0.8)),
     url("../images/hero-tech-hospital.jpg");
-}
-
-.page-features main > .features-hero-section {
-  background-image:
-    linear-gradient(rgba(242, 247, 248, 0.8), rgba(242, 247, 248, 0.8)),
-    url("../images/feature-emr-records.jpg");
-}
-
-.page-pricing main > .pricing-hero-section {
-  background-image:
-    linear-gradient(rgba(242, 247, 248, 0.8), rgba(242, 247, 248, 0.8)),
-    url("../images/about-hospital.jpg");
-}
-
-.page-contact main > .pagehead {
-  background-image:
-    linear-gradient(rgba(242, 247, 248, 0.8), rgba(242, 247, 248, 0.8)),
-    url("../images/about-hospital.jpg");
 }
 
 [data-theme="dark"] .page-about main > .pagehead,
@@ -2319,40 +2336,45 @@
 [data-theme="dark"] .page-contact main > .pagehead,
 [data-theme="dark"] .page-demo main > .pagehead,
 [data-theme="dark"] .page-features main > .features-hero-section,
-[data-theme="dark"] .page-pricing main > .pricing-hero-section,
-[data-theme="dark"] .page-login main.login-split-page .login-form-col {
+[data-theme="dark"] .page-pricing main > .pricing-hero-section {
   background-image:
-    linear-gradient(rgba(10, 26, 33, 0.82), rgba(10, 26, 33, 0.82)),
+    linear-gradient(rgba(10, 26, 33, 0.65), rgba(10, 26, 33, 0.65)),
     url("../images/hero-hospital.jpg");
 }
 
 [data-theme="dark"] .page-about main > .pagehead {
   background-image:
-    linear-gradient(rgba(10, 26, 33, 0.82), rgba(10, 26, 33, 0.82)),
+    linear-gradient(rgba(10, 26, 33, 0.65), rgba(10, 26, 33, 0.65)),
     url("../images/about-clinical-leadership.jpg");
 }
 
 [data-theme="dark"] .page-components main > .pagehead,
-[data-theme="dark"] .page-demo main > .pagehead,
-[data-theme="dark"] .page-login main.login-split-page .login-form-col {
+[data-theme="dark"] .page-demo main > .pagehead {
   background-image:
-    linear-gradient(rgba(10, 26, 33, 0.82), rgba(10, 26, 33, 0.82)),
+    linear-gradient(rgba(10, 26, 33, 0.65), rgba(10, 26, 33, 0.65)),
     url("../images/hero-tech-hospital.jpg");
 }
 
 [data-theme="dark"] .page-features main > .features-hero-section {
   background-image:
-    linear-gradient(rgba(10, 26, 33, 0.82), rgba(10, 26, 33, 0.82)),
+    linear-gradient(rgba(10, 26, 33, 0.65), rgba(10, 26, 33, 0.65)),
     url("../images/feature-emr-records.jpg");
 }
 
 [data-theme="dark"] .page-pricing main > .pricing-hero-section,
 [data-theme="dark"] .page-contact main > .pagehead {
   background-image:
-    linear-gradient(rgba(10, 26, 33, 0.82), rgba(10, 26, 33, 0.82)),
+    linear-gradient(rgba(10, 26, 33, 0.65), rgba(10, 26, 33, 0.65)),
     url("../images/about-hospital.jpg");
 }
 
+[data-theme="dark"] .page-login main.login-split-page .login-form-col {
+  background-image:
+    linear-gradient(rgba(10, 26, 33, 0.82), rgba(10, 26, 33, 0.82)),
+    url("../images/hero-tech-hospital.jpg");
+}
+
+/* High Contrast Header Typography */
 .page-about main > .pagehead .eyebrow,
 .page-components main > .pagehead .eyebrow,
 .page-contact main > .pagehead .eyebrow,
@@ -2360,42 +2382,30 @@
 .page-features main > .features-hero-section .eyebrow,
 .page-pricing main > .pricing-hero-section .eyebrow {
   color: var(--ink);
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
 }
 
-.page-about main > .pagehead .breadcrumb-current,
-.page-components main > .pagehead .breadcrumb-current,
-.page-contact main > .pagehead .breadcrumb-current,
-.page-demo main > .pagehead .breadcrumb-current,
-.page-features main > .features-hero-section .breadcrumb-current,
-.page-pricing main > .pricing-hero-section .breadcrumb-current,
-.page-about main > .pagehead .breadcrumb-separator,
-.page-components main > .pagehead .breadcrumb-separator,
-.page-contact main > .pagehead .breadcrumb-separator,
-.page-demo main > .pagehead .breadcrumb-separator,
-.page-features main > .features-hero-section .breadcrumb-separator,
-.page-pricing main > .pricing-hero-section .breadcrumb-separator {
-  color: var(--ink);
+.page-about main > .pagehead .eyebrow::before,
+.page-components main > .pagehead .eyebrow::before,
+.page-contact main > .pagehead .eyebrow::before,
+.page-demo main > .pagehead .eyebrow::before,
+.page-features main > .features-hero-section .eyebrow::before,
+.page-pricing main > .pricing-hero-section .eyebrow::before {
+  background-color: var(--brand-hover);
+  height: 3px;
 }
 
-.page-about main > .pagehead .breadcrumb a,
-.page-components main > .pagehead .breadcrumb a,
-.page-contact main > .pagehead .breadcrumb a,
-.page-demo main > .pagehead .breadcrumb a,
-.page-features main > .features-hero-section .breadcrumb a,
-.page-pricing main > .pricing-hero-section .breadcrumb a {
+.page-about main > .pagehead h1,
+.page-components main > .pagehead h1,
+.page-contact main > .pagehead h1,
+.page-demo main > .pagehead h1,
+.page-features main > .features-hero-section h1,
+.page-pricing main > .pricing-hero-section h1 {
   color: var(--ink);
-  font-weight: 600;
-}
-
-.page-about main > .pagehead .lead,
-.page-components main > .pagehead .lead,
-.page-contact main > .pagehead .lead,
-.page-demo main > .pagehead .lead,
-.page-features main > .features-hero-section .lead,
-.page-pricing main > .pricing-hero-section .lead {
-  color: var(--ink);
-  font-weight: 600;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .page-about main > .pagehead h1 em,
@@ -2405,4 +2415,224 @@
 .page-features main > .features-hero-section h1 em,
 .page-pricing main > .pricing-hero-section h1 em {
   color: var(--brand-hover) !important;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.page-about main > .pagehead .lead,
+.page-components main > .pagehead .lead,
+.page-contact main > .pagehead .lead,
+.page-demo main > .pagehead .lead,
+.page-features main > .features-hero-section .lead,
+.page-pricing main > .pricing-hero-section .lead,
+.pagehead-content p,
+.features-hero-content p,
+.pricing-hero-content p {
+  color: var(--ink);
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+}
+
+/* Breadcrumb Navigation Box Container */
+.page-about main > .pagehead .breadcrumb,
+.page-components main > .pagehead .breadcrumb,
+.page-contact main > .pagehead .breadcrumb,
+.page-demo main > .pagehead .breadcrumb,
+.page-features main > .features-hero-section .breadcrumb,
+.page-pricing main > .pricing-hero-section .breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px -1px rgba(11, 37, 48, 0.12);
+  margin-bottom: 18px;
+  width: fit-content;
+}
+
+.page-about main > .pagehead .breadcrumb a,
+.page-components main > .pagehead .breadcrumb a,
+.page-contact main > .pagehead .breadcrumb a,
+.page-demo main > .pagehead .breadcrumb a,
+.page-features main > .features-hero-section .breadcrumb a,
+.page-pricing main > .pricing-hero-section .breadcrumb a {
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.page-about main > .pagehead .breadcrumb a:hover,
+.page-components main > .pagehead .breadcrumb a:hover,
+.page-contact main > .pagehead .breadcrumb a:hover,
+.page-demo main > .pagehead .breadcrumb a:hover,
+.page-features main > .features-hero-section .breadcrumb a:hover,
+.page-pricing main > .pricing-hero-section .breadcrumb a:hover {
+  color: var(--brand-hover);
+  text-decoration: underline;
+}
+
+.page-about main > .pagehead .breadcrumb-separator,
+.page-components main > .pagehead .breadcrumb-separator,
+.page-contact main > .pagehead .breadcrumb-separator,
+.page-demo main > .pagehead .breadcrumb-separator,
+.page-features main > .features-hero-section .breadcrumb-separator,
+.page-pricing main > .pricing-hero-section .breadcrumb-separator {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.75;
+  margin-inline: 2px;
+}
+
+.page-about main > .pagehead .breadcrumb-current,
+.page-components main > .pagehead .breadcrumb-current,
+.page-contact main > .pagehead .breadcrumb-current,
+.page-demo main > .pagehead .breadcrumb-current,
+.page-features main > .features-hero-section .breadcrumb-current,
+.page-pricing main > .pricing-hero-section .breadcrumb-current {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* Dark Theme Contrast */
+[data-theme="dark"] .page-about main > .pagehead .eyebrow,
+[data-theme="dark"] .page-components main > .pagehead .eyebrow,
+[data-theme="dark"] .page-contact main > .pagehead .eyebrow,
+[data-theme="dark"] .page-demo main > .pagehead .eyebrow,
+[data-theme="dark"] .page-features main > .features-hero-section .eyebrow,
+[data-theme="dark"] .page-pricing main > .pricing-hero-section .eyebrow {
+  color: var(--ink);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .page-about main > .pagehead .eyebrow::before,
+[data-theme="dark"] .page-components main > .pagehead .eyebrow::before,
+[data-theme="dark"] .page-contact main > .pagehead .eyebrow::before,
+[data-theme="dark"] .page-demo main > .pagehead .eyebrow::before,
+[data-theme="dark"] .page-features main > .features-hero-section .eyebrow::before,
+[data-theme="dark"] .page-pricing main > .pricing-hero-section .eyebrow::before {
+  background-color: var(--brand);
+}
+
+[data-theme="dark"] .page-about main > .pagehead h1,
+[data-theme="dark"] .page-components main > .pagehead h1,
+[data-theme="dark"] .page-contact main > .pagehead h1,
+[data-theme="dark"] .page-demo main > .pagehead h1,
+[data-theme="dark"] .page-features main > .features-hero-section h1,
+[data-theme="dark"] .page-pricing main > .pricing-hero-section h1 {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+[data-theme="dark"] .page-about main > .pagehead h1 em,
+[data-theme="dark"] .page-components main > .pagehead h1 em,
+[data-theme="dark"] .page-contact main > .pagehead h1 em,
+[data-theme="dark"] .page-demo main > .pagehead h1 em,
+[data-theme="dark"] .page-features main > .features-hero-section h1 em,
+[data-theme="dark"] .page-pricing main > .pricing-hero-section h1 em {
+  color: var(--brand) !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+[data-theme="dark"] .page-about main > .pagehead .lead,
+[data-theme="dark"] .page-components main > .pagehead .lead,
+[data-theme="dark"] .page-contact main > .pagehead .lead,
+[data-theme="dark"] .page-demo main > .pagehead .lead,
+[data-theme="dark"] .page-features main > .features-hero-section .lead,
+[data-theme="dark"] .page-pricing main > .pricing-hero-section .lead,
+[data-theme="dark"] .pagehead-content p,
+[data-theme="dark"] .features-hero-content p,
+[data-theme="dark"] .pricing-hero-content p {
+  color: var(--ink);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+}
+
+[data-theme="dark"] .page-about main > .pagehead .breadcrumb,
+[data-theme="dark"] .page-components main > .pagehead .breadcrumb,
+[data-theme="dark"] .page-contact main > .pagehead .breadcrumb,
+[data-theme="dark"] .page-demo main > .pagehead .breadcrumb,
+[data-theme="dark"] .page-features main > .features-hero-section .breadcrumb,
+[data-theme="dark"] .page-pricing main > .pricing-hero-section .breadcrumb {
+  background-color: rgba(17, 40, 48, 0.92);
+  border-color: var(--line-strong);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .page-about main > .pagehead .breadcrumb a,
+[data-theme="dark"] .page-components main > .pagehead .breadcrumb a,
+[data-theme="dark"] .page-contact main > .pagehead .breadcrumb a,
+[data-theme="dark"] .page-demo main > .pagehead .breadcrumb a,
+[data-theme="dark"] .page-features main > .features-hero-section .breadcrumb a,
+[data-theme="dark"] .page-pricing main > .pricing-hero-section .breadcrumb a {
+  color: var(--brand);
+}
+
+[data-theme="dark"] .page-about main > .pagehead .breadcrumb-current,
+[data-theme="dark"] .page-components main > .pagehead .breadcrumb-current,
+[data-theme="dark"] .page-contact main > .pagehead .breadcrumb-current,
+[data-theme="dark"] .page-demo main > .pagehead .breadcrumb-current,
+[data-theme="dark"] .page-features main > .features-hero-section .breadcrumb-current,
+[data-theme="dark"] .page-pricing main > .pricing-hero-section .breadcrumb-current {
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   HIGH-CONTRAST HERO & PAGEHEAD BUTTONS (1st SECTION ACROSS ALL PAGES)
+   ========================================================================== */
+.hero-cta-group .btn,
+.pagehead-actions .btn,
+.features-hero-actions .btn {
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(11, 124, 134, 0.3);
+}
+
+.hero-cta-group .btn:hover,
+.pagehead-actions .btn:hover,
+.features-hero-actions .btn:hover {
+  background-color: var(--brand-hover);
+  border-color: var(--brand-hover);
+  box-shadow: 0 6px 20px rgba(7, 87, 96, 0.4);
+  transform: translateY(-1px);
+}
+
+.hero-cta-group .btn-secondary,
+.pagehead-actions .btn-secondary,
+.features-hero-actions .btn-secondary {
+  background-color: #FFFFFF !important;
+  color: var(--brand-hover) !important;
+  border: 2px solid var(--brand) !important;
+  box-shadow: 0 4px 14px rgba(11, 37, 48, 0.12) !important;
+  font-weight: 700 !important;
+}
+
+.hero-cta-group .btn-secondary:hover,
+.pagehead-actions .btn-secondary:hover,
+.features-hero-actions .btn-secondary:hover {
+  background-color: var(--brand-soft) !important;
+  color: var(--brand-active) !important;
+  border-color: var(--brand-hover) !important;
+  box-shadow: 0 6px 18px rgba(11, 124, 134, 0.22) !important;
+  transform: translateY(-1px) !important;
+}
+
+[data-theme="dark"] .hero-cta-group .btn-secondary,
+[data-theme="dark"] .pagehead-actions .btn-secondary,
+[data-theme="dark"] .features-hero-actions .btn-secondary {
+  background-color: rgba(17, 40, 48, 0.95) !important;
+  color: var(--ink) !important;
+  border: 2px solid var(--brand) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .hero-cta-group .btn-secondary:hover,
+[data-theme="dark"] .pagehead-actions .btn-secondary:hover,
+[data-theme="dark"] .features-hero-actions .btn-secondary:hover {
+  background-color: var(--surface-2) !important;
+  color: var(--brand) !important;
+  border-color: var(--brand-hover) !important;
 }

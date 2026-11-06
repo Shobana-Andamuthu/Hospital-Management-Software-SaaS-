@@ -39,17 +39,19 @@
 /* Secondary / Ghost */
 .btn-secondary,
 .btn.ghost {
-  background-color: transparent;
-  color: var(--brand);
-  border-color: var(--line);
+  background-color: var(--surface);
+  color: var(--brand-hover);
+  border: 1.5px solid var(--line-strong);
+  box-shadow: 0 2px 6px -1px rgba(11, 37, 48, 0.08);
 }
 
 .btn-secondary:hover,
 .btn.ghost:hover {
   background-color: var(--brand-soft);
-  color: var(--brand-hover);
-  border-color: var(--brand-soft);
-  box-shadow: none;
+  color: var(--brand-active);
+  border-color: var(--brand);
+  box-shadow: 0 4px 12px rgba(11, 124, 134, 0.18);
+  transform: translateY(-1px);
 }
 
 /* Button Sizing */
@@ -573,19 +575,35 @@
 .pagehead .breadcrumb,
 .features-hero-section .breadcrumb,
 .pricing-hero-section .breadcrumb {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-bottom: 14px;
+  font-size: 0.82rem;
+  padding: 6px 16px;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px -1px rgba(11, 37, 48, 0.12);
+  margin-bottom: 18px;
+  width: fit-content;
+}
+
+[data-theme="dark"] .pagehead .breadcrumb,
+[data-theme="dark"] .features-hero-section .breadcrumb,
+[data-theme="dark"] .pricing-hero-section .breadcrumb {
+  background-color: rgba(17, 40, 48, 0.92);
+  border-color: var(--line-strong);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
 .breadcrumb a {
   color: var(--brand);
+  font-weight: 700;
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -596,13 +614,16 @@
 }
 
 .breadcrumb-separator {
-  color: var(--line-strong);
+  color: var(--muted);
   font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.75;
+  margin-inline: 2px;
 }
 
 .breadcrumb-current {
-  color: var(--muted);
-  font-weight: 500;
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .pagehead .eyebrow,
@@ -643,6 +664,57 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.hero-cta-group .btn,
+.pagehead-actions .btn,
+.features-hero-actions .btn {
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(11, 124, 134, 0.28);
+}
+
+.hero-cta-group .btn:hover,
+.pagehead-actions .btn:hover,
+.features-hero-actions .btn:hover {
+  box-shadow: 0 6px 18px rgba(7, 87, 96, 0.38);
+  transform: translateY(-1px);
+}
+
+.hero-cta-group .btn-secondary,
+.pagehead-actions .btn-secondary,
+.features-hero-actions .btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--brand-hover);
+  border: 2px solid var(--brand);
+  box-shadow: 0 4px 14px rgba(11, 37, 48, 0.12);
+  font-weight: 700;
+}
+
+.hero-cta-group .btn-secondary:hover,
+.pagehead-actions .btn-secondary:hover,
+.features-hero-actions .btn-secondary:hover {
+  background-color: var(--brand-soft);
+  color: var(--brand-active);
+  border-color: var(--brand-hover);
+  box-shadow: 0 6px 18px rgba(11, 124, 134, 0.22);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .hero-cta-group .btn-secondary,
+[data-theme="dark"] .pagehead-actions .btn-secondary,
+[data-theme="dark"] .features-hero-actions .btn-secondary {
+  background-color: rgba(17, 40, 48, 0.95);
+  color: var(--ink);
+  border: 2px solid var(--brand);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .hero-cta-group .btn-secondary:hover,
+[data-theme="dark"] .pagehead-actions .btn-secondary:hover,
+[data-theme="dark"] .features-hero-actions .btn-secondary:hover {
+  background-color: var(--surface-2);
+  color: var(--brand);
+  border-color: var(--brand-hover);
 }
 
 /* ==========================================================================
@@ -774,7 +846,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 52px;
 }
 
 .pricing-toggle {
@@ -1624,6 +1696,10 @@ textarea.form-control {
   .pricing-toggle {
     width: 100%;
     max-width: 100%;
+  }
+
+  .pricing-toggle-wrap {
+    margin-bottom: 36px;
   }
 
   .pricing-toggle {
